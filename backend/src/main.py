@@ -15,6 +15,7 @@ from pydantic import BaseModel, Field
 from config import Configuration, SearchAPI
 from agent import DeepResearchAgent
 from models import DishItem
+from services.memory import MemoryService
 
 import os
 from dotenv import load_dotenv
@@ -69,6 +70,8 @@ class DishItemPayload(BaseModel):
     note_id: str | None = None
     note_path: str | None = None
     stream_token: str | None = None
+    memory_used: list[str] = Field(default_factory=list)
+    memory_conflicts: list[str] = Field(default_factory=list)
 
 
 class MenuStreamRequest(ResearchRequest):
@@ -84,6 +87,22 @@ class MenuPlanResponse(BaseModel):
     """Response containing only the planned dish list."""
 
     dish_list: list[dict[str, Any]] = Field(default_factory=list)
+    memory_summary: list[str] = Field(default_factory=list)
+    memory: dict[str, Any] = Field(default_factory=dict)
+
+
+class MemoryConfirmRequest(BaseModel):
+    """Payload for writing confirmed planning outcomes to long-term memory."""
+
+    user_requirement: str
+    dish_list: list[dict[str, Any]] = Field(default_factory=list)
+
+
+class MemoryResponse(BaseModel):
+    """Memory state returned to the frontend."""
+
+    memory: dict[str, Any] = Field(default_factory=dict)
+    memory_summary: list[str] = Field(default_factory=list)
 
 
 class ResearchResponse(BaseModel):
@@ -162,6 +181,36 @@ def create_app() -> FastAPI:
     def health_check() -> Dict[str, str]:
         return {"status": "ok"}
 
+    @app.get("/memory", response_model=MemoryResponse)
+    def get_memory() -> MemoryResponse:
+        memory_service = MemoryService()
+        memory = memory_service.load_memory()
+        return MemoryResponse(
+            memory=memory,
+            memory_summary=memory_service.summarize_for_ui(memory),
+        )
+
+    @app.post("/memory/confirm", response_model=MemoryResponse)
+    def confirm_memory(payload: MemoryConfirmRequest) -> MemoryResponse:
+        memory_service = MemoryService()
+        memory = memory_service.update_from_confirmation(
+            payload.user_requirement,
+            payload.dish_list,
+        )
+        return MemoryResponse(
+            memory=memory,
+            memory_summary=memory_service.summarize_for_ui(memory),
+        )
+
+    @app.post("/memory/clear", response_model=MemoryResponse)
+    def clear_memory() -> MemoryResponse:
+        memory_service = MemoryService()
+        memory = memory_service.clear_memory()
+        return MemoryResponse(
+            memory=memory,
+            memory_summary=memory_service.summarize_for_ui(memory),
+        )
+
     @app.post("/research", response_model=ResearchResponse)
     def run_research(payload: ResearchRequest) -> ResearchResponse:
         try:
@@ -203,14 +252,21 @@ def create_app() -> FastAPI:
         try:
             config = _build_config(payload)
             agent = DeepResearchAgent(config=config)
-            dish_list = agent.plan_menu(payload.topic)
+            memory_service = MemoryService()
+            memory = memory_service.load_memory()
+            memory_context = memory_service.format_memory_for_prompt(memory)
+            dish_list = agent.plan_menu(payload.topic, memory_context)
         except ValueError as exc:
             raise HTTPException(status_code=400, detail=str(exc)) from exc
         except Exception as exc:  # pragma: no cover - defensive guardrail
             logger.exception("Menu planning failed")
             raise HTTPException(status_code=500, detail="Menu planning failed") from exc
 
-        return MenuPlanResponse(dish_list=dish_list)
+        return MenuPlanResponse(
+            dish_list=dish_list,
+            memory=memory,
+            memory_summary=memory_service.summarize_for_ui(memory),
+        )
 
     @app.post("/menu/stream")
     def stream_research(payload: MenuStreamRequest) -> StreamingResponse:
@@ -232,6 +288,8 @@ def create_app() -> FastAPI:
                     note_id=item.note_id,
                     note_path=item.note_path,
                     stream_token=item.stream_token,
+                    memory_used=item.memory_used,
+                    memory_conflicts=item.memory_conflicts,
                 )
                 for item in payload.dish_list
             ]

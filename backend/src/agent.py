@@ -28,6 +28,7 @@ from services.search import dispatch_search, prepare_research_context
 from services.shopping_list import build_shopping_list, extract_serving_ingredients
 from services.summarizer import SummarizationService
 from services.tool_events import ToolCallTracker
+from services.memory import MemoryService
 
 logger = logging.getLogger(__name__)
 
@@ -76,6 +77,7 @@ class DeepResearchAgent:
         self.planner = PlanningService(self.todo_agent, self.config)
         self.summarizer = SummarizationService(self._summarizer_factory, self.config)
         self.reporting = ReportingService(self.report_agent, self.config)
+        self.memory = MemoryService()
         self._last_search_notices: list[str] = []
 
     # ------------------------------------------------------------------
@@ -130,7 +132,10 @@ class DeepResearchAgent:
     def run(self, topic: str) -> MenuStateOutput:
         """Execute the research workflow and return the final report."""
         state = MenuState(user_requirement=topic)
-        state.dish_list = self.planner.plan_todo_list(state)
+        state.dish_list = self.planner.plan_todo_list(
+            state,
+            self.memory.format_memory_for_prompt(),
+        )
         self._drain_tool_events(state)
 
         if not state.dish_list:
@@ -155,10 +160,11 @@ class DeepResearchAgent:
             total_calories=state.total_calories
         )
 
-    def plan_menu(self, topic: str) -> list[dict[str, Any]]:
+    def plan_menu(self, topic: str, user_memory: str | None = None) -> list[dict[str, Any]]:
         """Plan menu dishes without executing search and summarization."""
         state = MenuState(user_requirement=topic)
-        state.dish_list = self.planner.plan_todo_list(state)
+        memory_context = user_memory or self.memory.format_memory_for_prompt()
+        state.dish_list = self.planner.plan_todo_list(state, memory_context)
         self._drain_tool_events(state, step=0)
         if not state.dish_list:
             state.dish_list = [self.planner.create_fallback_task(state)]
@@ -175,7 +181,10 @@ class DeepResearchAgent:
         yield {"type": "status", "message": "初始化菜谱分析流程"}
 
         if dish_list is None:
-            state.dish_list = self.planner.plan_todo_list(state)
+            state.dish_list = self.planner.plan_todo_list(
+                state,
+                self.memory.format_memory_for_prompt(),
+            )
             for event in self._drain_tool_events(state, step=0):
                 yield event
             if not state.dish_list:
@@ -519,6 +528,8 @@ class DeepResearchAgent:
             "note_id": task.note_id,
             "note_path": task.note_path,
             "stream_token": task.stream_token,
+            "memory_used": task.memory_used,
+            "memory_conflicts": task.memory_conflicts,
         }
     
     #  id: int

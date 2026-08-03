@@ -29,12 +29,13 @@ class PlanningService:
         self._agent = planner_agent
         self._config = config
 
-    def plan_todo_list(self, state: MenuState) -> List[DishItem]:
+    def plan_todo_list(self, state: MenuState, user_memory: str = "暂无长期记忆。") -> List[DishItem]:
         """Ask the planner agent to break the topic into actionable tasks."""
 
         prompt = todo_planner_instructions.format(
             current_date=get_current_date(),
             research_topic=state.user_requirement,
+            user_memory=user_memory,
         )
 
         response = self._agent.run(prompt)
@@ -62,6 +63,8 @@ class PlanningService:
                 name=title,
                 intent=intent,
                 query=query,
+                memory_used=self._as_string_list(item.get("memory_used")),
+                memory_conflicts=self._as_string_list(item.get("memory_conflicts")),
             )
             dish_items.append(task)
 
@@ -168,3 +171,11 @@ class PlanningService:
             payload[key.strip()] = value.strip().strip('"').strip("'")
 
         return payload or None
+
+    @staticmethod
+    def _as_string_list(value: Any) -> list[str]:
+        if isinstance(value, list):
+            return [str(item).strip() for item in value if str(item).strip()]
+        if isinstance(value, str) and value.strip():
+            return [value.strip()]
+        return []

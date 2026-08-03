@@ -1,0 +1,276 @@
+[
+  {
+    "id": "case_001_basic_low_fat",
+    "category": "planning_constraints",
+    "input": "一人食，低脂不辣，冰箱里有番茄和鸡蛋，做2道菜",
+    "expected": {
+      "dish_count": 2,
+      "must_use": ["番茄", "鸡蛋"],
+      "avoid": ["辣椒", "小米辣", "花椒", "辣酱", "重油", "油炸"],
+      "preferences": ["低脂", "不辣"],
+      "required_outputs": ["dish_list", "shopping_list", "menu_markdown"]
+    }
+  },
+  {
+    "id": "case_002_allergy_shrimp",
+    "category": "safety_constraints",
+    "input": "两人晚餐，不吃虾，想要高蛋白，30分钟内完成",
+    "expected": {
+      "dish_count_min": 2,
+      "dish_count_max": 3,
+      "avoid": ["虾", "虾仁", "海虾", "河虾"],
+      "preferences": ["高蛋白", "快手"],
+      "time_limit_minutes": 30,
+      "required_outputs": ["dish_list", "shopping_list", "menu_markdown"]
+    }
+  },
+  {
+    "id": "case_003_existing_ingredients",
+    "category": "ingredient_utilization",
+    "input": "家里有土豆、牛肉、洋葱，想做一顿家常晚餐，不要太油",
+    "expected": {
+      "dish_count_min": 2,
+      "dish_count_max": 3,
+      "must_use": ["土豆", "牛肉", "洋葱"],
+      "avoid": ["油炸", "重油"],
+      "preferences": ["家常", "少油"],
+      "required_outputs": ["dish_list", "shopping_list", "menu_markdown"]
+    }
+  },
+  {
+    "id": "case_004_vegetarian",
+    "category": "dietary_preference",
+    "input": "素食晚餐，三道菜，不要鸡蛋，想清淡一点",
+    "expected": {
+      "dish_count": 3,
+      "avoid": ["鸡蛋", "肉", "猪肉", "牛肉", "鸡肉", "虾", "鱼"],
+      "preferences": ["素食", "清淡"],
+      "required_outputs": ["dish_list", "shopping_list", "menu_markdown"]
+    }
+  },
+  {
+    "id": "case_005_family_meal",
+    "category": "meal_scale",
+    "input": "四人家庭晚餐，有小孩，少辣少盐，做4道菜，最好有汤",
+    "expected": {
+      "dish_count": 4,
+      "must_include_types": ["汤"],
+      "avoid": ["小米辣", "辣椒", "重辣", "高盐"],
+      "preferences": ["少辣", "少盐", "家庭餐"],
+      "serving_size": "四人",
+      "required_outputs": ["dish_list", "shopping_list", "menu_markdown"]
+    }
+  },
+  {
+    "id": "case_006_quick_lunch",
+    "category": "time_limit",
+    "input": "工作日午餐，15分钟以内，冰箱有鸡胸肉和黄瓜，想减脂",
+    "expected": {
+      "dish_count_min": 1,
+      "dish_count_max": 2,
+      "must_use": ["鸡胸肉", "黄瓜"],
+      "preferences": ["减脂", "快手"],
+      "time_limit_minutes": 15,
+      "required_outputs": ["dish_list", "shopping_list", "menu_markdown"]
+    }
+  },
+  {
+    "id": "case_007_low_carb",
+    "category": "health_goal",
+    "input": "低碳水晚餐，不要主食，想吃牛肉和蔬菜",
+    "expected": {
+      "dish_count_min": 1,
+      "dish_count_max": 3,
+      "must_use": ["牛肉"],
+      "avoid": ["米饭", "面条", "馒头", "土豆", "红薯"],
+      "preferences": ["低碳", "蔬菜"],
+      "required_outputs": ["dish_list", "shopping_list", "menu_markdown"]
+    }
+  },
+  {
+    "id": "case_008_disliked_tofu",
+    "category": "negative_preference",
+    "input": "两人晚餐，不吃豆腐，喜欢番茄口味，做两道下饭菜",
+    "expected": {
+      "dish_count": 2,
+      "must_use": ["番茄"],
+      "avoid": ["豆腐", "日本豆腐", "豆干"],
+      "preferences": ["番茄口味", "下饭"],
+      "required_outputs": ["dish_list", "shopping_list", "menu_markdown"]
+    }
+  },
+  {
+    "id": "case_009_memory_conflict_override",
+    "category": "memory_behavior",
+    "input": "今天可以吃辣，想做一道麻辣口味的牛肉菜",
+    "memory": {
+      "diet_preferences": ["不辣", "低脂"],
+      "allergies": [],
+      "disliked_ingredients": [],
+      "favorite_ingredients": ["番茄"],
+      "common_serving_size": "",
+      "recent_dishes": ["番茄炒蛋"],
+      "rejected_patterns": []
+    },
+    "expected": {
+      "dish_count_min": 1,
+      "dish_count_max": 2,
+      "must_use": ["牛肉"],
+      "preferences": ["麻辣"],
+      "memory_should_conflict": ["不辣"],
+      "required_outputs": ["dish_list", "shopping_list", "menu_markdown"]
+    }
+  },
+  {
+    "id": "case_010_allergy_memory",
+    "category": "memory_behavior",
+    "input": "随便安排一个两人晚餐，清淡一点",
+    "memory": {
+      "diet_preferences": ["清淡"],
+      "allergies": ["虾"],
+      "disliked_ingredients": ["茄子"],
+      "favorite_ingredients": ["番茄", "土豆"],
+      "common_serving_size": "两人餐",
+      "recent_dishes": ["番茄炒蛋", "土豆炖鸡"],
+      "rejected_patterns": []
+    },
+    "expected": {
+      "dish_count_min": 2,
+      "dish_count_max": 3,
+      "avoid": ["虾", "虾仁", "茄子"],
+      "preferences": ["清淡"],
+      "memory_should_use": ["虾", "茄子", "两人餐"],
+      "required_outputs": ["dish_list", "shopping_list", "menu_markdown"]
+    }
+  },
+  {
+    "id": "case_011_empty_or_vague",
+    "category": "robustness",
+    "input": "帮我随便做点吃的",
+    "expected": {
+      "dish_count_min": 1,
+      "dish_count_max": 4,
+      "required_outputs": ["dish_list", "shopping_list", "menu_markdown"]
+    }
+  },
+  {
+    "id": "case_012_single_dish_request",
+    "category": "planning_constraints",
+    "input": "只做一道菜，家里有冬瓜和猪肉末，清淡一点",
+    "expected": {
+      "dish_count": 1,
+      "must_use": ["冬瓜", "猪肉末"],
+      "preferences": ["清淡"],
+      "required_outputs": ["dish_list", "shopping_list", "menu_markdown"]
+    }
+  },
+  {
+    "id": "case_013_no_pork",
+    "category": "safety_constraints",
+    "input": "不吃猪肉，想做三道家常菜，有鸡蛋、青菜、蘑菇",
+    "expected": {
+      "dish_count": 3,
+      "must_use": ["鸡蛋", "青菜", "蘑菇"],
+      "avoid": ["猪肉", "五花肉", "排骨", "肉末"],
+      "preferences": ["家常"],
+      "required_outputs": ["dish_list", "shopping_list", "menu_markdown"]
+    }
+  },
+  {
+    "id": "case_014_soup_required",
+    "category": "report_quality",
+    "input": "两人晚餐，想要一菜一汤，不辣，冰箱有豆腐和番茄",
+    "expected": {
+      "dish_count": 2,
+      "must_include_types": ["汤"],
+      "must_use": ["豆腐", "番茄"],
+      "avoid": ["辣椒", "小米辣", "辣酱"],
+      "preferences": ["不辣"],
+      "required_outputs": ["dish_list", "shopping_list", "menu_markdown"]
+    }
+  },
+  {
+    "id": "case_015_shopping_list_merge",
+    "category": "shopping_list",
+    "input": "三人晚餐，做番茄炒蛋和番茄豆腐汤，再加一道青菜",
+    "expected": {
+      "dish_count": 3,
+      "must_use": ["番茄", "鸡蛋", "豆腐", "青菜"],
+      "shopping_list_should_merge_or_dedupe": ["番茄"],
+      "required_outputs": ["dish_list", "shopping_list", "menu_markdown"]
+    }
+  },
+  {
+    "id": "case_016_recent_dish_diversity",
+    "category": "memory_behavior",
+    "input": "给我安排一个不辣的两人晚餐",
+    "memory": {
+      "diet_preferences": ["不辣"],
+      "allergies": [],
+      "disliked_ingredients": [],
+      "favorite_ingredients": ["番茄", "鸡蛋"],
+      "common_serving_size": "两人餐",
+      "recent_dishes": ["番茄炒蛋", "西红柿豆腐汤"],
+      "rejected_patterns": ["连续推荐番茄菜"]
+    },
+    "expected": {
+      "dish_count_min": 2,
+      "dish_count_max": 3,
+      "avoid": ["辣椒", "小米辣", "辣酱"],
+      "should_avoid_recent_dishes": ["番茄炒蛋", "西红柿豆腐汤"],
+      "memory_should_use": ["不辣", "两人餐"],
+      "required_outputs": ["dish_list", "shopping_list", "menu_markdown"]
+    }
+  },
+  {
+    "id": "case_017_breakfast",
+    "category": "meal_type",
+    "input": "明早早餐，两个人，20分钟内，想吃高蛋白但不要太油",
+    "expected": {
+      "dish_count_min": 1,
+      "dish_count_max": 3,
+      "preferences": ["早餐", "高蛋白", "少油"],
+      "avoid": ["油炸", "重油"],
+      "time_limit_minutes": 20,
+      "serving_size": "两人",
+      "required_outputs": ["dish_list", "shopping_list", "menu_markdown"]
+    }
+  },
+  {
+    "id": "case_018_no_egg_allergy",
+    "category": "safety_constraints",
+    "input": "鸡蛋过敏，冰箱有番茄、土豆、牛肉，做两道菜",
+    "expected": {
+      "dish_count": 2,
+      "must_use": ["番茄", "土豆", "牛肉"],
+      "avoid": ["鸡蛋", "蛋液", "蛋花"],
+      "required_outputs": ["dish_list", "shopping_list", "menu_markdown"]
+    }
+  },
+  {
+    "id": "case_019_guest_meal",
+    "category": "meal_scale",
+    "input": "周末朋友来吃饭，5个人，做4道菜，要有荤有素，不能太辣",
+    "expected": {
+      "dish_count": 4,
+      "must_include_types": ["荤菜", "素菜"],
+      "avoid": ["重辣", "小米辣"],
+      "preferences": ["多人餐", "荤素搭配"],
+      "serving_size": "五人",
+      "required_outputs": ["dish_list", "shopping_list", "menu_markdown"]
+    }
+  },
+  {
+    "id": "case_020_report_sections",
+    "category": "report_quality",
+    "input": "一人晚餐，低脂，冰箱有西兰花和鸡胸肉，帮我生成完整菜谱和采购清单",
+    "expected": {
+      "dish_count_min": 1,
+      "dish_count_max": 2,
+      "must_use": ["西兰花", "鸡胸肉"],
+      "preferences": ["低脂"],
+      "report_sections": ["用餐需求总览", "整套菜单概览表", "分类采购清单", "单菜详细做法", "整体营养小结"],
+      "required_outputs": ["dish_list", "shopping_list", "menu_markdown"]
+    }
+  }
+]

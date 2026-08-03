@@ -1,0 +1,2643 @@
+{
+  "metadata": {
+    "created_at": "2026-07-31T10:59:08",
+    "mode": "plan",
+    "case_count": 20
+  },
+  "summary": {
+    "total": 20,
+    "passed": 16,
+    "average_score": 0.9042,
+    "by_category": {
+      "planning_constraints": {
+        "total": 2,
+        "passed": 2,
+        "average_score": 1.0
+      },
+      "safety_constraints": {
+        "total": 3,
+        "passed": 1,
+        "average_score": 0.8386
+      },
+      "ingredient_utilization": {
+        "total": 1,
+        "passed": 1,
+        "average_score": 1.0
+      },
+      "dietary_preference": {
+        "total": 1,
+        "passed": 1,
+        "average_score": 1.0
+      },
+      "meal_scale": {
+        "total": 2,
+        "passed": 1,
+        "average_score": 0.8472
+      },
+      "time_limit": {
+        "total": 1,
+        "passed": 1,
+        "average_score": 0.9091
+      },
+      "health_goal": {
+        "total": 1,
+        "passed": 1,
+        "average_score": 1.0
+      },
+      "negative_preference": {
+        "total": 1,
+        "passed": 0,
+        "average_score": 0.7
+      },
+      "memory_behavior": {
+        "total": 3,
+        "passed": 3,
+        "average_score": 0.8595
+      },
+      "robustness": {
+        "total": 1,
+        "passed": 1,
+        "average_score": 1.0
+      },
+      "report_quality": {
+        "total": 2,
+        "passed": 2,
+        "average_score": 0.9123
+      },
+      "shopping_list": {
+        "total": 1,
+        "passed": 1,
+        "average_score": 1.0
+      },
+      "meal_type": {
+        "total": 1,
+        "passed": 1,
+        "average_score": 0.8621
+      }
+    }
+  },
+  "errors": [],
+  "results": [
+    {
+      "case_id": "case_001_basic_low_fat",
+      "category": "planning_constraints",
+      "passed": true,
+      "score": 1.0,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 2, got 2."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "avoid",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.3,
+          "detail": ""
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    },
+    {
+      "case_id": "case_002_allergy_shrimp",
+      "category": "safety_constraints",
+      "passed": false,
+      "score": 0.7759,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 2-3, got 2."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "avoid",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.3,
+          "detail": ""
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 0.5,
+          "weight": 1.0,
+          "detail": "Missing: 快手"
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": false,
+          "score": 0.0,
+          "weight": 0.8,
+          "detail": "Expected <= 30 minutes; found: none."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    },
+    {
+      "case_id": "case_003_existing_ingredients",
+      "category": "ingredient_utilization",
+      "passed": true,
+      "score": 1.0,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 2-3, got 2."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "avoid",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.3,
+          "detail": ""
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    },
+    {
+      "case_id": "case_004_vegetarian",
+      "category": "dietary_preference",
+      "passed": true,
+      "score": 1.0,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 3, got 3."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "avoid",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.3,
+          "detail": ""
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    },
+    {
+      "case_id": "case_005_family_meal",
+      "category": "meal_scale",
+      "passed": true,
+      "score": 0.9444,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 4, got 4."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "avoid",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.3,
+          "detail": ""
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 0.6666666666666666,
+          "weight": 1.0,
+          "detail": "Missing: 家庭餐"
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    },
+    {
+      "case_id": "case_006_quick_lunch",
+      "category": "time_limit",
+      "passed": true,
+      "score": 0.9091,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 1-2, got 1."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "avoid",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 0.5,
+          "weight": 1.0,
+          "detail": "Missing: 快手"
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.8,
+          "detail": "Expected <= 15 minutes; found: [15, 15]."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    },
+    {
+      "case_id": "case_007_low_carb",
+      "category": "health_goal",
+      "passed": true,
+      "score": 1.0,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 1-3, got 2."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "avoid",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.3,
+          "detail": ""
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    },
+    {
+      "case_id": "case_008_disliked_tofu",
+      "category": "negative_preference",
+      "passed": false,
+      "score": 0.7,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 2, got 2."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "avoid",
+          "passed": false,
+          "score": 0.0,
+          "weight": 1.3,
+          "detail": "Present banned terms: 豆腐"
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 0.5,
+          "weight": 1.0,
+          "detail": "Missing: 下饭"
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    },
+    {
+      "case_id": "case_009_memory_conflict_override",
+      "category": "memory_behavior",
+      "passed": true,
+      "score": 0.8246,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 1-2, got 1."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "avoid",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": false,
+          "score": 0.0,
+          "weight": 1.0,
+          "detail": "Missing: 不辣"
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    },
+    {
+      "case_id": "case_010_allergy_memory",
+      "category": "memory_behavior",
+      "passed": true,
+      "score": 0.8333,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 2-3, got 2."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "avoid",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.3,
+          "detail": ""
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": false,
+          "score": 0.0,
+          "weight": 1.0,
+          "detail": "Missing: 虾, 茄子, 两人餐"
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    },
+    {
+      "case_id": "case_011_empty_or_vague",
+      "category": "robustness",
+      "passed": true,
+      "score": 1.0,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 1-4, got 2."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "avoid",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    },
+    {
+      "case_id": "case_012_single_dish_request",
+      "category": "planning_constraints",
+      "passed": true,
+      "score": 1.0,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 1, got 1."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "avoid",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    },
+    {
+      "case_id": "case_013_no_pork",
+      "category": "safety_constraints",
+      "passed": true,
+      "score": 1.0,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 3, got 3."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "avoid",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.3,
+          "detail": ""
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    },
+    {
+      "case_id": "case_014_soup_required",
+      "category": "report_quality",
+      "passed": true,
+      "score": 1.0,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 2, got 2."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "avoid",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.3,
+          "detail": ""
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    },
+    {
+      "case_id": "case_015_shopping_list_merge",
+      "category": "shopping_list",
+      "passed": true,
+      "score": 1.0,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 3, got 3."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "avoid",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.8,
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "case_id": "case_016_recent_dish_diversity",
+      "category": "memory_behavior",
+      "passed": true,
+      "score": 0.9206,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 2-3, got 2."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "avoid",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.3,
+          "detail": ""
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.3,
+          "detail": ""
+        },
+        {
+          "name": "memory_should_use",
+          "passed": false,
+          "score": 0.5,
+          "weight": 1.0,
+          "detail": "Missing: 两人餐"
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    },
+    {
+      "case_id": "case_017_breakfast",
+      "category": "meal_type",
+      "passed": true,
+      "score": 0.8621,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 1-3, got 2."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "avoid",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.3,
+          "detail": ""
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": false,
+          "score": 0.0,
+          "weight": 0.8,
+          "detail": "Expected <= 20 minutes; found: none."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    },
+    {
+      "case_id": "case_018_no_egg_allergy",
+      "category": "safety_constraints",
+      "passed": false,
+      "score": 0.74,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 2, got 2."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "avoid",
+          "passed": false,
+          "score": 0.0,
+          "weight": 1.3,
+          "detail": "Present banned terms: 鸡蛋"
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    },
+    {
+      "case_id": "case_019_guest_meal",
+      "category": "meal_scale",
+      "passed": false,
+      "score": 0.75,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 4, got 4."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "avoid",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.3,
+          "detail": ""
+        },
+        {
+          "name": "must_include_types",
+          "passed": false,
+          "score": 0.5,
+          "weight": 1.0,
+          "detail": "Missing: 荤菜"
+        },
+        {
+          "name": "preferences",
+          "passed": false,
+          "score": 0.0,
+          "weight": 1.0,
+          "detail": "Missing: 多人餐, 荤素搭配"
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    },
+    {
+      "case_id": "case_020_report_sections",
+      "category": "report_quality",
+      "passed": true,
+      "score": 0.8246,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 1-2, got 1."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "avoid",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": false,
+          "score": 0.0,
+          "weight": 1.0,
+          "detail": "Missing sections: 用餐需求总览, 整套菜单概览表, 分类采购清单, 单菜详细做法, 整体营养小结"
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    }
+  ],
+  "raw_outputs": {
+    "case_001_basic_low_fat": {
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "西红柿炒蛋",
+          "intent": "利用用户已有西红柿和鸡蛋，清淡少油，符合低脂不辣需求。",
+          "query": "西红柿炒鸡蛋 低脂 不辣 家常做法 烹饪时长 热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣",
+            "参考常用食材：西红柿"
+          ],
+          "memory_conflicts": []
+        },
+        {
+          "id": 2,
+          "name": "番茄蛋花汤",
+          "intent": "利用剩余西红柿和鸡蛋，制作清淡汤品，补充营养且不辣。",
+          "query": "番茄蛋花汤 低脂 不辣 家常做法 烹饪时长 热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣",
+            "参考常用食材：西红柿"
+          ],
+          "memory_conflicts": []
+        }
+      ],
+      "shopping_list": [],
+      "menu_markdown": ""
+    },
+    "case_002_allergy_shrimp": {
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "蒸肉末冬瓜",
+          "intent": "使用用户已有冬瓜和猪肉末，蒸制少油，符合清淡家常需求，满足高蛋白要求。",
+          "query": "蒸肉末冬瓜 食材 冬瓜 猪肉末 不辣 家常做法 烹饪时长 热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣",
+            "参考常用食材：番茄"
+          ],
+          "memory_conflicts": []
+        },
+        {
+          "id": 2,
+          "name": "蒜蓉西兰花",
+          "intent": "补充蔬菜，提供纤维和维生素，搭配主菜，满足高蛋白需求。",
+          "query": "蒜蓉西兰花 食材 西兰花 蒜 不辣 家常做法 烹饪时长 热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [],
+          "memory_conflicts": []
+        }
+      ],
+      "shopping_list": [],
+      "menu_markdown": ""
+    },
+    "case_003_existing_ingredients": {
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "土豆炖牛肉",
+          "intent": "利用用户已有土豆和牛肉，炖煮方式少油，符合清淡家常需求。",
+          "query": "土豆炖牛肉 做法 少油 清淡 热量 烹饪时长",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [],
+          "memory_conflicts": []
+        },
+        {
+          "id": 2,
+          "name": "洋葱炒牛肉",
+          "intent": "利用用户已有洋葱和牛肉，快炒方式少油，增加菜品多样性。",
+          "query": "洋葱炒牛肉 做法 少油 清淡 热量 烹饪时长",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [],
+          "memory_conflicts": []
+        }
+      ],
+      "shopping_list": [],
+      "menu_markdown": ""
+    },
+    "case_004_vegetarian": {
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "清蒸冬瓜",
+          "intent": "使用用户已有冬瓜，蒸制少油，符合清淡需求，避开不辣限制。",
+          "query": "清蒸冬瓜 核心食材 冬瓜 不辣 家常做法 烹饪时长 热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣"
+          ],
+          "memory_conflicts": []
+        },
+        {
+          "id": 2,
+          "name": "蒜蓉西兰花",
+          "intent": "使用用户已有西兰花，蒜蓉调味清淡，符合素食和清淡口味要求。",
+          "query": "蒜蓉西兰花 核心食材 西兰花 不辣 家常做法 烹饪时长 热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考常用食材：西兰花"
+          ],
+          "memory_conflicts": []
+        },
+        {
+          "id": 3,
+          "name": "素炒时蔬",
+          "intent": "使用用户已有时蔬，清淡炒制，满足素食和清淡需求。",
+          "query": "素炒时蔬 核心食材 时蔬 不辣 家常做法 烹饪时长 热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考常用食材：时蔬"
+          ],
+          "memory_conflicts": []
+        }
+      ],
+      "shopping_list": [],
+      "menu_markdown": ""
+    },
+    "case_005_family_meal": {
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "冬瓜排骨汤",
+          "intent": "使用用户已有冬瓜和排骨，清淡少盐，适合家庭晚餐，有小孩，符合少辣少盐需求。",
+          "query": "冬瓜排骨汤 核心食材：冬瓜、排骨 少盐做法 简单家常 烹饪时长 热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣",
+            "参考常用食材：冬瓜"
+          ],
+          "memory_conflicts": []
+        },
+        {
+          "id": 2,
+          "name": "清炒小白菜",
+          "intent": "使用用户已有小白菜，清淡少盐，适合家庭晚餐，有小孩，符合少辣少盐需求。",
+          "query": "清炒小白菜 核心食材：小白菜 少盐做法 简单家常 烹饪时长 热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣",
+            "参考常用食材：小白菜"
+          ],
+          "memory_conflicts": []
+        },
+        {
+          "id": 3,
+          "name": "番茄炒蛋",
+          "intent": "使用用户已有番茄和鸡蛋，清淡少盐，适合家庭晚餐，有小孩，符合少辣少盐需求。",
+          "query": "番茄炒蛋 核心食材：番茄、鸡蛋 少盐做法 简单家常 烹饪时长 热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣",
+            "参考常用食材：番茄"
+          ],
+          "memory_conflicts": []
+        },
+        {
+          "id": 4,
+          "name": "土豆炖鸡块",
+          "intent": "使用用户已有土豆和鸡块，清淡少盐，适合家庭晚餐，有小孩，符合少辣少盐需求。",
+          "query": "土豆炖鸡块 核心食材：土豆、鸡块 少盐做法 简单家常 烹饪时长 热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣",
+            "参考常用食材：土豆"
+          ],
+          "memory_conflicts": []
+        }
+      ],
+      "shopping_list": [],
+      "menu_markdown": ""
+    },
+    "case_006_quick_lunch": {
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "鸡胸肉黄瓜沙拉",
+          "intent": "使用用户已有鸡胸肉和黄瓜，制作清爽低脂沙拉，符合减脂需求且15分钟内完成。",
+          "query": "鸡胸肉黄瓜沙拉，少油，不辣，家常做法，15分钟内，低热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [],
+          "memory_conflicts": []
+        }
+      ],
+      "shopping_list": [],
+      "menu_markdown": ""
+    },
+    "case_007_low_carb": {
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "牛肉炒时蔬",
+          "intent": "使用用户已有食材，搭配牛肉和蔬菜，清淡少油，符合低碳水需求。",
+          "query": "牛肉炒时蔬 核心食材：牛肉、蔬菜 不辣 家常做法 烹饪时长 热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [],
+          "memory_conflicts": []
+        },
+        {
+          "id": 2,
+          "name": "清蒸南瓜",
+          "intent": "利用用户已有南瓜，蒸制方式保持原味，低热量且适合低碳水晚餐。",
+          "query": "清蒸南瓜 核心食材：南瓜 不辣 家常做法 烹饪时长 热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [],
+          "memory_conflicts": []
+        }
+      ],
+      "shopping_list": [],
+      "menu_markdown": ""
+    },
+    "case_008_disliked_tofu": {
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "番茄炒蛋",
+          "intent": "使用用户已有番茄，搭配鸡蛋，符合用户喜欢番茄口味，且不辣的忌口要求。",
+          "query": "番茄炒蛋 核心食材：番茄、鸡蛋 不辣 家常做法 烹饪时长 热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考口味偏好：喜欢番茄",
+            "参考忌口：不辣"
+          ],
+          "memory_conflicts": []
+        },
+        {
+          "id": 2,
+          "name": "番茄炖牛腩",
+          "intent": "利用用户已有番茄，搭配牛腩，满足用户喜欢番茄口味，同时避免豆腐忌口。",
+          "query": "番茄炖牛腩 核心食材：番茄、牛腩 不辣 家常做法 烹饪时长 热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考口味偏好：喜欢番茄",
+            "参考忌口：不辣"
+          ],
+          "memory_conflicts": []
+        }
+      ],
+      "shopping_list": [],
+      "menu_markdown": ""
+    },
+    "case_009_memory_conflict_override": {
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "麻辣牛肉",
+          "intent": "用户明确要求吃辣，选择麻辣口味的牛肉菜，符合当前口味偏好。使用已有食材搭配，避免不辣限制。",
+          "query": "麻辣牛肉 核心食材 牛肉 麻辣口味 做法 烹饪时长 热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "历史饮食偏好：不辣",
+            "常用/偏好食材：番茄"
+          ],
+          "memory_conflicts": [
+            "用户本次输入与历史饮食偏好冲突，但本次输入优先"
+          ]
+        }
+      ],
+      "shopping_list": [],
+      "menu_markdown": ""
+    },
+    "case_010_allergy_memory": {
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "冬瓜蒸肉末",
+          "intent": "使用用户已有冬瓜和猪肉末，蒸制少油，符合清淡家常需求。",
+          "query": "冬瓜蒸肉末 核心食材：冬瓜、猪肉末 口味：清淡 不辣 家常做法 烹饪时长 热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣",
+            "参考常用食材：番茄"
+          ],
+          "memory_conflicts": []
+        },
+        {
+          "id": 2,
+          "name": "番茄炒蛋",
+          "intent": "利用用户已有番茄和鸡蛋，简单快炒，符合清淡口味要求。",
+          "query": "番茄炒蛋 核心食材：番茄、鸡蛋 口味：清淡 不辣 家常做法 烹饪时长 热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史菜品：番茄炒蛋",
+            "参考常用食材：番茄"
+          ],
+          "memory_conflicts": []
+        }
+      ],
+      "shopping_list": [],
+      "menu_markdown": ""
+    },
+    "case_011_empty_or_vague": {
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "西红柿炒蛋",
+          "intent": "使用用户已有西红柿和鸡蛋，简单炒制，符合清淡家常需求。",
+          "query": "西红柿炒蛋 核心食材：西红柿、鸡蛋 口味：不辣 家常做法 烹饪时长 热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣",
+            "参考常用食材：西红柿"
+          ],
+          "memory_conflicts": []
+        },
+        {
+          "id": 2,
+          "name": "清蒸冬瓜",
+          "intent": "利用用户已有冬瓜，清蒸保持原味，适合清淡饮食。",
+          "query": "清蒸冬瓜 核心食材：冬瓜 口味：不辣 家常做法 烹饪时长 热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣",
+            "参考常用食材：冬瓜"
+          ],
+          "memory_conflicts": []
+        }
+      ],
+      "shopping_list": [],
+      "menu_markdown": ""
+    },
+    "case_012_single_dish_request": {
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "冬瓜猪肉羹",
+          "intent": "使用用户已有冬瓜和猪肉末，蒸制少油，符合清淡家常需求。",
+          "query": "冬瓜猪肉羹 清淡做法 家常做法 烹饪时长 热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣",
+            "参考常用食材：番茄"
+          ],
+          "memory_conflicts": []
+        }
+      ],
+      "shopping_list": [],
+      "menu_markdown": ""
+    },
+    "case_013_no_pork": {
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "鸡蛋炒青菜",
+          "intent": "利用用户已有鸡蛋和青菜，快速制作一道清淡家常菜，避开不辣要求。",
+          "query": "鸡蛋炒青菜 做法 烹饪时长 热量 不辣",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [],
+          "memory_conflicts": []
+        },
+        {
+          "id": 2,
+          "name": "蘑菇汤",
+          "intent": "利用用户已有蘑菇，制作一道简单温暖的汤品，搭配其他菜品。",
+          "query": "蘑菇汤 做法 烹饪时长 热量 不辣",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [],
+          "memory_conflicts": []
+        },
+        {
+          "id": 3,
+          "name": "青菜炒蘑菇",
+          "intent": "结合用户已有青菜和蘑菇，制作一道素菜，避免重复主食材和烹饪方式。",
+          "query": "青菜炒蘑菇 做法 烹饪时长 热量 不辣",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [],
+          "memory_conflicts": []
+        }
+      ],
+      "shopping_list": [],
+      "menu_markdown": ""
+    },
+    "case_014_soup_required": {
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "番茄豆腐汤",
+          "intent": "利用用户已有番茄和豆腐，制作清淡不辣的汤品，符合两人晚餐需求。",
+          "query": "番茄豆腐汤 不辣 家常做法 烹饪时长 热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [],
+          "memory_conflicts": []
+        },
+        {
+          "id": 2,
+          "name": "清炒番茄",
+          "intent": "利用用户已有番茄，制作简单清爽的配菜，搭配汤品满足两人晚餐需求。",
+          "query": "清炒番茄 不辣 家常做法 烹饪时长 热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [],
+          "memory_conflicts": []
+        }
+      ],
+      "shopping_list": [],
+      "menu_markdown": ""
+    },
+    "case_015_shopping_list_merge": {
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "番茄炒蛋",
+          "intent": "使用用户已有番茄和鸡蛋，简单快手，符合清淡口味需求。",
+          "query": "番茄炒蛋 核心食材：番茄、鸡蛋 不辣 家常做法 烹饪时长 热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣",
+            "参考常用食材：番茄"
+          ],
+          "memory_conflicts": []
+        },
+        {
+          "id": 2,
+          "name": "番茄豆腐汤",
+          "intent": "利用用户已有番茄和豆腐，清淡营养，适合晚餐。",
+          "query": "番茄豆腐汤 核心食材：番茄、豆腐 不辣 家常做法 烹饪时长 热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣",
+            "参考常用食材：番茄"
+          ],
+          "memory_conflicts": []
+        },
+        {
+          "id": 3,
+          "name": "清炒青菜",
+          "intent": "补充一道清淡青菜，搭配番茄菜品，丰富口感。",
+          "query": "清炒青菜 核心食材：青菜 不辣 家常做法 烹饪时长 热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣"
+          ],
+          "memory_conflicts": []
+        }
+      ],
+      "shopping_list": [],
+      "menu_markdown": ""
+    },
+    "case_016_recent_dish_diversity": {
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "冬瓜蒸肉末",
+          "intent": "使用用户已有冬瓜和猪肉末，蒸制少油，符合清淡家常需求。",
+          "query": "冬瓜蒸肉末 核心食材：冬瓜、猪肉末 口味：不辣 家常做法 烹饪时长 热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣",
+            "参考常用食材：番茄"
+          ],
+          "memory_conflicts": []
+        },
+        {
+          "id": 2,
+          "name": "清炒小白菜",
+          "intent": "搭配冬瓜蒸肉末，增加蔬菜种类，满足荤素搭配需求。",
+          "query": "清炒小白菜 核心食材：小白菜 口味：不辣 家常做法 烹饪时长 热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [],
+          "memory_conflicts": []
+        }
+      ],
+      "shopping_list": [],
+      "menu_markdown": ""
+    },
+    "case_017_breakfast": {
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "鸡蛋炒饭",
+          "intent": "使用用户已有食材，快速制作，高蛋白且少油，符合早餐需求。",
+          "query": "鸡蛋炒饭 高蛋白 少油 家常做法 烹饪时长 热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣",
+            "参考常用食材：鸡蛋"
+          ],
+          "memory_conflicts": []
+        },
+        {
+          "id": 2,
+          "name": "蒸南瓜",
+          "intent": "利用用户已有食材，简单蒸制，清淡健康，补充膳食纤维。",
+          "query": "蒸南瓜 清淡 健康 做法 烹饪时长 热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：清淡"
+          ],
+          "memory_conflicts": []
+        }
+      ],
+      "shopping_list": [],
+      "menu_markdown": ""
+    },
+    "case_018_no_egg_allergy": {
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "番茄炒牛肉",
+          "intent": "使用用户已有番茄和牛肉，搭配土豆，避免鸡蛋过敏，清淡家常。",
+          "query": "番茄炒牛肉 核心食材：番茄、牛肉、土豆 不辣 家常做法 烹饪时长 热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [],
+          "memory_conflicts": []
+        },
+        {
+          "id": 2,
+          "name": "土豆炖牛肉",
+          "intent": "利用用户已有牛肉和土豆，搭配番茄，避免鸡蛋过敏，炖煮方式适合家庭烹饪。",
+          "query": "土豆炖牛肉 核心食材：牛肉、土豆、番茄 不辣 家常做法 烹饪时长 热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [],
+          "memory_conflicts": []
+        }
+      ],
+      "shopping_list": [],
+      "menu_markdown": ""
+    },
+    "case_019_guest_meal": {
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "红烧狮子头",
+          "intent": "使用猪肉末和冬瓜，搭配清淡口味，符合不辣要求，适合多人分享。",
+          "query": "红烧狮子头 核心食材：猪肉末、冬瓜 不辣 家常做法 烹饪时长 热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣",
+            "参考常用食材：猪肉末"
+          ],
+          "memory_conflicts": []
+        },
+        {
+          "id": 2,
+          "name": "清炒时蔬",
+          "intent": "利用现有蔬菜，清淡爽口，补充素菜，平衡饮食。",
+          "query": "清炒时蔬 核心食材：青菜、胡萝卜 不辣 家常做法 烹饪时长 热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣",
+            "参考常用食材：青菜"
+          ],
+          "memory_conflicts": []
+        },
+        {
+          "id": 3,
+          "name": "蒜蓉西兰花",
+          "intent": "以西兰花为主料，搭配蒜香调味，清爽可口，满足素食需求。",
+          "query": "蒜蓉西兰花 核心食材：西兰花 蒜 不辣 家常做法 烹饪时长 热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣",
+            "参考常用食材：西兰花"
+          ],
+          "memory_conflicts": []
+        },
+        {
+          "id": 4,
+          "name": "番茄蛋汤",
+          "intent": "以番茄和鸡蛋为主，清淡鲜美，适合作为汤品，增加营养。",
+          "query": "番茄蛋汤 核心食材：番茄、鸡蛋 不辣 家常做法 烹饪时长 热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣",
+            "参考常用食材：番茄"
+          ],
+          "memory_conflicts": []
+        }
+      ],
+      "shopping_list": [],
+      "menu_markdown": ""
+    },
+    "case_020_report_sections": {
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "西兰花炒鸡胸肉",
+          "intent": "利用用户已有西兰花和鸡胸肉，清淡少油，符合低脂需求。",
+          "query": "西兰花炒鸡胸肉，低脂做法，少油，家常菜，烹饪时长，热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：低脂"
+          ],
+          "memory_conflicts": []
+        }
+      ],
+      "shopping_list": [],
+      "menu_markdown": ""
+    }
+  }
+}

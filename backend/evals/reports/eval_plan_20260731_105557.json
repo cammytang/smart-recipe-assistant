@@ -1,0 +1,152 @@
+{
+  "metadata": {
+    "created_at": "2026-07-31T10:55:57",
+    "mode": "plan",
+    "case_count": 1
+  },
+  "summary": {
+    "total": 1,
+    "passed": 1,
+    "average_score": 1.0,
+    "by_category": {
+      "planning_constraints": {
+        "total": 1,
+        "passed": 1,
+        "average_score": 1.0
+      }
+    }
+  },
+  "errors": [],
+  "results": [
+    {
+      "case_id": "case_001_basic_low_fat",
+      "category": "planning_constraints",
+      "passed": true,
+      "score": 1.0,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 2, got 2."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "avoid",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.3,
+          "detail": ""
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    }
+  ],
+  "raw_outputs": {
+    "case_001_basic_low_fat": {
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "西红柿炒蛋",
+          "intent": "利用用户已有西红柿和鸡蛋，清淡少油，符合低脂不辣需求。",
+          "query": "西红柿炒鸡蛋 低脂 不辣 家常做法 烹饪时长 热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣",
+            "参考常用食材：西红柿"
+          ],
+          "memory_conflicts": []
+        },
+        {
+          "id": 2,
+          "name": "番茄蛋花汤",
+          "intent": "利用剩余西红柿和鸡蛋制作汤品，清淡低脂，补充营养。",
+          "query": "番茄蛋花汤 低脂 不辣 家常做法 烹饪时长 热量",
+          "status": "pending",
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣",
+            "参考常用食材：西红柿"
+          ],
+          "memory_conflicts": []
+        }
+      ],
+      "shopping_list": [],
+      "menu_markdown": ""
+    }
+  }
+}

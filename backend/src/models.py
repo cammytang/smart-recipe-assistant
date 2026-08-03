@@ -34,6 +34,8 @@ class DishItem:
     note_id: Optional[str] = field(default=None)
     note_path: Optional[str] = field(default=None)
     stream_token: Optional[str] = field(default=None)
+    memory_used: List[str] = field(default_factory=list)
+    memory_conflicts: List[str] = field(default_factory=list)
 
     # ========== 菜谱专属业务字段（运行搜索+总结后回填） ==========
     ingredients: Optional[List[str]] = field(default=None)

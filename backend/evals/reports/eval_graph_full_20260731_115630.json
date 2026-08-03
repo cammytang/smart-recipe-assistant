@@ -1,0 +1,4047 @@
+{
+  "metadata": {
+    "created_at": "2026-07-31T11:56:30",
+    "mode": "full",
+    "agent": "graph",
+    "case_count": 20
+  },
+  "summary": {
+    "total": 20,
+    "passed": 16,
+    "average_score": 0.9191,
+    "by_category": {
+      "planning_constraints": {
+        "total": 2,
+        "passed": 2,
+        "average_score": 1.0
+      },
+      "safety_constraints": {
+        "total": 3,
+        "passed": 1,
+        "average_score": 0.8124
+      },
+      "ingredient_utilization": {
+        "total": 1,
+        "passed": 1,
+        "average_score": 1.0
+      },
+      "dietary_preference": {
+        "total": 1,
+        "passed": 1,
+        "average_score": 1.0
+      },
+      "meal_scale": {
+        "total": 2,
+        "passed": 2,
+        "average_score": 0.9306
+      },
+      "time_limit": {
+        "total": 1,
+        "passed": 1,
+        "average_score": 0.9091
+      },
+      "health_goal": {
+        "total": 1,
+        "passed": 1,
+        "average_score": 1.0
+      },
+      "negative_preference": {
+        "total": 1,
+        "passed": 0,
+        "average_score": 0.7833
+      },
+      "memory_behavior": {
+        "total": 3,
+        "passed": 3,
+        "average_score": 0.918
+      },
+      "robustness": {
+        "total": 1,
+        "passed": 1,
+        "average_score": 1.0
+      },
+      "report_quality": {
+        "total": 2,
+        "passed": 1,
+        "average_score": 0.9071
+      },
+      "shopping_list": {
+        "total": 1,
+        "passed": 1,
+        "average_score": 0.8222
+      },
+      "meal_type": {
+        "total": 1,
+        "passed": 1,
+        "average_score": 1.0
+      }
+    }
+  },
+  "errors": [],
+  "results": [
+    {
+      "case_id": "case_001_basic_low_fat",
+      "category": "planning_constraints",
+      "passed": true,
+      "score": 1.0,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 2, got 2."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "avoid",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.3,
+          "detail": ""
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    },
+    {
+      "case_id": "case_002_allergy_shrimp",
+      "category": "safety_constraints",
+      "passed": true,
+      "score": 0.9138,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 2-3, got 2."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "avoid",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.3,
+          "detail": ""
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 0.5,
+          "weight": 1.0,
+          "detail": "Missing: 快手"
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.8,
+          "detail": "Expected <= 30 minutes; found: [20, 5, 25, 30, 25, 25, 20, 20, 5, 25, 20, 5, 25]."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    },
+    {
+      "case_id": "case_003_existing_ingredients",
+      "category": "ingredient_utilization",
+      "passed": true,
+      "score": 1.0,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 2-3, got 2."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "avoid",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.3,
+          "detail": ""
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    },
+    {
+      "case_id": "case_004_vegetarian",
+      "category": "dietary_preference",
+      "passed": true,
+      "score": 1.0,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 3, got 3."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "avoid",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.3,
+          "detail": ""
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    },
+    {
+      "case_id": "case_005_family_meal",
+      "category": "meal_scale",
+      "passed": true,
+      "score": 0.9444,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 4, got 4."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "avoid",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.3,
+          "detail": ""
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 0.6666666666666666,
+          "weight": 1.0,
+          "detail": "Missing: 家庭餐"
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    },
+    {
+      "case_id": "case_006_quick_lunch",
+      "category": "time_limit",
+      "passed": true,
+      "score": 0.9091,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 1-2, got 1."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "avoid",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 0.5,
+          "weight": 1.0,
+          "detail": "Missing: 快手"
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.8,
+          "detail": "Expected <= 15 minutes; found: [15, 15, 15, 15, 5]."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    },
+    {
+      "case_id": "case_007_low_carb",
+      "category": "health_goal",
+      "passed": true,
+      "score": 1.0,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 1-3, got 2."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "avoid",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.3,
+          "detail": ""
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    },
+    {
+      "case_id": "case_008_disliked_tofu",
+      "category": "negative_preference",
+      "passed": false,
+      "score": 0.7833,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 2, got 2."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "avoid",
+          "passed": false,
+          "score": 0.0,
+          "weight": 1.3,
+          "detail": "Present banned terms: 豆腐"
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    },
+    {
+      "case_id": "case_009_memory_conflict_override",
+      "category": "memory_behavior",
+      "passed": true,
+      "score": 1.0,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 1-2, got 1."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "avoid",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    },
+    {
+      "case_id": "case_010_allergy_memory",
+      "category": "memory_behavior",
+      "passed": true,
+      "score": 0.8333,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 2-3, got 2."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "avoid",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.3,
+          "detail": ""
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": false,
+          "score": 0.0,
+          "weight": 1.0,
+          "detail": "Missing: 虾, 茄子, 两人餐"
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    },
+    {
+      "case_id": "case_011_empty_or_vague",
+      "category": "robustness",
+      "passed": true,
+      "score": 1.0,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 1-4, got 2."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "avoid",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    },
+    {
+      "case_id": "case_012_single_dish_request",
+      "category": "planning_constraints",
+      "passed": true,
+      "score": 1.0,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 1, got 1."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "avoid",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    },
+    {
+      "case_id": "case_013_no_pork",
+      "category": "safety_constraints",
+      "passed": false,
+      "score": 0.7833,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 3, got 3."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "avoid",
+          "passed": false,
+          "score": 0.0,
+          "weight": 1.3,
+          "detail": "Present banned terms: 猪肉"
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    },
+    {
+      "case_id": "case_014_soup_required",
+      "category": "report_quality",
+      "passed": false,
+      "score": 0.8143,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 2, got 2."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "avoid",
+          "passed": false,
+          "score": 0.0,
+          "weight": 1.3,
+          "detail": "Present banned terms: 辣椒"
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    },
+    {
+      "case_id": "case_015_shopping_list_merge",
+      "category": "shopping_list",
+      "passed": true,
+      "score": 0.8222,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 3, got 3."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "avoid",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": false,
+          "score": 0.0,
+          "weight": 0.8,
+          "detail": "番茄 appears 28 times"
+        }
+      ]
+    },
+    {
+      "case_id": "case_016_recent_dish_diversity",
+      "category": "memory_behavior",
+      "passed": true,
+      "score": 0.9206,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 2-3, got 2."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "avoid",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.3,
+          "detail": ""
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.3,
+          "detail": ""
+        },
+        {
+          "name": "memory_should_use",
+          "passed": false,
+          "score": 0.5,
+          "weight": 1.0,
+          "detail": "Missing: 两人餐"
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    },
+    {
+      "case_id": "case_017_breakfast",
+      "category": "meal_type",
+      "passed": true,
+      "score": 1.0,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 1-3, got 2."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "avoid",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.3,
+          "detail": ""
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.8,
+          "detail": "Expected <= 20 minutes; found: [25, 5, 30, 2, 3, 2, 5, 20, 30, 5, 2, 5, 30]."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    },
+    {
+      "case_id": "case_018_no_egg_allergy",
+      "category": "safety_constraints",
+      "passed": false,
+      "score": 0.74,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 2, got 2."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "avoid",
+          "passed": false,
+          "score": 0.0,
+          "weight": 1.3,
+          "detail": "Present banned terms: 鸡蛋"
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    },
+    {
+      "case_id": "case_019_guest_meal",
+      "category": "meal_scale",
+      "passed": true,
+      "score": 0.9167,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 4, got 4."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "avoid",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.3,
+          "detail": ""
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 0.5,
+          "weight": 1.0,
+          "detail": "Missing: 多人餐"
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    },
+    {
+      "case_id": "case_020_report_sections",
+      "category": "report_quality",
+      "passed": true,
+      "score": 1.0,
+      "checks": [
+        {
+          "name": "required_outputs",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.5,
+          "detail": ""
+        },
+        {
+          "name": "dish_count",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.2,
+          "detail": "Expected 1-2, got 2."
+        },
+        {
+          "name": "must_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "avoid",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "must_include_types",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "preferences",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "time_limit_minutes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "should_avoid_recent_dishes",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_use",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "memory_should_conflict",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        },
+        {
+          "name": "report_sections",
+          "passed": true,
+          "score": 1.0,
+          "weight": 1.0,
+          "detail": ""
+        },
+        {
+          "name": "shopping_list_should_merge_or_dedupe",
+          "passed": true,
+          "score": 1.0,
+          "weight": 0.0,
+          "detail": "Skipped."
+        }
+      ]
+    }
+  ],
+  "raw_outputs": {
+    "case_001_basic_low_fat": {
+      "menu_markdown": "```markdown\n# 1. **用餐需求总览**\n\n- **用户原始需求**：一人食，低脂不辣。\n- **识别忌口/过敏原**：暂无相关信息。\n- **用户冰箱现有食材**：\n  - 番茄（1个）\n  - 鸡蛋（1个）\n- **整体用餐定位**：低脂、清淡、适合一人食。\n\n---\n\n# 2. **整套菜单概览表**\n\n| 菜名       | 制作时长     | 难度 | 单菜预估热量 |\n|------------|--------------|------|----------------|\n| 番茄炒蛋   | 约15分钟     | ★★   | 252大卡        |\n| 蒸南瓜     | 约20-25分钟  | ★    | 80大卡         |\n\n---\n\n# 3. **分类采购清单**\n\n## ✅ 已有食材（无需额外购买）\n\n- 番茄：1个（约180g）\n- 鸡蛋：1个\n\n## 🛒 需要采购食材（合并去重后）\n\n- 食用油：4ml（用于番茄炒蛋）\n- 盐：1.5-2g（用于番茄炒蛋）\n- 糖：0-2g（可选，用于番茄炒蛋）\n- 葱花：0-10g（可选，用于番茄炒蛋）\n- 南瓜：300g（用于蒸南瓜）\n- 饮用水：1000ml（用于蒸锅）\n\n---\n\n# 4. **单菜详细做法**\n\n## 🍳 番茄炒蛋\n\n### 🧾 食材明细（每份）：\n\n| 食材       | 用量（每份） |\n|------------|--------------|\n| 西红柿     | 1个（约180g） |\n| 鸡蛋       | 1.5个        |\n| 食用油     | 4ml          |\n| 盐         | 1.5-2g       |\n| 糖         | 0-2g（可选） |\n| 葱花       | 0-10g（可选）|\n\n### 🔥 烹饪步骤：\n\n1. **准备食材**：西红柿洗净，去蒂后切成边长不超过 4cm 的小块；鸡蛋打入碗中，加入 1g 盐搅匀，可加 1ml 醋提升蓬松度。\n2. **炒鸡蛋**：热锅加油，油热后倒入鸡蛋液，翻炒至半熟状态盛出备用。\n3. **炒西红柿**：不洗锅，直接加入西红柿块，翻炒 20 秒至软烂。\n4. **混合翻炒**：将半熟鸡蛋倒回锅中，与西红柿翻炒均匀。\n5. **调味**：根据口味加入剩余的盐、糖（可选）、葱花（可选），翻炒均匀后关火盛盘。\n\n### 📌 烹饪小贴士：\n\n- **去西红柿皮**：可用开水烫一下外皮，再放入冷水剥皮，使口感更细腻。\n- **鸡蛋更嫩滑**：在打鸡蛋时加入少量醋或水，能提升鸡蛋的嫩度和蓬松感。\n- **少油做法**：若追求低脂，可减少食用油用量，改用不粘锅烹饪，同样能达到理想效果。\n\n---\n\n## 🍵 蒸南瓜\n\n### 🧾 食材明细：\n\n| 食材       | 用量（每份） |\n|------------|--------------|\n| 南瓜       | 300g         |\n| 饮用水     | 1000ml       |\n\n### 🔥 烹饪步骤：\n\n1. 将南瓜外皮洗净，去除瓜瓤和籽。\n2. 将南瓜切成厚度大约 2 厘米的片，备用。\n3. 在蒸锅的锅中加入 1000 毫升饮用水。\n4. 将切好的南瓜片均匀摆放在盘中。\n5. 待蒸锅中的水烧开后，将装有南瓜的盘子放入蒸锅中。\n6. 盖上锅盖，保持大火蒸 **15-20 分钟**，直至南瓜变软，可以用筷子轻松穿透。\n7. 关火，小心取出盘子。\n\n### 📌 烹饪小贴士：\n\n- 南瓜品种不同，甜度和口感会有差异，老南瓜通常更甜更面。\n- 南瓜皮含有营养，如果喜欢也可以不去皮蒸，但需要彻底洗净。\n- 蒸的时间取决于南瓜块的大小和厚度，以及南瓜的品种，用筷子测试是判断是否蒸熟的好方法。\n\n---\n\n# 5. **厨房操作先后建议**\n\n1. **先处理南瓜**：将南瓜洗净、切片，准备好蒸锅。\n2. **开始蒸南瓜**：在蒸锅中加水并开始加热。\n3. **同时准备番茄炒蛋**：在等待水烧开的过程中，准备番茄和鸡蛋。\n4. **炒鸡蛋**：待水烧开后，将南瓜放入蒸锅，随后开始炒鸡蛋。\n5. **炒西红柿**：鸡蛋炒好后，加入西红柿翻炒。\n6. **完成并装盘**：最后将番茄炒蛋与蒸南瓜一同装盘。\n\n---\n\n# 6. **整体营养小结**\n\n- **总热量**：约 332 大卡（番茄炒蛋 252 大卡 + 蒸南瓜 80 大卡）\n- **饮食适配评价**：符合低脂、不辣、一人食需求，搭配合理，营养均衡。\n- **微调建议**：\n  - 若希望增加蛋白质摄入，可考虑添加少量豆腐或鸡胸肉。\n  - 若偏好更丰富的口感，可适当加入一些香料如黑胡椒或少许香油提味。\n\n---\n\n# 7. **饮食安全提醒**\n\n- **规避的忌口/过敏食材**：本套餐未使用任何用户已知的忌口或过敏食材。\n- **注意事项**：确保所有食材新鲜，避免交叉污染，尤其是生熟分开处理。\n\n---\n\n,\"content\":\"# 1. **用餐需求总览**\\n\\n- **用户原始需求**：一人食，低脂不辣。\\n- **识别忌口/过敏原**：暂无相关信息。\\n- **用户冰箱现有食材**：\\n  - 番茄（1个）\\n  - 鸡蛋（1个）\\n- **整体用餐定位**：低脂、清淡、适合一人食。\\n\\n---\\n\\n# 2. **整套菜单概览表**\\n\\n| 菜名       | 制作时长     | 难度 | 单菜预估热量 |\\n|------------|--------------|------|----------------|\\n| 番茄炒蛋   | 约15分钟     | ★★   | 252大卡        |\\n| 蒸南瓜     | 约20-25分钟  | ★    | 80大卡         |\\n\\n---\\n\\n# 3. **分类采购清单**\\n\\n## ✅ 已有食材（无需额外购买）\\n\\n- 番茄：1个（约180g）\\n- 鸡蛋：1个\\n\\n## 🛒 需要采购食材（合并去重后）\\n\\n- 食用油：4ml（用于番茄炒蛋）\\n- 盐：1.5-2g（用于番茄炒蛋）\\n- 糖：0-2g（可选，用于番茄炒蛋）\\n- 葱花：0-10g（可选，用于番茄炒蛋）\\n- 南瓜：300g（用于蒸南瓜）\\n- 饮用水：1000ml（用于蒸锅）\\n\\n---\\n\\n# 4. **单菜详细做法**\\n\\n## 🍳 番茄炒蛋\\n\\n### 🧾 食材明细（每份）：\\n\\n| 食材       | 用量（每份） |\\n|------------|--------------|\\n| 西红柿     | 1个（约180g） |\\n| 鸡蛋       | 1.5个        |\\n| 食用油     | 4ml          |\\n| 盐         | 1.5-2g       |\\n| 糖         | 0-2g（可选） |\\n| 葱花       | 0-10g（可选）|\\n\\n### 🔥 烹饪步骤：\\n\\n1. **准备食材**：西红柿洗净，去蒂后切成边长不超过 4cm 的小块；鸡蛋打入碗中，加入 1g 盐搅匀，可加 1ml 醋提升蓬松度。\\n2. **炒鸡蛋**：热锅加油，油热后倒入鸡蛋液，翻炒至半熟状态盛出备用。\\n3. **炒西红柿**：不洗锅，直接加入西红柿块，翻炒 20 秒至软烂。\\n4. **混合翻炒**：将半熟鸡蛋倒回锅中，与西红柿翻炒均匀。\\n5. **调味**：根据口味加入剩余的盐、糖（可选）、葱花（可选），翻炒均匀后关火盛盘。\\n\\n### 📌 烹饪小贴士：\\n\\n- **去西红柿皮**：可用开水烫一下外皮，再放入冷水剥皮，使口感更细腻。\\n- **鸡蛋更嫩滑**：在打鸡蛋时加入少量醋或水，能提升鸡蛋的嫩度和蓬松感。\\n- **少油做法**：若追求低脂，可减少食用油用量，改用不粘锅烹饪，同样能达到理想效果。\\n\\n---\\n\\n## 🍵 蒸南瓜\\n\\n### 🧾 食材明细：\\n\\n| 食材       | 用量（每份） |\\n|------------|--------------|\\n| 南瓜       | 300g         |\\n| 饮用水     | 1000ml       |\\n\\n### 🔥 烹饪步骤：\\n\\n1. 将南瓜外皮洗净，去除瓜瓤和籽。\\n2. 将南瓜切成厚度大约 2 厘米的片，备用。\\n3. 在蒸锅的锅中加入 1000 毫升饮用水。\\n4. 将切好的南瓜片均匀摆放在盘中。\\n5. 待蒸锅中的水烧开后，将装有南瓜的盘子放入蒸锅中。\\n6. 盖上锅盖，保持大火蒸 **15-20 分钟**，直至南瓜变软，可以用筷子轻松穿透。\\n7. 关火，小心取出盘子。\\n\\n### 📌 烹饪小贴士：\\n\\n- 南瓜品种不同，甜度和口感会有差异，老南瓜通常更甜更面。\\n- 南瓜皮含有营养，如果喜欢也可以不去皮蒸，但需要彻底洗净。\\n- 蒸的时间取决于南瓜块的大小和厚度，以及南瓜的品种，用筷子测试是判断是否蒸熟的好方法。\\n\\n---\\n\\n# 5. **厨房操作先后建议**\\n\\n1. **先处理南瓜**：将南瓜洗净、切片，准备好蒸锅。\\n2. **开始蒸南瓜**：在蒸锅中加水并开始加热。\\n3. **同时准备番茄炒蛋**：在等待水烧开的过程中，准备番茄和鸡蛋。\\n4. **炒鸡蛋**：待水烧开后，将南瓜放入蒸锅，随后开始炒鸡蛋。\\n5. **炒西红柿**：鸡蛋炒好后，加入西红柿翻炒。\\n6. **完成并装盘**：最后将番茄炒蛋与蒸南瓜一同装盘。\\n\\n---\\n\\n# 6. **整体营养小结**\\n\\n- **总热量**：约 332 大卡（番茄炒蛋 252 大卡 + 蒸南瓜 80 大卡）\\n- **饮食适配评价**：符合低脂、不辣、一人食需求，搭配合理，营养均衡。\\n- **微调建议**：\\n  - 若希望增加蛋白质摄入，可考虑添加少量豆腐或鸡胸肉。\\n  - 若偏好更丰富的口感，可适当加入一些香料如黑胡椒或少许香油提味。\\n\\n---\\n\\n# 7. **饮食安全提醒**\\n\\n- **规避的忌口/过敏食材**：本套餐未使用任何用户已知的忌口或过敏食材。\\n- **注意事项**：确保所有食材新鲜，避免交叉污染，尤其是生熟分开处理。\"}]\n```",
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "番茄炒蛋",
+          "intent": "利用用户已有番茄和鸡蛋，清淡少油，符合低脂不辣需求。",
+          "query": "番茄炒蛋 西红柿 鸡蛋 不辣 家常做法 烹饪时长 热量",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [],
+          "memory_conflicts": [],
+          "ingredients": [
+            "西红柿 = 1 个（约 180g） * 份数",
+            "鸡蛋 = 1.5 个 * 份数，向上取整",
+            "食用油 = 4ml * 鸡蛋/个",
+            "盐 = 1.5-2g * 份数",
+            "糖 = 0-2g * 份数",
+            "葱花 = 0-10g * 份数",
+            "西红柿 1 个",
+            "鸡蛋 1-2 个（依照自己的口味而定，喜欢吃鸡蛋就放 2 个，一般就放 1 个）",
+            "香油 2 滴",
+            "味素 5 克（可选）",
+            "盐 15 克",
+            "葱",
+            "姜",
+            "蒜共 15 克",
+            "牛肉用量为 150 g/人",
+            "番茄用量为 1 个/人",
+            "鸡蛋用量为 1 个/人",
+            "盐用量为 2 g/人",
+            "胡椒粉用量为 0.5 g/人"
+          ],
+          "cook_steps": [
+            "菜品详细整理结果\n\n### 食材清单  \n| 食材 | 用量（每份） |\n|------|--------------|\n| 西红柿 | 1 个（约 180g） |\n| 鸡蛋 | 1.5 个 |\n| 食用油 | 4ml（按鸡蛋数量计算） |\n| 盐 | 1.5-2g |\n| 糖 | 0-2g（可选） |\n| 葱花 | 0-10g（可选） |\n\n---\n\n### 烹饪步骤  \n1. **准备食材**：西红柿洗净，去蒂后切成边长不超过 4cm 的小块；鸡蛋打入碗中，加入 1g 盐搅匀，可加 1ml 醋提升蓬松度。  \n2. **炒鸡蛋**：热锅加油，油热后倒入鸡蛋液，翻炒至半熟状态盛出备用。  \n3. **炒西红柿**：不洗锅，直接加入西红柿块，翻炒 20 秒至软烂。  \n4. **混合翻炒**：将半熟鸡蛋倒回锅中，与西红柿翻炒均匀。  \n5. **调味**：根据口味加入剩余的盐、糖（可选）、葱花（可选），翻炒均匀后关火盛盘。\n\n---\n\n### 总耗时  \n- 烹饪时间：约 15 分钟  \n\n---\n\n### 预估热量  \n- 每份热量：约 252 大卡  \n\n---\n\n### 难度  \n- ★★（适合厨房新手）\n\n---\n\n### 烹饪小贴士  \n1. **去西红柿皮**：可用开水烫一下外皮，再放入冷水剥皮，使口感更细腻。  \n2. **鸡蛋更嫩滑**：在打鸡蛋时加入少量醋或水，能提升鸡蛋的嫩度和蓬松感。  \n3. **少油做法**：若追求低脂，可减少食用油用量，改用不粘锅烹饪，同样能达到理想效果。"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        },
+        {
+          "id": 2,
+          "name": "蒸南瓜",
+          "intent": "补充蔬菜，蒸制方式低脂，搭配番茄炒蛋形成荤素搭配。",
+          "query": "蒸南瓜 南瓜 不辣 家常做法 烹饪时长 热量",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [],
+          "memory_conflicts": [],
+          "ingredients": [
+            "南瓜 300 g",
+            "饮用水 1000 ml （用于蒸锅）"
+          ],
+          "cook_steps": [
+            "菜品详细整理结果\n\n### 食材清单\n- 南瓜：300 克  \n- 饮用水：1000 毫升（用于蒸锅）\n\n### 烹饪步骤\n1. 将南瓜外皮洗净，去除瓜瓤和籽。  \n2. 将南瓜切成厚度大约 2 厘米的片，备用。  \n3. 在蒸锅的锅中加入 1000 毫升饮用水。  \n4. 将切好的南瓜片均匀摆放在盘中。  \n5. 待蒸锅中的水烧开后，将装有南瓜的盘子放入蒸锅中。  \n6. 盖上锅盖，保持大火蒸 **15-20 分钟**，直至南瓜变软，可以用筷子轻松穿透。  \n7. 关火，小心取出盘子。\n\n### 总耗时\n- 烹饪时间：15-20 分钟  \n- 准备时间：约 5 分钟  \n- 总耗时：约 20-25 分钟\n\n### 预估热量\n- 每份热量：80 大卡\n\n### 难度\n- ★（简单，适合新手）\n\n### 烹饪小贴士\n1. 南瓜品种不同，甜度和口感会有差异，老南瓜通常更甜更面。  \n2. 南瓜皮含有营养，如果喜欢也可以不去皮蒸，但需要彻底洗净。  \n3. 蒸的时间取决于南瓜块的大小和厚度，以及南瓜的品种，用筷子测试是判断是否蒸熟的好方法。"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        }
+      ],
+      "shopping_list": [
+        "西红柿 = 1 个（约 180g） * 份数（用于：番茄炒蛋）",
+        "鸡蛋 = 1.5 个 * 份数，向上取整（用于：番茄炒蛋）",
+        "食用油 = 4ml * 鸡蛋/个（用于：番茄炒蛋）",
+        "盐 = 1.5-2g * 份数（用于：番茄炒蛋）",
+        "糖 = 0-2g * 份数（用于：番茄炒蛋）",
+        "葱花 = 0-10g * 份数（用于：番茄炒蛋）",
+        "西红柿 1 个（用于：番茄炒蛋）",
+        "鸡蛋 1-2 个（依照自己的口味而定，喜欢吃鸡蛋就放 2 个，一般就放 1 个）（用于：番茄炒蛋）",
+        "香油 2 滴（用于：番茄炒蛋）",
+        "味素 5 克（可选）（用于：番茄炒蛋）",
+        "盐 15 克（用于：番茄炒蛋）",
+        "葱（用于：番茄炒蛋）",
+        "姜（用于：番茄炒蛋）",
+        "蒜共 15 克（用于：番茄炒蛋）",
+        "牛肉用量为 150 g/人（用于：番茄炒蛋）",
+        "番茄用量为 1 个/人（用于：番茄炒蛋）",
+        "鸡蛋用量为 1 个/人（用于：番茄炒蛋）",
+        "盐用量为 2 g/人（用于：番茄炒蛋）",
+        "胡椒粉用量为 0.5 g/人（用于：番茄炒蛋）",
+        "南瓜 300 g（用于：蒸南瓜）",
+        "饮用水 1000 ml （用于蒸锅）（用于：蒸南瓜）"
+      ],
+      "total_calories": 0
+    },
+    "case_002_allergy_shrimp": {
+      "menu_markdown": "```markdown\n# 1. **用餐需求总览**\n\n- **用户原始需求**：两人晚餐，不吃虾，想要高蛋白，30分钟内完成。\n- **忌口清单**：无明确提及，但需避免虾类食材。\n- **用户自有食材**：根据购物清单推测，可能已有部分食材如冬瓜、猪肉末、鸡蛋、青椒、葱、蒜等。\n- **整体用餐定位**：高蛋白、快速烹饪、清淡家常。\n\n---\n\n# 2. **整套菜单概览表**\n\n| 菜名         | 制作时长 | 难度 | 单菜预估热量 |\n|--------------|----------|------|----------------|\n| 冬瓜蒸肉末   | 约 25 分钟 | ★☆☆ | 约 300 大卡/人 |\n| 青椒炒蛋     | 约 25 分钟 | ★☆☆ | 约 280 大卡/人 |\n\n---\n\n# 3. **分类采购清单**\n\n## ✅ 已有食材（无需额外购买）\n\n- 冬瓜（根据购物清单，可能已有）\n- 猪肉末（根据购物清单，可能已有）\n- 鸡蛋（根据购物清单，可能已有）\n- 青椒（根据购物清单，可能已有）\n- 葱（根据购物清单，可能已有）\n- 蒜（根据购物清单，可能已有）\n\n## 🛒 需要采购食材（合并去重后）\n\n| 食材名称       | 用量        | 用途说明             |\n|----------------|-------------|----------------------|\n| 食用油         | 60ml        | 用于两道菜的烹饪     |\n| 生抽           | 20ml        | 用于两道菜的调味     |\n| 盐             | 20g         | 用于两道菜的调味     |\n| 胡椒粉         | 5g          | 用于冬瓜蒸肉末       |\n| 淀粉           | 15g         | 用于冬瓜蒸肉末       |\n| 水淀粉         | 25g         | 用于冬瓜蒸肉末       |\n| 料酒           | 2ml         | 用于冬瓜蒸肉末       |\n| 老抽           | 15ml        | 用于冬瓜蒸肉末       |\n| 鸡精           | 3g          | 用于冬瓜蒸肉末       |\n| 姜末           | 1粒         | 用于冬瓜蒸肉末       |\n| 蚝油           | 15ml        | 用于冬瓜蒸肉末       |\n| 小米辣         | 3-4颗       | 用于青椒炒蛋         |\n| 陈醋           | 15-20ml     | 用于青椒炒蛋         |\n| 白糖           | 6-10g       | 用于青椒炒蛋         |\n| 香油           | 5-7ml       | 用于青椒炒蛋         |\n\n---\n\n# 4. **单菜详细做法**\n\n## 🍲 菜单任务 1: 冬瓜蒸肉末\n\n### 🧾 食材明细\n- 冬瓜 300g\n- 猪肉末 300g\n- 葱花 20g\n- 胡椒粉 5g\n- 生抽 10ml\n- 淀粉 10g\n- 水淀粉 25g（淀粉 5g + 水 50ml）\n- 葱姜末（姜 3-4 片约 30g，葱白部分）\n- 盐 20g\n- 食用油 50ml\n- 料酒 2ml\n- 老抽 15ml\n- 鸡精 3g\n- 香葱 0.5 根\n- 姜末 1 粒\n- 蚝油 15ml\n\n### 🔥 烹饪步骤\n1. **准备食材**：冬瓜切块，猪肉末提前腌制（加入盐、料酒、胡椒粉、生抽、淀粉拌匀）。\n2. **蒸制**：将冬瓜铺在盘底，放上腌好的肉末，撒上葱姜末，淋上老抽和蚝油。\n3. **蒸熟**：放入蒸锅，大火蒸约 20 分钟。\n4. **收汁**：取出后淋上水淀粉勾芡，撒上香葱即可。\n\n### ⏱️ 总耗时\n- 烹饪时间：约 20 分钟\n- 准备时间：约 5 分钟\n- 总耗时：约 25 分钟\n\n### 📊 预估热量\n- 每份热量：约 300 大卡\n\n### 🧠 烹饪小贴士\n- 冬瓜选择新鲜、质地紧实的，口感更佳。\n- 肉末腌制时间越久，味道越入味。\n- 蒸制过程中可盖上保鲜膜或盘盖，防止水分流失。\n\n---\n\n## 🍳 菜单任务 2: 青椒炒蛋\n\n### 🧾 食材明细\n- 鸡蛋 3 个\n- 青椒 2 个（中等大小）\n- 葱 1 根（切段，约 5cm）\n- 蒜 2 瓣（切末）\n- 食用油 15ml\n- 生抽 10ml\n- 盐 适量\n- 白胡椒粉 少许（可选）\n\n### 🔥 烹饪步骤\n1. **准备食材**：青椒洗净去籽，切成小块；鸡蛋打入碗中，加入少许盐和白胡椒粉搅拌均匀；葱切段，蒜切末。\n2. **热锅加油**：锅中倒入食用油，中火加热至油温适中。\n3. **炒香调料**：放入蒜末爆香，再加入青椒翻炒至稍微变软。\n4. **加入鸡蛋**：将打好的鸡蛋液倒入锅中，快速翻炒至鸡蛋凝固。\n5. **调味出锅**：加入生抽调味，继续翻炒均匀后即可出锅。\n\n### ⏱️ 总耗时\n- 烹饪时间：约 20 分钟\n- 准备时间：约 5 分钟\n- 总耗时：约 25 分钟\n\n### 📊 预估热量\n- 每份热量：约 280 大卡\n\n### 🧠 烹饪小贴士\n- **青椒选择**：选用新鲜青椒，口感更脆爽，避免使用过于老化的青椒。\n- **火候控制**：炒鸡蛋时火候不宜过大，以免鸡蛋过老影响口感。\n- **食材替换**：若不喜欢青椒，可用西葫芦或胡萝卜代替，同样能保持高蛋白和营养均衡。\n\n---\n\n# 5. **厨房操作先后建议**\n\n1. **先处理冬瓜蒸肉末**：\n   - 提前准备好冬瓜和肉末，腌制并蒸制。\n   - 在蒸的过程中，可以准备其他菜品。\n\n2. **接着制作青椒炒蛋**：\n   - 青椒炒蛋需要较短时间，可在冬瓜蒸好后进行。\n\n3. **最后收尾**：\n   - 蒸好冬瓜后，淋上水淀粉勾芡，撒上香葱。\n   - 青椒炒蛋完成后，装盘即可。\n\n---\n\n# 6. **整体营养小结**\n\n- **总热量**：约 580 大卡（两人份）\n- **饮食适配评价**：符合高蛋白、清淡、快速烹饪的需求，适合两人晚餐。\n- **微调建议**：\n  - 若希望增加膳食纤维，可搭配一份凉拌黄瓜或清炒菠菜。\n  - 若对油脂敏感，可减少食用油用量，改用橄榄油或空气炸锅方式烹饪。\n\n---\n\n# 7. **饮食安全提醒**\n\n- **忌口/过敏原规避**：本套餐不含虾类食材，符合“不吃虾”的要求。\n- **食材安全性**：所有食材均为常见食材，无特殊过敏源。\n- **烹饪卫生**：确保食材新鲜，烹饪过程注意清洁卫生。\n\n---\n\n,\"content\":\"请在此沉淀最终菜谱\"}]\n```",
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "冬瓜蒸肉末",
+          "intent": "使用用户已有冬瓜和猪肉末，蒸制少油，符合清淡家常需求。",
+          "query": "冬瓜蒸肉末 不辣 家常做法 烹饪时长 热量",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣"
+          ],
+          "memory_conflicts": [],
+          "ingredients": [
+            "猪肉末 300g",
+            "鸡蛋 1 个（可选,不习惯的人可能会有点腥）",
+            "冬瓜 200g",
+            "葱花（一根,约 20g）",
+            "胡椒粉 5g",
+            "生抽 10ml",
+            "淀粉 5g",
+            "水淀粉 25g（淀粉 25g,水 50ml）",
+            "葱姜末（姜 3-4 片约 30g, 取上面一根葱花中的葱白部分即可）",
+            "盐 20g",
+            "冬瓜 300 g",
+            "食用油 50 ml",
+            "料酒 2 ml",
+            "淀粉 10 g",
+            "生抽 10 ml",
+            "老抽 15 ml",
+            "鸡精 3 g",
+            "香葱 0.5 根",
+            "姜末 1 粒",
+            "蚝油 15 ml"
+          ],
+          "cook_steps": [
+            ",\"content\":\"记录本道菜需求定位、搜索信息、完整用料、烹饪步骤、热量与实操小贴士\"}]"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        },
+        {
+          "id": 2,
+          "name": "青椒炒蛋",
+          "intent": "利用用户可能有的鸡蛋和青椒，快速翻炒，满足高蛋白需求。",
+          "query": "青椒炒蛋 不辣 家常做法 烹饪时长 热量",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考常用食材：鸡蛋"
+          ],
+          "memory_conflicts": [],
+          "ingredients": [
+            "皮蛋 2 个",
+            "青椒 4 根 （长 10-15cm，宽 2-4cm）",
+            "葱 （大约 10cm 即可，葱绿最佳）",
+            "蒜 3-4 瓣",
+            "食用油 10-20ml",
+            "生抽 15-20ml",
+            "陈醋 15-20ml",
+            "白糖 6-10g",
+            "香油 5-7ml",
+            "小米辣 3-4 颗"
+          ],
+          "cook_steps": [
+            "菜品详细整理结果\n\n### 食材清单\n- 鸡蛋：3 个  \n- 青椒：2 个（中等大小）  \n- 葱：1 根（切段，约 5cm）  \n- 蒜：2 瓣（切末）  \n- 食用油：15ml  \n- 生抽：10ml  \n- 盐：适量  \n- 白胡椒粉：少许（可选）  \n\n### 烹饪步骤\n1. **准备食材**：青椒洗净去籽，切成小块；鸡蛋打入碗中，加入少许盐和白胡椒粉搅拌均匀；葱切段，蒜切末。\n2. **热锅加油**：锅中倒入食用油，中火加热至油温适中。\n3. **炒香调料**：放入蒜末爆香，再加入青椒翻炒至稍微变软。\n4. **加入鸡蛋**：将打好的鸡蛋液倒入锅中，快速翻炒至鸡蛋凝固。\n5. **调味出锅**：加入生抽调味，继续翻炒均匀后即可出锅。\n\n### 总耗时\n- 烹饪时间：约 20 分钟  \n- 准备时间：约 5 分钟  \n- 总耗时：约 25 分钟  \n\n### 预估热量\n- 每份热量：约 280 大卡（根据食材用量估算）\n\n### 难度\n- 难度：★☆☆（简单易操作，适合新手）\n\n### 烹饪小贴士\n1. **青椒选择**：选用新鲜青椒，口感更脆爽，避免使用过于老化的青椒。\n2. **火候控制**：炒鸡蛋时火候不宜过大，以免鸡蛋过老影响口感。\n3. **食材替换**：若不喜欢青椒，可用西葫芦或胡萝卜代替，同样能保持高蛋白和营养均衡。"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        }
+      ],
+      "shopping_list": [
+        "猪肉末 300g（用于：冬瓜蒸肉末）",
+        "鸡蛋 1 个（可选,不习惯的人可能会有点腥）（用于：冬瓜蒸肉末）",
+        "冬瓜 200g（用于：冬瓜蒸肉末）",
+        "葱花（一根,约 20g）（用于：冬瓜蒸肉末）",
+        "胡椒粉 5g（用于：冬瓜蒸肉末）",
+        "生抽 10ml（用于：冬瓜蒸肉末）",
+        "淀粉 5g（用于：冬瓜蒸肉末）",
+        "水淀粉 25g（淀粉 25g,水 50ml）（用于：冬瓜蒸肉末）",
+        "葱姜末（姜 3-4 片约 30g, 取上面一根葱花中的葱白部分即可）（用于：冬瓜蒸肉末）",
+        "盐 20g（用于：冬瓜蒸肉末）",
+        "冬瓜 300 g（用于：冬瓜蒸肉末）",
+        "食用油 50 ml（用于：冬瓜蒸肉末）",
+        "料酒 2 ml（用于：冬瓜蒸肉末）",
+        "淀粉 10 g（用于：冬瓜蒸肉末）",
+        "生抽 10 ml（用于：冬瓜蒸肉末）",
+        "老抽 15 ml（用于：冬瓜蒸肉末）",
+        "鸡精 3 g（用于：冬瓜蒸肉末）",
+        "香葱 0.5 根（用于：冬瓜蒸肉末）",
+        "姜末 1 粒（用于：冬瓜蒸肉末）",
+        "蚝油 15 ml（用于：冬瓜蒸肉末）",
+        "皮蛋 2 个（用于：青椒炒蛋）",
+        "青椒 4 根 （长 10-15cm，宽 2-4cm）（用于：青椒炒蛋）",
+        "葱 （大约 10cm 即可，葱绿最佳）（用于：青椒炒蛋）",
+        "蒜 3-4 瓣（用于：青椒炒蛋）",
+        "食用油 10-20ml（用于：青椒炒蛋）",
+        "生抽 15-20ml（用于：青椒炒蛋）",
+        "陈醋 15-20ml（用于：青椒炒蛋）",
+        "白糖 6-10g（用于：青椒炒蛋）",
+        "香油 5-7ml（用于：青椒炒蛋）",
+        "小米辣 3-4 颗（用于：青椒炒蛋）"
+      ],
+      "total_calories": 0
+    },
+    "case_003_existing_ingredients": {
+      "menu_markdown": "```markdown\n# 完整菜谱报告：家里有土豆、牛肉、洋葱，想做一顿家常晚餐，不要太油\n\n## 1. **用餐需求总览**\n\n- **用户原始需求**：利用家中现有的土豆、牛肉和洋葱，制作一顿清淡少油的家常晚餐。\n- **忌口/过敏原**：暂无相关信息。\n- **用户冰箱现有食材**：\n  - 土豆\n  - 牛肉\n  - 洋葱\n- **整体用餐定位**：家庭餐 / 快手晚餐 / 减脂餐（少油）\n\n---\n\n## 2. **整套菜单概览表**\n\n| 菜名             | 制作时长     | 难度   | 单菜预估热量 |\n|------------------|--------------|--------|---------------|\n| 土豆炖牛肉       | 约1小时至1.5小时 | ★★★★ | 827大卡       |\n| 洋葱炒牛肉       | 约25分钟     | ★★★☆ | 480大卡       |\n\n---\n\n## 3. **分类采购清单**\n\n### ✅ 已有食材（无需额外购买）\n- 土豆\n- 牛肉\n- 洋葱\n\n### 🛒 需要采购食材（合并去重后）\n\n| 食材名称         | 用量           | 用途说明                     |\n|------------------|----------------|------------------------------|\n| 西红柿           | 2-3个          | 用于土豆炖牛肉               |\n| 葱               | 1根            | 用于土豆炖牛肉               |\n| 姜               | 4片            | 用于土豆炖牛肉               |\n| 料酒             | 20g            | 用于土豆炖牛肉               |\n| 花椒             | 3g             | 用于土豆炖牛肉               |\n| 八角             | 1个（半颗）    | 用于土豆炖牛肉               |\n| 香叶             | 2片            | 用于土豆炖牛肉               |\n| 油               | 15ml           | 用于土豆炖牛肉               |\n| 生抽             | 15ml           | 用于土豆炖牛肉               |\n| 白糖/冰糖        | 适量           | 用于土豆炖牛肉               |\n| 胡椒粉           | 2g             | 用于土豆炖牛肉               |\n| 番茄膏/番茄酱    | 5-10g          | 用于土豆炖牛肉（可选）       |\n| 牛肉（额外）     | 250g           | 用于洋葱炒牛肉               |\n| 生抽酱油         | 20ml           | 用于洋葱炒牛肉               |\n| 淀粉             | 10g            | 用于洋葱炒牛肉               |\n| 盐               | 3g             | 用于洋葱炒牛肉               |\n| 葱（切段）       | 1根            | 用于洋葱炒牛肉               |\n\n---\n\n## 4. **单菜详细做法**\n\n### 🥔 土豆炖牛肉\n\n#### 🧾 食材明细\n- 牛肉：500-700g  \n- 土豆：2-3个（根据锅的大小）  \n- 西红柿：2-3个（拳头大小中等个头）  \n- 洋葱：1个（比拳头大一点）  \n- 葱：1根（切4g葱花，其余掰成5-8cm段）  \n- 姜：4片  \n- 料酒：20g（用于焯水）  \n- 花椒：3g  \n- 八角：1个（半颗）  \n- 香叶：2片  \n- 白糖/冰糖：适量（根据口味）  \n- 生抽：15ml  \n- 胡椒粉：2g（或白胡椒粉）  \n- 番茄膏/番茄酱/番茄罐头：5-10g（可选）  \n- 油：15ml（若用牛腩可根据喜好减少为10ml）\n\n#### 🍳 烹饪步骤\n1. **备菜**\n   - 土豆去皮，切成5cm大块。\n   - 西红柿切十字花刀，开水烫后去皮，去掉中间的芯，切成3cm小块。\n   - 葱切4g葱花，剩下的掰成5-8cm段。\n   - 牛肉泡凉水半小时去血水，或凉水下锅煮至表面变白捞出，期间撇去浮沫。\n   - 洋葱切0.5-1cm小粒。\n\n2. **炖煮准备**\n   - 凉水没过牛肉，放入高压锅，加入葱段、姜片和20g料酒，上汽后压20分钟。\n   - 取出牛肉后切5cm大块，挑出姜片，将汤盛到一个大碗中备用。\n\n3. **炒香调料**\n   - 倒油，油四到五成热后下花椒、八角、香叶，出香味后挑出不用。\n   - 下入牛肉和葱姜，炒香，如快糊时舀10ml汤汁防止粘锅。\n\n4. **调味与炖煮**\n   - 加入生抽15ml、料酒15ml、胡椒粉2g，再加入番茄膏或番茄酱（5-10g），加入洋葱炒至透明。\n   - （可选）加一点点盐使洋葱出水，避免糊锅。\n   - 加入西红柿炒至软烂，倒入之前准备的汤汁。\n\n5. **加入土豆**\n   - 中火开锅后，全程小火炖煮，出锅前30-40分钟加入土豆。\n   - 依据个人口味边尝边加糖和盐，调整至合适味道。\n\n6. **完成**\n   - 筷子戳牛肉软烂后即可出锅。\n\n#### ⏱️ 总耗时\n- 总耗时：约1小时至1.5小时（含焯水、炖煮时间）\n\n#### 🍱 预估热量\n- 每份热量：约827大卡（基于食材用量估算）\n\n#### 🔧 难度\n- 难度：★★★★（适合有一定烹饪经验者）\n\n#### 💡 烹饪小贴士\n1. **少油技巧**：使用15ml油即可，若使用牛腩可减少至10ml，保持清淡口感。\n2. **避免土豆太烂**：炖煮时不要扣盖，且要时常翻动，防止糊底。\n3. **调味建议**：酱油总量不宜过多，汤汁浓缩时会更咸，可分次添加；不建议使用鸡精味精，以免掩盖牛肉鲜味。\n\n---\n\n### 🧄 洋葱炒牛肉\n\n#### 🧾 食材明细\n- 牛肉：250g（建议使用牛柳或牛肩肉）\n- 洋葱：1个（约200g）\n- 生抽酱油：20ml\n- 淀粉：10g\n- 油：15ml（可减少至10ml以少油）\n- 盐：3g\n- 葱：1根（切段）\n\n#### 🍳 烹饪步骤\n1. **准备食材**：洋葱去皮切丝，葱切段。牛肉洗净后切成薄片，用厨房纸吸干水分。\n2. **腌制牛肉**：将牛肉放入碗中，加入生抽、淀粉和油，搅拌均匀，腌制30分钟。\n3. **热锅炒香**：锅中倒入油，加热后放入葱段爆香。\n4. **煸炒牛肉**：将腌好的牛肉放入锅中，快速翻炒至变色。\n5. **加入洋葱**：放入洋葱丝，继续翻炒至洋葱变软。\n6. **调味出锅**：加入盐，翻炒均匀后即可出锅。\n\n#### ⏱️ 总耗时\n- 准备时间：10分钟\n- 烹饪时间：15分钟\n- **总计**：25分钟\n\n#### 🍱 预估热量\n- 每份热量：约 480 大卡（根据实际用量调整）\n\n#### 🔧 难度\n- 难度：★★★☆（适合家庭操作，简单易上手）\n\n#### 💡 烹饪小贴士\n1. **少油技巧**：可用不粘锅或少量油煎炒，避免油腻感。\n2. **牛肉嫩化**：腌制时加入少许小苏打（每500g牛肉加3g），可使口感更嫩滑。\n3. **洋葱处理**：若不喜欢洋葱的辛辣味，可提前用清水浸泡10分钟再炒。\n\n---\n\n## 5. **厨房操作先后建议**\n\n1. **先处理食材**：将牛肉切片、洋葱切丝、土豆切块、西红柿去皮切块。\n2. **先做土豆炖牛肉**：由于需要较长时间炖煮，优先开始准备。\n3. **在炖煮过程中**：可以同时准备洋葱炒牛肉的食材并进行腌制。\n4. **最后炒制洋葱炒牛肉**：待炖牛肉接近完成时，开始炒制洋葱炒牛肉，确保两道菜同时完成。\n\n---\n\n## 6. **整体营养小结**\n\n- **总热量**：约1307大卡（两道菜合计）\n- **饮食适配评价**：符合“少油”、“家常”、“减脂”需求，蛋白质丰富，蔬菜搭配合理。\n- **微调建议**：\n  - 若需进一步减脂，可减少油量至10ml，并适当减少牛肉用量。\n  - 可增加一些绿叶蔬菜（如菠菜、空心菜）提升膳食纤维摄入。\n\n---\n\n## 7. **饮食安全提醒**\n\n- **规避忌口/过敏原**：本套餐未涉及任何特殊忌口或过敏原，适合一般人群食用。\n- **食材安全性**：所有食材均为常见食材，注意新鲜度及烹饪卫生。\n\n---\n\n,\"content\":\"请在此沉淀最终菜谱\"}]\n```",
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "土豆炖牛肉",
+          "intent": "利用用户已有的土豆和牛肉，炖煮方式少油，符合清淡家常需求。",
+          "query": "土豆炖牛肉 少油做法 热量 烹饪时长 不辣",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [],
+          "memory_conflicts": [],
+          "ingredients": [
+            "牛肉 500-700g",
+            "小料",
+            "葱一根，姜四片，料酒",
+            "花椒 3g",
+            "八角一个（半）",
+            "香叶两片",
+            "油 15ml （若用牛腩可根据喜好减少为 10ml）",
+            "调味品",
+            "白糖 or 冰糖",
+            "酱油（千禾酿造生抽无添加），老抽",
+            "黑胡椒粉（白的也行）2g",
+            "土豆两三个（看喜好，锅能盛了为准）",
+            "西红柿拳头大小中等个头两三个",
+            "比拳头大一点的洋葱一个"
+          ],
+          "cook_steps": [
+            "菜品详细整理结果\n\n### 食材清单  \n- 牛肉：500-700g  \n- 土豆：2-3个（根据锅的大小）  \n- 西红柿：2-3个（拳头大小中等个头）  \n- 洋葱：1个（比拳头大一点）  \n- 葱：1根（切4g葱花，其余掰成5-8cm段）  \n- 姜：4片  \n- 料酒：20g（用于焯水）  \n- 花椒：3g  \n- 八角：1个（半颗）  \n- 香叶：2片  \n- 白糖/冰糖：适量（根据口味）  \n- 生抽：15ml  \n- 胡椒粉：2g（或白胡椒粉）  \n- 番茄膏/番茄酱/番茄罐头：5-10g（可选）  \n- 油：15ml（若用牛腩可根据喜好减少为10ml）  \n\n---\n\n### 烹饪步骤  \n1. **备菜**  \n   - 土豆去皮，切成5cm大块。  \n   - 西红柿切十字花刀，开水烫后去皮，去掉中间的芯，切成3cm小块。  \n   - 葱切4g葱花，剩下的掰成5-8cm段。  \n   - 牛肉泡凉水半小时去血水，或凉水下锅煮至表面变白捞出，期间撇去浮沫。  \n   - 洋葱切0.5-1cm小粒。\n\n2. **炖煮准备**  \n   - 凉水没过牛肉，放入高压锅，加入葱段、姜片和20g料酒，上汽后压20分钟。  \n   - 取出牛肉后切5cm大块，挑出姜片，将汤盛到一个大碗中备用。\n\n3. **炒香调料**  \n   - 倒油，油四到五成热后下花椒、八角、香叶，出香味后挑出不用。  \n   - 下入牛肉和葱姜，炒香，如快糊时舀10ml汤汁防止粘锅。\n\n4. **调味与炖煮**  \n   - 加入生抽15ml、料酒15ml、胡椒粉2g，再加入番茄膏或番茄酱（5-10g），加入洋葱炒至透明。  \n   - （可选）加一点点盐使洋葱出水，避免糊锅。  \n   - 加入西红柿炒至软烂，倒入之前准备的汤汁。\n\n5. **加入土豆**  \n   - 中火开锅后，全程小火炖煮，出锅前30-40分钟加入土豆。  \n   - 依据个人口味边尝边加糖和盐，调整至合适味道。\n\n6. **完成**  \n   - 筷子戳牛肉软烂后即可出锅。\n\n---\n\n### 总耗时  \n- 总耗时：约1小时至1.5小时（含焯水、炖煮时间）\n\n---\n\n### 预估热量  \n- 每份热量：约827大卡（基于食材用量估算）\n\n---\n\n### 难度  \n- 难度：★★★★（适合有一定烹饪经验者）\n\n---\n\n### 烹饪小贴士  \n1. **少油技巧**：使用15ml油即可，若使用牛腩可减少至10ml，保持清淡口感。  \n2. **避免土豆太烂**：炖煮时不要扣盖，且要时常翻动，防止糊底。  \n3. **调味建议**：酱油总量不宜过多，汤汁浓缩时会更咸，可分次添加；不建议使用鸡精味精，以免掩盖牛肉鲜味。"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        },
+        {
+          "id": 2,
+          "name": "洋葱炒牛肉",
+          "intent": "利用用户已有的洋葱和牛肉，快炒方式少油，增加菜品多样性。",
+          "query": "洋葱炒牛肉 少油做法 热量 烹饪时长 不辣",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [],
+          "memory_conflicts": [],
+          "ingredients": [
+            "牛肉用量为 250 g/人",
+            "青椒用量为 2 颗/人, 每颗 100g",
+            "孜然用量为 20 g/人",
+            "小米椒用量为 3 颗/人, 每颗 5g",
+            "生抽酱油用量为 20 ml/人",
+            "淀粉用量为 10g/人",
+            "油用量为 15ml/人",
+            "盐量用量为 3 g/人",
+            "葱用量为 1 根/人, 每颗 20g",
+            "葱的用量为 0.5 根/人",
+            "姜的用量为 1 个/人",
+            "盐的用量为 3 g/人",
+            "糖的用量为 1.5 g/人",
+            "酱油的用量为 9 ml/人"
+          ],
+          "cook_steps": [
+            "菜品详细整理结果\n\n### 食材清单  \n- 牛肉：250g（建议使用牛柳或牛肩肉）  \n- 洋葱：1个（约200g）  \n- 生抽酱油：20ml  \n- 淀粉：10g  \n- 油：15ml（可减少至10ml以少油）  \n- 盐：3g  \n- 葱：1根（切段）  \n\n---\n\n### 烹饪步骤  \n1. **准备食材**：洋葱去皮切丝，葱切段。牛肉洗净后切成薄片，用厨房纸吸干水分。  \n2. **腌制牛肉**：将牛肉放入碗中，加入生抽、淀粉和油，搅拌均匀，腌制30分钟。  \n3. **热锅炒香**：锅中倒入油，加热后放入葱段爆香。  \n4. **煸炒牛肉**：将腌好的牛肉放入锅中，快速翻炒至变色。  \n5. **加入洋葱**：放入洋葱丝，继续翻炒至洋葱变软。  \n6. **调味出锅**：加入盐，翻炒均匀后即可出锅。  \n\n---\n\n### 总耗时  \n- 准备时间：10分钟  \n- 烹饪时间：15分钟  \n- **总计**：25分钟  \n\n---\n\n### 预估热量  \n- 每份热量：约 480 大卡（根据实际用量调整）  \n\n---\n\n### 难度  \n- ★★★☆☆（适合家庭操作，简单易上手）\n\n---\n\n### 烹饪小贴士  \n1. **少油技巧**：可用不粘锅或少量油煎炒，避免油腻感。  \n2. **牛肉嫩化**：腌制时加入少许小苏打（每500g牛肉加3g），可使口感更嫩滑。  \n3. **洋葱处理**：若不喜欢洋葱的辛辣味，可提前用清水浸泡10分钟再炒。"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        }
+      ],
+      "shopping_list": [
+        "牛肉 500-700g（用于：土豆炖牛肉）",
+        "小料（用于：土豆炖牛肉）",
+        "葱一根，姜四片，料酒（用于：土豆炖牛肉）",
+        "花椒 3g（用于：土豆炖牛肉）",
+        "八角一个（半）（用于：土豆炖牛肉）",
+        "香叶两片（用于：土豆炖牛肉）",
+        "油 15ml （若用牛腩可根据喜好减少为 10ml）（用于：土豆炖牛肉）",
+        "调味品（用于：土豆炖牛肉）",
+        "白糖 or 冰糖（用于：土豆炖牛肉）",
+        "酱油（千禾酿造生抽无添加），老抽（用于：土豆炖牛肉）",
+        "黑胡椒粉（白的也行）2g（用于：土豆炖牛肉）",
+        "土豆两三个（看喜好，锅能盛了为准）（用于：土豆炖牛肉）",
+        "西红柿拳头大小中等个头两三个（用于：土豆炖牛肉）",
+        "比拳头大一点的洋葱一个（用于：土豆炖牛肉）",
+        "牛肉用量为 250 g/人（用于：洋葱炒牛肉）",
+        "青椒用量为 2 颗/人, 每颗 100g（用于：洋葱炒牛肉）",
+        "孜然用量为 20 g/人（用于：洋葱炒牛肉）",
+        "小米椒用量为 3 颗/人, 每颗 5g（用于：洋葱炒牛肉）",
+        "生抽酱油用量为 20 ml/人（用于：洋葱炒牛肉）",
+        "淀粉用量为 10g/人（用于：洋葱炒牛肉）",
+        "油用量为 15ml/人（用于：洋葱炒牛肉）",
+        "盐量用量为 3 g/人（用于：洋葱炒牛肉）",
+        "葱用量为 1 根/人, 每颗 20g（用于：洋葱炒牛肉）",
+        "葱的用量为 0.5 根/人（用于：洋葱炒牛肉）",
+        "姜的用量为 1 个/人（用于：洋葱炒牛肉）",
+        "盐的用量为 3 g/人（用于：洋葱炒牛肉）",
+        "糖的用量为 1.5 g/人（用于：洋葱炒牛肉）",
+        "酱油的用量为 9 ml/人（用于：洋葱炒牛肉）"
+      ],
+      "total_calories": 0
+    },
+    "case_004_vegetarian": {
+      "menu_markdown": "```markdown\n# 完整菜谱套餐：素食晚餐，三道菜，不要鸡蛋，想清淡一点\n\n## 1. **用餐需求总览**\n\n- **用户原始需求**：素食晚餐，三道菜，不要鸡蛋，想清淡一点。\n- **忌口/过敏原**：无明确提及，但需避免使用鸡蛋。\n- **用户冰箱现有食材**：\n  - 冬瓜（用于清蒸冬瓜）\n  - 豆腐（用于豆腐海带汤）\n  - 海带（用于豆腐海带汤）\n  - 青菜（用于素炒时蔬）\n- **整体用餐定位**：清淡素食晚餐，适合减脂或健康饮食。\n\n---\n\n## 2. **整套菜单概览表**\n\n| 菜名         | 制作时长 | 难度 | 单菜预估热量 |\n|--------------|----------|------|----------------|\n| 清蒸冬瓜     | 25 分钟  | ★★★  | 约 519 大卡   |\n| 素炒时蔬     | 5-7 分钟 | ★★   | 约 152 大卡   |\n| 豆腐海带汤   | 15 分钟  | ★★   | 约 100 大卡   |\n\n---\n\n## 3. **分类采购清单**\n\n### 已有食材（无需额外购买）\n\n- 冬瓜（300 g）\n- 豆腐（250 g）\n- 海带（根据实际用量）\n- 青菜（100g）\n- 小葱（10 g）\n- 大蒜（2-3 瓣）\n\n### 需要采购食材（合并去重后）\n\n| 食材名称       | 用量        | 用途说明             |\n|----------------|-------------|----------------------|\n| 食用油         | 60-65 ml    | 用于清蒸冬瓜和素炒时蔬 |\n| 料酒           | 2 ml        | 用于清蒸冬瓜         |\n| 淀粉           | 10 g        | 用于清蒸冬瓜         |\n| 生抽           | 25 ml       | 用于清蒸冬瓜和豆腐海带汤 |\n| 老抽           | 15 ml       | 用于清蒸冬瓜         |\n| 鸡精           | 3 g         | 用于清蒸冬瓜         |\n| 香葱           | 0.5 根      | 用于清蒸冬瓜         |\n| 姜末           | 1 粒        | 用于清蒸冬瓜         |\n| 蚝油           | 15 ml       | 用于清蒸冬瓜         |\n| 蒜瓣           | 2 粒        | 用于素炒时蔬         |\n| 食盐           | 2 g         | 用于素炒时蔬         |\n| 白糖           | 7 g         | 用于素炒时蔬和豆腐海带汤 |\n| 香油           | 5 ml        | 用于豆腐海带汤       |\n| 醋             | 5 ml        | 可选，用于豆腐海带汤 |\n| 辣椒油         | 5 ml        | 可选，用于豆腐海带汤 |\n\n---\n\n## 4. **单菜详细做法**\n\n### 4.1 清蒸冬瓜\n\n#### 食材明细\n- 冬瓜：300 g  \n- 食用油：50 ml  \n- 料酒：2 ml  \n- 淀粉：10 g  \n- 生抽：10 ml  \n- 老抽：15 ml  \n- 鸡精：3 g  \n- 香葱：0.5 根  \n- 姜末：1 粒  \n- 蚝油：15 ml  \n\n#### 烹饪步骤\n1. **准备冬瓜**：将冬瓜去皮，切成边长不超过 2 cm 的小块。\n2. **煎冬瓜**：起锅烧油，放入冬瓜，缓缓翻炒约 2 分钟，直至冬瓜表面泛金黄色。\n3. **调味翻炒**：取出冬瓜备用。利用锅中剩余的油，依次加入姜末、生抽、蚝油，翻炒约 15 秒。\n4. **炖煮冬瓜**：重新倒入冬瓜，翻炒 30 秒后，加入开水，水要没过冬瓜表面，大火煮 10 分钟。\n5. **上色与收汁**：加入老抽上色，继续煮至冬瓜软糯（筷子可轻松插入）。\n6. **调味出锅**：加入鸡精、料酒、香葱，翻炒 30 秒后，取出冬瓜到大碗中。\n7. **勾芡**：锅中剩余汤汁保留，倒入水淀粉，煮开后浇灌在冬瓜表面。\n\n#### 烹饪小贴士\n- **避免冬瓜变色**：冬瓜在烹饪过程中容易变色，可在最后加入老抽上色，避免提前加。\n- **控制火候**：炖煮时保持大火，确保冬瓜快速入味且不煮烂。\n- **食材替换建议**：若想更清淡，可用少量橄榄油代替食用油，或减少酱油用量以降低盐分。\n\n---\n\n### 4.2 素炒时蔬\n\n#### 食材明细\n- 青菜：100g  \n- 蒜瓣：2 粒  \n- 食用油：10-15ml（覆盖锅底即可）  \n- 食盐：2g  \n- 白糖：5g  \n\n#### 烹饪步骤\n1. **备菜**：青菜掰成小瓣，用清水洗净，备用。\n2. **准备配料**：将蒜瓣剁碎，备用。\n3. **热锅**：中火或大火热锅后，锅内放入 10-15ml 食用油。再等待 30 秒让油温升高。\n4. **炒青菜**：将准备好的青菜倒入锅中，翻炒至青菜变软（约 1 分钟）。\n5. **加入蒜末**：放入剁碎的蒜瓣。\n6. **加水调味**：倒入计算好的清水，水位应当完全浸润或即将没过青菜，加入食盐（2g），继续翻炒约 1 分钟。\n7. **收汁**：最后加入白糖，小火加热 2 分钟，加热时盖上锅盖。\n8. **出锅**：盛盘，完成。\n\n#### 烹饪小贴士\n- **控制火候**：炒青菜时火候不宜过大，避免蔬菜焦糊影响口感。\n- **调味灵活**：若不喜欢甜味，可减少白糖用量或替换为少许生抽提鲜。\n- **食材替换**：如无青菜，可用小白菜、菠菜等绿叶蔬菜替代，同样适用此做法。\n\n---\n\n### 4.3 豆腐海带汤\n\n#### 食材明细\n- 豆腐：250 g  \n- 海带：适量  \n- 小葱：10 g  \n- 大蒜：2-3 粒  \n- 生抽：15 ml  \n- 香油：5 ml  \n- 醋：5 ml（可选）  \n- 白糖：2 g（可选）  \n- 辣椒油：5 ml（可选）  \n\n#### 烹饪步骤\n1. **准备食材**：豆腐切块，海带泡发后切段，小葱切段，大蒜切末。\n2. **焯水处理**：锅中加水烧开，放入海带焯水 2 分钟，捞出沥干。\n3. **炒香调料**：热锅凉油，放入蒜末炒香，加入生抽、白糖、醋、辣椒油（可选）调味。\n4. **煮汤**：加入适量清水，放入豆腐和海带，大火煮沸后转中小火煮 10 分钟。\n5. **调味收汁**：加入香油，撒上小葱，搅拌均匀后关火。\n6. **装盘**：盛入碗中，即可享用。\n\n#### 烹饪小贴士\n- **海带处理**：海带需提前泡发，去除杂质，口感更佳。\n- **调味灵活**：可根据个人口味调整调料比例，如喜欢酸味可多加醋，喜欢辣味可加辣椒油。\n- **豆腐选择**：选用嫩豆腐更易入味，口感更滑嫩。\n\n---\n\n## 5. **厨房操作先后建议**\n\n1. **先处理冬瓜**：清蒸冬瓜需要较长时间，建议优先开始。\n2. **接着炒青菜**：素炒时蔬耗时短，可在冬瓜炖煮期间进行。\n3. **最后做豆腐海带汤**：豆腐海带汤制作时间适中，可在其他两道菜完成后进行。\n\n---\n\n## 6. **整体营养小结**\n\n- **总热量**：约 771 大卡（清蒸冬瓜 519 + 素炒时蔬 152 + 豆腐海带汤 100）\n- **饮食适配评价**：\n  - 符合素食要求，不含鸡蛋。\n  - 清淡少油，适合减脂或健康饮食。\n  - 营养均衡，包含蛋白质（豆腐）、膳食纤维（冬瓜、青菜、海带）及多种维生素。\n- **微调建议**：\n  - 若希望更清淡，可减少食用油和酱油用量。\n  - 可增加一些坚果或全谷类作为主食搭配，提升饱腹感。\n\n---\n\n## 7. **饮食安全提醒**\n\n- **规避食材**：本菜单中未使用任何含鸡蛋成分，符合“不要鸡蛋”要求。\n- **过敏原提示**：未涉及常见过敏原（如花生、海鲜等），适合大多数人群。\n- **食材安全性**：所有食材均为常见食材，注意清洗干净，避免食物中毒风险。\n\n---\n\n,\"content\":\"请在此沉淀最终菜谱\"}]\n```",
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "清蒸冬瓜",
+          "intent": "使用用户已有冬瓜，蒸制清淡少油，符合素食和不辣需求。",
+          "query": "清蒸冬瓜 核心食材 冬瓜 不辣 家常做法 烹饪时长 热量",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣"
+          ],
+          "memory_conflicts": [],
+          "ingredients": [
+            "冬瓜 300 g",
+            "食用油 50 ml",
+            "料酒 2 ml",
+            "淀粉 10 g",
+            "生抽 10 ml",
+            "老抽 15 ml",
+            "鸡精 3 g",
+            "香葱 0.5 根",
+            "姜末 1 粒",
+            "蚝油 15 ml"
+          ],
+          "cook_steps": [
+            "菜品详细整理结果\n\n### 食材清单\n- 冬瓜：300 g  \n- 食用油：50 ml  \n- 料酒：2 ml  \n- 淀粉：10 g  \n- 生抽：10 ml  \n- 老抽：15 ml  \n- 鸡精：3 g  \n- 香葱：0.5 根  \n- 姜末：1 粒  \n- 蚝油：15 ml  \n\n### 烹饪步骤\n1. **准备冬瓜**：将冬瓜去皮，切成边长不超过 2 cm 的小块。\n2. **煎冬瓜**：起锅烧油，放入冬瓜，缓缓翻炒约 2 分钟，直至冬瓜表面泛金黄色。\n3. **调味翻炒**：取出冬瓜备用。利用锅中剩余的油，依次加入姜末、生抽、蚝油，翻炒约 15 秒。\n4. **炖煮冬瓜**：重新倒入冬瓜，翻炒 30 秒后，加入开水，水要没过冬瓜表面，大火煮 10 分钟。\n5. **上色与收汁**：加入老抽上色，继续煮至冬瓜软糯（筷子可轻松插入）。\n6. **调味出锅**：加入鸡精、料酒、香葱，翻炒 30 秒后，取出冬瓜到大碗中。\n7. **勾芡**：锅中剩余汤汁保留，倒入水淀粉，煮开后浇灌在冬瓜表面。\n\n### 总耗时\n- 烹饪总时长：约 25 分钟\n\n### 预估热量\n- 每份热量：约 519 大卡\n\n### 难度\n- 难度：★★★（中等）\n\n### 烹饪小贴士\n1. **避免冬瓜变色**：冬瓜在烹饪过程中容易变色，可在最后加入老抽上色，避免提前加。\n2. **控制火候**：炖煮时保持大火，确保冬瓜快速入味且不煮烂。\n3. **食材替换建议**：若想更清淡，可用少量橄榄油代替食用油，或减少酱油用量以降低盐分。"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        },
+        {
+          "id": 2,
+          "name": "素炒时蔬",
+          "intent": "搭配用户可能有的常见蔬菜，清淡调味，满足素食和不辣要求。",
+          "query": "素炒时蔬 核心食材 蔬菜 不辣 家常做法 烹饪时长 热量",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考常用食材：胡萝卜、青椒"
+          ],
+          "memory_conflicts": [],
+          "ingredients": [
+            "青菜 100g * 份数",
+            "蒜瓣 2 粒 * 份数",
+            "食用油 10-15ml（覆盖锅底即可）",
+            "食盐 2g * 份数",
+            "饮用水 70ml * 份数",
+            "白糖 5g * 份数"
+          ],
+          "cook_steps": [
+            "菜品详细整理结果\n\n### 食材清单  \n- 青菜 100g  \n- 蒜瓣 2 粒  \n- 食用油 10-15ml（覆盖锅底即可）  \n- 食盐 2g  \n- 白糖 5g  \n\n### 烹饪步骤  \n1. **备菜**：青菜掰成小瓣，用清水洗净，备用。  \n2. **准备配料**：将蒜瓣剁碎，备用。  \n3. **热锅**：中火或大火热锅后，锅内放入 10-15ml 食用油。再等待 30 秒让油温升高。  \n4. **炒青菜**：将准备好的青菜倒入锅中，翻炒至青菜变软（约 1 分钟）。  \n5. **加入蒜末**：放入剁碎的蒜瓣。  \n6. **加水调味**：倒入计算好的清水，水位应当完全浸润或即将没过青菜，加入食盐（2g），继续翻炒约 1 分钟。  \n7. **收汁**：最后加入白糖，小火加热 2 分钟，加热时盖上锅盖。  \n8. **出锅**：盛盘，完成。\n\n### 总耗时  \n- 烹饪时间：约 5-7 分钟（不含备菜时间）\n\n### 预估热量  \n- 每份约 152 大卡\n\n### 难度  \n- ★★（适合新手）\n\n### 烹饪小贴士  \n1. **控制火候**：炒青菜时火候不宜过大，避免蔬菜焦糊影响口感。  \n2. **调味灵活**：若不喜欢甜味，可减少白糖用量或替换为少许生抽提鲜。  \n3. **食材替换**：如无青菜，可用小白菜、菠菜等绿叶蔬菜替代，同样适用此做法。"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        },
+        {
+          "id": 3,
+          "name": "豆腐海带汤",
+          "intent": "使用用户可能有的豆腐和海带，清淡汤品，补充蛋白质和营养。",
+          "query": "豆腐海带汤 核心食材 豆腐 海带 不辣 家常做法 烹饪时长 热量",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考常用食材：豆腐、海带"
+          ],
+          "memory_conflicts": [],
+          "ingredients": [
+            "豆腐 250 g （约 1 块常见大小的豆腐）",
+            "小葱 10 g",
+            "大蒜 2-3 瓣",
+            "生抽 15 ml",
+            "香油 5 ml",
+            "醋 5 ml（可选）",
+            "白糖 2 g（可选）",
+            "辣椒油 5 ml（可选）"
+          ],
+          "cook_steps": [
+            ",\"content\":\"记录本道菜需求定位、搜索信息、完整用料、烹饪步骤、热量与实操小贴士\"}]"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        }
+      ],
+      "shopping_list": [
+        "冬瓜 300 g（用于：清蒸冬瓜）",
+        "食用油 50 ml（用于：清蒸冬瓜）",
+        "料酒 2 ml（用于：清蒸冬瓜）",
+        "淀粉 10 g（用于：清蒸冬瓜）",
+        "生抽 10 ml（用于：清蒸冬瓜）",
+        "老抽 15 ml（用于：清蒸冬瓜）",
+        "鸡精 3 g（用于：清蒸冬瓜）",
+        "香葱 0.5 根（用于：清蒸冬瓜）",
+        "姜末 1 粒（用于：清蒸冬瓜）",
+        "蚝油 15 ml（用于：清蒸冬瓜）",
+        "青菜 100g * 份数（用于：素炒时蔬）",
+        "蒜瓣 2 粒 * 份数（用于：素炒时蔬）",
+        "食用油 10-15ml（覆盖锅底即可）（用于：素炒时蔬）",
+        "食盐 2g * 份数（用于：素炒时蔬）",
+        "饮用水 70ml * 份数（用于：素炒时蔬）",
+        "白糖 5g * 份数（用于：素炒时蔬）",
+        "豆腐 250 g （约 1 块常见大小的豆腐）（用于：豆腐海带汤）",
+        "小葱 10 g（用于：豆腐海带汤）",
+        "大蒜 2-3 瓣（用于：豆腐海带汤）",
+        "生抽 15 ml（用于：豆腐海带汤）",
+        "香油 5 ml（用于：豆腐海带汤）",
+        "醋 5 ml（可选）（用于：豆腐海带汤）",
+        "白糖 2 g（可选）（用于：豆腐海带汤）",
+        "辣椒油 5 ml（可选）（用于：豆腐海带汤）"
+      ],
+      "total_calories": 0
+    },
+    "case_005_family_meal": {
+      "menu_markdown": "```markdown\n# 完整菜谱报告：四人家庭晚餐，有小孩，少辣少盐，做4道菜，最好有汤\n\n## 1. **用餐需求总览**\n\n- **原始需求**：为四人家庭准备一顿晚餐，包含4道菜和一道汤，适合有小孩的家庭，要求少辣、少盐。\n- **忌口/过敏原**：暂无相关信息。\n- **用户冰箱现有食材**：\n  - 冬瓜（200g）\n  - 猪肉末（300g）\n  - 鸡蛋（1个）\n  - 葱花（约20g）\n  - 胡椒粉（5g）\n  - 生抽（10ml）\n  - 淀粉（5g）\n  - 水淀粉（25g）\n  - 葱姜末（姜3-4片约30g，葱白部分）\n  - 盐（20g）\n  - 青菜（100g * 份数）\n  - 蒜瓣（2粒 * 份数）\n  - 食用油（10-15ml）\n  - 食盐（2g * 份数）\n  - 饮用水（70ml * 份数）\n  - 白糖（5g * 份数）\n  - 西红柿（1个）\n  - 豆腐（100g）\n  - 香葱（0.5根）\n  - 姜（1片）\n  - 开水（350ml）\n  - 冷饭（500g）\n  - 鸡蛋（2-3个）\n  - 火腿（8个）\n  - 黄瓜（可选，30g * 份数）\n  - 胡萝卜（可选，30g * 份数）\n  - 油（30-40ml）\n  - 盐（12-15g）\n  - 胡椒粉（8g）\n  - 香葱（1颗）\n  - 生抽（10ml * 份数）\n  - 冷冻去头去皮基围虾（10-15只）\n  - 午餐肉罐头（150g）\n  - 青豆（30g）\n  - 玉米粒（30g）\n  - 葱（1根）\n\n- **整体用餐定位**：家庭晚餐，适合儿童食用，清淡少油，营养均衡。\n\n---\n\n## 2. **整套菜单概览表**\n\n| 菜名             | 制作时长 | 难度     | 单菜预估热量 |\n|------------------|----------|----------|--------------|\n| 冬瓜炖肉末       | 25分钟   | ★★★★☆    | 578大卡/份   |\n| 清炒时蔬         | 10分钟   | ★★       | 152大卡/份   |\n| 番茄豆腐汤       | 15分钟   | ★★       | 242大卡/份   |\n| 鸡蛋炒饭         | 25分钟   | ★★★      | 213大卡/份   |\n\n---\n\n## 3. **分类采购清单**\n\n### 已有食材（无需额外购买）：\n\n- 冬瓜：200g\n- 猪肉末：300g\n- 鸡蛋：1个（用于冬瓜炖肉末）、1个（用于番茄豆腐汤）、2-3个（用于鸡蛋炒饭）\n- 葱花：约20g\n- 胡椒粉：5g\n- 生抽：10ml\n- 淀粉：5g\n- 水淀粉：25g\n- 葱姜末：姜3-4片约30g，葱白部分\n- 盐：20g\n- 青菜：100g * 份数\n- 蒜瓣：2粒 * 份数\n- 食用油：10-15ml\n- 食盐：2g * 份数\n- 饮用水：70ml * 份数\n- 白糖：5g * 份数\n- 西红柿：1个\n- 豆腐：100g\n- 香葱：0.5根\n- 姜：1片\n- 开水：350ml\n- 冷饭：500g\n- 火腿：8个\n- 黄瓜：可选，30g * 份数\n- 胡萝卜：可选，30g * 份数\n- 油：30-40ml\n- 盐：12-15g\n- 胡椒粉：8g\n- 香葱：1颗\n- 生抽：10ml * 份数\n- 冷冻去头去皮基围虾：10-15只\n- 午餐肉罐头：150g\n- 青豆：30g\n- 玉米粒：30g\n- 葱：1根\n\n### 需要采购食材（合并后）：\n\n- **无新增采购项**：所有所需食材均已在用户已有库存中。\n\n---\n\n## 4. **单菜详细做法**\n\n### 1. 冬瓜炖肉末\n\n#### 食材明细：\n- 猪肉末：300g  \n- 冬瓜：200g  \n- 鸡蛋：1个（可选）  \n- 葱花：约20g  \n- 胡椒粉：5g  \n- 生抽：10ml  \n- 淀粉：5g  \n- 水淀粉：25g（淀粉25g + 水50ml）  \n- 葱姜末：姜3-4片约30g，葱白部分  \n- 盐：20g（其中冬瓜腌制用15g）\n\n#### 烹饪步骤：\n1. 冬瓜去皮，切成25cm长、3cm厚的片。  \n2. 将切好的冬瓜放入碗中，加入15g盐，抹匀后放置10分钟。  \n3. 另取一碗，加入猪肉末、葱姜末、5g盐、5g淀粉、5g胡椒粉、10ml生抽，顺时针搅拌至颜色均匀（约2分钟）。  \n4. 腌制完成后，用清水将冬瓜洗三遍。  \n5. 取一片冬瓜片，卷起并塞入肉末。  \n6. 将卷好的冬瓜片摆放在碟子边缘，中间打入一个鸡蛋。  \n7. 将碟子放入普通铁锅中，水烧开后蒸15分钟，盖上锅盖。  \n8. 蒸好后取出，将碟子中的水倒入锅中，加入水淀粉和50ml清水煮开。  \n9. 将煮好的酱汁淋在冬瓜酿肉上。\n\n#### 烹饪小贴士：\n- 少盐少辣：可根据口味减少盐的用量，或使用低钠酱油替代部分盐。\n- 肉馅搅拌技巧：搅拌肉馅时要顺时针方向，确保肉末充分混合，口感更嫩。\n- 冬瓜选择：选用新鲜冬瓜，质地较硬，不易碎，更适合酿肉。\n\n---\n\n### 2. 清炒时蔬\n\n#### 食材明细：\n- 青菜：100g * 4 份（共 400g）  \n- 蒜瓣：2 粒 * 4 份（共 8 粒）  \n- 食用油：10-15ml（覆盖锅底即可）  \n- 食盐：2g * 4 份（共 8g）  \n- 饮用水：70ml * 4 份（共 280ml）  \n- 白糖：5g * 4 份（共 20g）\n\n#### 烹饪步骤：\n1. 青菜掰成小瓣，用清水洗净，备用。  \n2. 将蒜瓣剁碎，备用。  \n3. 中火或大火热锅后，锅内放入10-15ml食用油。等待30秒让油温升高。  \n4. 将准备好的青菜倒入锅中，翻炒至青菜变软（约1分钟）。  \n5. 放入剁碎的蒜瓣。  \n6. 倒入计算好的清水，水位应当完全浸润或即将没过青菜，加入食盐（2g * 份数），继续翻炒约1分钟。  \n7. 最后加入白糖，小火加热2分钟，加热时盖上锅盖。  \n8. 出锅装盘。\n\n#### 烹饪小贴士：\n- 少盐少辣：可减少食盐用量，或用少量酱油代替部分盐分，以满足少盐需求。\n- 食材替换：若家中没有青菜，可用菠菜、小白菜等绿叶蔬菜替代。\n- 火候控制：炒青菜时注意火候，避免过度翻炒导致营养流失，保持脆嫩口感。\n\n---\n\n### 3. 番茄豆腐汤\n\n#### 食材明细：\n- 西红柿：1个  \n- 鸡蛋：1个  \n- 豆腐：100g  \n- 食用油：5ml  \n- 盐：2g  \n- 淀粉：5g  \n- 鸡精：2g  \n- 香葱：0.5根  \n- 姜：1片  \n- 开水：350ml  \n\n#### 烹饪步骤：\n1. 西红柿切成小丁，鸡蛋打入碗中搅拌均匀，豆腐切块备用。  \n2. 起锅烧油，放入姜片炒香约5秒。  \n3. 加入西红柿丁翻炒约30秒。  \n4. 倒入开水，煮沸后加入鸡蛋液和豆腐块，继续煮约60秒。  \n5. 加入水淀粉，沿一个方向搅拌约2圈，使汤汁浓稠。  \n6. 加入鸡精、盐和香葱，再煮30秒即可出锅。\n\n#### 烹饪小贴士：\n- 少盐少辣：可根据个人口味减少盐的用量，或使用低钠盐替代普通食盐。\n- 豆腐选择：建议选用嫩豆腐，口感更滑嫩；若喜欢口感稍硬，可选用老豆腐。\n- 火候控制：勾芡时要沿一个方向搅拌，避免淀粉结块，使汤汁更顺滑。\n\n---\n\n### 4. 鸡蛋炒饭\n\n#### 食材明细：\n- 冷饭：500g  \n- 鸡蛋：2-3个  \n- 火腿：8个  \n- 黄瓜：可选，30g * 份数  \n- 胡萝卜：可选，30g * 份数  \n- 油：30-40ml  \n- 盐：12-15g  \n- 胡椒粉：8g  \n- 香葱：1颗  \n- 生抽：10ml * 份数  \n- 冷冻去头去皮基围虾：10-15只  \n- 午餐肉罐头：150g  \n- 青豆：30g  \n- 玉米粒：30g  \n- 葱：1根  \n\n#### 烹饪步骤：\n1. 将米饭提前用铲子铲成小块；火腿肠、胡萝卜、黄瓜等根据需求切片或块状；如果家里有熟肉准备好。  \n2. 将蛋白和蛋黄分别打入碗中，各自搅匀。注意不要在这一步加盐。  \n3. 大火热锅，待锅里冒烟后放入食用油，放入蛋白，待主体凝固后盛出备用。  \n4. 如果油够，则直接放入蛋黄，如果油不够则再加入食用油并等其升温到大火热锅；待主体凝固后，将火调至中小火，倒入火腿肠、熟肉、胡萝卜、黄瓜等备料，翻炒10秒钟（到爆香）。  \n5. 重新倒入蛋白，翻炒5秒钟，迅速倒入米饭大火翻炒，为的就是每一粒饭都裹上鸡蛋。  \n6. 翻炒过程中将米饭的块状捣碎，这一步过程会比较长，待米饭全部捣碎再翻炒均匀即可。  \n7. 调至小火，加盐、胡椒粉、生抽，进一步翻炒均匀，能看到一些米饭在锅里有“跳起来”的时候其实就已经差不多了。  \n8. 最后倒入香葱再翻炒10秒，关火、盛入碗中。\n\n#### 烹饪小贴士：\n- 使用冷饭最佳：建议使用隔夜的冷饭，这样炒出来的米饭更干爽、粒粒分明。如果没有冷饭，可以现煮并立即放入冰箱降温。\n- 控制火候：炒饭时要掌握好火候，先用大火快速翻炒，再转小火调味，避免粘锅或糊底。\n- 少盐少辣：可根据家庭成员口味调整盐量，若需减少盐分，可适当减少盐的用量，或用其他调味品如酱油、胡椒粉来提味。\n\n---\n\n## 5. **厨房操作先后建议**\n\n1. **先处理主菜**：首先开始制作“冬瓜炖肉末”，利用蒸制时间进行其他菜品的准备。\n2. **同时准备清炒时蔬**：在冬瓜炖肉末蒸制期间，可以开始清洗青菜、切蒜末，准备炒制。\n3. **接着制作番茄豆腐汤**：在炒青菜的同时，可以开始准备番茄豆腐汤，利用煮汤的时间进行其他操作。\n4. **最后炒饭**：在所有菜品接近完成时，开始炒饭，确保热腾腾地端上桌。\n\n---\n\n## 6. **整体营养小结**\n\n- **总热量**：每份约 578 + 152 + 242 + 213 = **1185大卡**\n- **饮食适配评价**：\n  - 本套餐符合“少辣少盐”、“适合儿童”、“家庭晚餐”等需求。\n  - 含有丰富的蛋白质（来自肉末、豆腐、鸡蛋、火腿等）、碳水化合物（米饭）、维生素（青菜、番茄）和膳食纤维（冬瓜、青菜）。\n- **微调建议**：\n  - 若希望更加健康，可减少炒饭中油的用量，或增加蔬菜比例。\n  - 若有特殊饮食需求（如素食），可考虑替换部分肉类为豆制品。\n\n---\n\n## 7. **饮食安全提醒**\n\n- 本套餐全程规避以下忌口/过敏原：**无已知忌口信息**。\n- 所有菜品均采用**少盐少辣**方式制作，适合儿童及家庭成员食用。\n- 所有食材均为用户已有库存，未添加任何额外配料，确保食品安全与可控性。\n\n---\n\n,\"content\":\"请在此沉淀最终菜谱\"}]\n```",
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "冬瓜炖肉末",
+          "intent": "利用用户已有冬瓜和猪肉末，清淡少油，适合小孩和家庭食用。",
+          "query": "冬瓜炖肉末 做法 热量 少盐 少辣 家常菜",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣",
+            "参考常用食材：猪肉末"
+          ],
+          "memory_conflicts": [],
+          "ingredients": [
+            "猪肉末 300g",
+            "鸡蛋 1 个（可选,不习惯的人可能会有点腥）",
+            "冬瓜 200g",
+            "葱花（一根,约 20g）",
+            "胡椒粉 5g",
+            "生抽 10ml",
+            "淀粉 5g",
+            "水淀粉 25g（淀粉 25g,水 50ml）",
+            "葱姜末（姜 3-4 片约 30g, 取上面一根葱花中的葱白部分即可）",
+            "盐 20g"
+          ],
+          "cook_steps": [
+            "菜品详细整理结果\n\n### 食材清单\n- 猪肉末：300g  \n- 冬瓜：200g  \n- 鸡蛋：1个（可选）  \n- 葱花：约20g  \n- 胡椒粉：5g  \n- 生抽：10ml  \n- 淀粉：5g  \n- 水淀粉：25g（淀粉25g + 水50ml）  \n- 葱姜末：姜3-4片约30g，葱白部分  \n- 盐：20g（其中冬瓜腌制用15g）\n\n---\n\n### 烹饪步骤\n1. **处理冬瓜**：冬瓜去皮，切成25cm长、3cm厚的片。  \n2. **腌制冬瓜**：将切好的冬瓜放入碗中，加入15g盐，抹匀后放置10分钟。  \n3. **准备肉馅**：另取一碗，加入猪肉末、葱姜末、5g盐、5g淀粉、5g胡椒粉、10ml生抽，用筷子顺时针搅拌至颜色均匀（约2分钟）。  \n4. **清洗冬瓜**：腌制完成后，用清水将冬瓜洗三遍。  \n5. **卷肉酿冬瓜**：取出一片冬瓜片，卷起并塞入肉末。  \n6. **摆盘**：将卷好的冬瓜片摆放在碟子边缘，中间打入一个鸡蛋。  \n7. **蒸制**：将碟子放入普通铁锅中，水烧开后蒸15分钟，盖上锅盖。  \n8. **勾芡**：蒸好后取出，将碟子中的水倒入锅中，加入水淀粉和50ml清水煮开。  \n9. **淋汁**：将煮好的酱汁淋在冬瓜酿肉上。\n\n---\n\n### 总耗时\n- 准备时间：10分钟  \n- 烹饪时间：15分钟  \n- 总耗时：约25分钟  \n\n---\n\n### 预估热量\n- 每份热量：约578大卡  \n\n---\n\n### 难度\n- ★★★★☆（四星半，适合家庭操作，需注意肉馅搅拌和蒸制火候）\n\n---\n\n### 烹饪小贴士\n1. **少盐少辣**：可根据口味减少盐的用量，或使用低钠酱油替代部分盐。  \n2. **肉馅搅拌技巧**：搅拌肉馅时要顺时针方向，确保肉末充分混合，口感更嫩。  \n3. **冬瓜选择**：选用新鲜冬瓜，质地较硬，不易碎，更适合酿肉。"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        },
+        {
+          "id": 2,
+          "name": "清炒时蔬",
+          "intent": "搭配冬瓜炖肉末，增加蔬菜摄入，满足营养均衡需求。",
+          "query": "清炒时蔬 做法 热量 少盐 少辣 家常菜",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：清淡"
+          ],
+          "memory_conflicts": [],
+          "ingredients": [
+            "青菜 100g * 份数",
+            "蒜瓣 2 粒 * 份数",
+            "食用油 10-15ml（覆盖锅底即可）",
+            "食盐 2g * 份数",
+            "饮用水 70ml * 份数",
+            "白糖 5g * 份数"
+          ],
+          "cook_steps": [
+            "菜品详细整理结果\n\n### 食材清单\n- 青菜 100g * 4 份（共 400g）\n- 蒜瓣 2 粒 * 4 份（共 8 粒）\n- 食用油 10-15ml（覆盖锅底即可）\n- 食盐 2g * 4 份（共 8g）\n- 饮用水 70ml * 4 份（共 280ml）\n- 白糖 5g * 4 份（共 20g）\n\n### 烹饪步骤\n1. **备菜**：青菜掰成小瓣，用清水洗净，备用。\n2. **准备蒜末**：将蒜瓣剁碎，备用。\n3. **热锅**：中火或大火热锅后，锅内放入 10-15ml 食用油。等待 30 秒让油温升高。\n4. **炒青菜**：将准备好的青菜倒入锅中，翻炒至青菜变软（约 1 分钟）。\n5. **加入蒜末**：放入剁碎的蒜瓣。\n6. **加水调味**：倒入计算好的清水，水位应当完全浸润或即将没过青菜，加入食盐（2g * 份数），继续翻炒约 1 分钟。\n7. **加糖收汁**：最后加入白糖，小火加热 2 分钟，加热时盖上锅盖。\n8. **盛盘**：出锅装盘。\n\n### 总耗时\n- 总烹饪时间：约 10 分钟\n\n### 预估热量\n- 每份热量：152 大卡\n- 总热量（4 人份）：608 大卡\n\n### 难度\n- 制作难度：★★（适合家庭操作，简单易学）\n\n### 烹饪小贴士\n1. **少盐少辣**：可减少食盐用量，或用少量酱油代替部分盐分，以满足少盐需求。\n2. **食材替换**：若家中没有青菜，可用菠菜、小白菜等绿叶蔬菜替代。\n3. **火候控制**：炒青菜时注意火候，避免过度翻炒导致营养流失，保持脆嫩口感。"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        },
+        {
+          "id": 3,
+          "name": "番茄豆腐汤",
+          "intent": "提供汤品，补充蛋白质和维生素，适合家庭晚餐。",
+          "query": "番茄豆腐汤 做法 热量 少盐 少辣 家常菜",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：汤类"
+          ],
+          "memory_conflicts": [],
+          "ingredients": [
+            "西红柿 1 个",
+            "鸡蛋 1 个",
+            "豆腐 100 g",
+            "食用油 5 ml",
+            "盐 2 g",
+            "淀粉 5 g",
+            "鸡精 2 g",
+            "香葱 0.5 根",
+            "姜 1 片",
+            "开水 350 ml",
+            "牛肉用量为 150 g/人",
+            "番茄用量为 1 个/人",
+            "鸡蛋用量为 1 个/人",
+            "盐用量为 2 g/人",
+            "胡椒粉用量为 0.5 g/人"
+          ],
+          "cook_steps": [
+            "菜品详细整理结果\n\n### 食材清单\n- 西红柿：1 个  \n- 鸡蛋：1 个  \n- 豆腐：100 g  \n- 食用油：5 ml  \n- 盐：2 g  \n- 淀粉：5 g  \n- 鸡精：2 g  \n- 香葱：0.5 根  \n- 姜：1 片  \n- 开水：350 ml  \n\n### 烹饪步骤\n1. **准备食材**：西红柿切成小丁，鸡蛋打入碗中搅拌均匀，豆腐切块备用。  \n2. **炒香姜片**：起锅烧油，放入姜片炒香约 5 秒。  \n3. **翻炒西红柿**：加入西红柿丁翻炒约 30 秒。  \n4. **煮汤**：倒入开水，煮沸后加入鸡蛋液和豆腐块，继续煮约 60 秒。  \n5. **勾芡**：加入水淀粉，沿一个方向搅拌约 2 圈，使汤汁浓稠。  \n6. **调味**：加入鸡精、盐和香葱，再煮 30 秒即可出锅。\n\n### 总耗时\n- 总耗时：约 15 分钟\n\n### 预估热量\n- 每份热量：约 242 大卡\n\n### 难度\n- 制作难度：★★（适合新手）\n\n### 烹饪小贴士\n1. **少盐少辣**：可根据个人口味减少盐的用量，或使用低钠盐替代普通食盐。\n2. **豆腐选择**：建议选用嫩豆腐，口感更滑嫩；若喜欢口感稍硬，可选用老豆腐。\n3. **火候控制**：勾芡时要沿一个方向搅拌，避免淀粉结块，使汤汁更顺滑。"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        },
+        {
+          "id": 4,
+          "name": "鸡蛋炒饭",
+          "intent": "利用剩余食材，制作简单易食的主食，满足家庭晚餐需求。",
+          "query": "鸡蛋炒饭 做法 热量 少盐 少辣 家常菜",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：炒饭"
+          ],
+          "memory_conflicts": [],
+          "ingredients": [
+            "冷饭（份数*500ml）",
+            "鸡蛋 （份数*1.5 // 1 向下取整）",
+            "火腿（份数*2 个）",
+            "黄瓜（可选，份数*30g）",
+            "胡萝卜（可选，份数*30g）",
+            "油（份数*12ml）",
+            "盐（份数\\*4g - 份数*6g）",
+            "胡椒粉（份数*8g）",
+            "香葱（份数*1 颗）",
+            "生抽（份数*10ml）",
+            "冷饭 500g",
+            "鸡蛋 2-3 个",
+            "冷冻去头去皮基围虾 10-15 只",
+            "午餐肉罐头 150g（推荐上海梅林的火腿午餐肉罐头，340g 每罐，一次用半罐）",
+            "青豆 30g",
+            "胡萝卜 30g",
+            "玉米粒 30g",
+            "葱 1 根",
+            "油 30-40ml",
+            "盐 12-15g"
+          ],
+          "cook_steps": [
+            "菜品详细整理结果\n\n### 食材清单\n\n| 食材 | 用量（4人份） |\n|------|----------------|\n| 冷饭 | 2000ml（约500ml/人） |\n| 鸡蛋 | 6个（1.5个/人，向下取整） |\n| 火腿 | 8个（2个/人） |\n| 黄瓜 | 120g（30g/人，可选） |\n| 胡萝卜 | 120g（30g/人，可选） |\n| 油 | 48ml（12ml/人） |\n| 盐 | 16g - 24g（4g - 6g/人） |\n| 胡椒粉 | 32g（8g/人） |\n| 生抽 | 40ml（10ml/人） |\n| 香葱 | 4颗（1颗/人） |\n| 熟肉（备选） | 根据个人喜好添加（如灯影牛肉丝、午餐肉、腊肠等） |\n\n### 烹饪步骤\n\n1. **准备食材**：将米饭提前用铲子铲成小块；火腿肠、胡萝卜、黄瓜等根据需求切片或块状；如果家里有熟肉准备好。\n2. **打鸡蛋**：将蛋白和蛋黄分别打入碗中，各自搅匀。注意不要在这一步加盐。\n3. **炒蛋白**：大火热锅，待锅里冒烟后放入食用油，放入蛋白，待主体凝固后盛出备用。\n4. **炒蛋黄**：如果油够，则直接放入蛋黄，如果油不够则再加入食用油并等其升温到大火热锅；待主体凝固后，将火调至中小火，倒入火腿肠、熟肉、胡萝卜、黄瓜等备料，翻炒10秒钟（到爆香）。\n5. **炒米饭**：重新倒入蛋白，翻炒5秒钟，迅速倒入米饭大火翻炒，为的就是每一粒饭都裹上鸡蛋。\n6. **捣碎米饭**：翻炒过程中将米饭的块状捣碎，这一步过程会比较长，待米饭全部捣碎再翻炒均匀即可。\n7. **调味**：调至小火，加盐、胡椒粉、生抽，进一步翻炒均匀，能看到一些米饭在锅里有“跳起来”的时候其实就已经差不多了。\n8. **加入香葱**：最后倒入香葱再翻炒10秒，关火、盛入碗中。\n\n### 总耗时\n\n- **总烹饪时长**：约25分钟\n\n### 预估热量\n\n- **每份热量**：约213大卡（总热量853大卡 / 4人）\n\n### 难度\n\n- **难度评级**：★★★（中等难度）\n\n### 烹饪小贴士\n\n1. **使用冷饭最佳**：建议使用隔夜的冷饭，这样炒出来的米饭更干爽、粒粒分明。如果没有冷饭，可以现煮并立即放入冰箱降温。\n2. **控制火候**：炒饭时要掌握好火候，先用大火快速翻炒，再转小火调味，避免粘锅或糊底。\n3. **少盐少辣**：可根据家庭成员口味调整盐量，若需减少盐分，可适当减少盐的用量，或用其他调味品如酱油、胡椒粉来提味。"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        }
+      ],
+      "shopping_list": [
+        "猪肉末 300g（用于：冬瓜炖肉末）",
+        "鸡蛋 1 个（可选,不习惯的人可能会有点腥）（用于：冬瓜炖肉末）",
+        "冬瓜 200g（用于：冬瓜炖肉末）",
+        "葱花（一根,约 20g）（用于：冬瓜炖肉末）",
+        "胡椒粉 5g（用于：冬瓜炖肉末）",
+        "生抽 10ml（用于：冬瓜炖肉末）",
+        "淀粉 5g（用于：冬瓜炖肉末）",
+        "水淀粉 25g（淀粉 25g,水 50ml）（用于：冬瓜炖肉末）",
+        "葱姜末（姜 3-4 片约 30g, 取上面一根葱花中的葱白部分即可）（用于：冬瓜炖肉末）",
+        "盐 20g（用于：冬瓜炖肉末）",
+        "青菜 100g * 份数（用于：清炒时蔬）",
+        "蒜瓣 2 粒 * 份数（用于：清炒时蔬）",
+        "食用油 10-15ml（覆盖锅底即可）（用于：清炒时蔬）",
+        "食盐 2g * 份数（用于：清炒时蔬）",
+        "饮用水 70ml * 份数（用于：清炒时蔬）",
+        "白糖 5g * 份数（用于：清炒时蔬）",
+        "西红柿 1 个（用于：番茄豆腐汤）",
+        "鸡蛋 1 个（用于：番茄豆腐汤）",
+        "豆腐 100 g（用于：番茄豆腐汤）",
+        "食用油 5 ml（用于：番茄豆腐汤）",
+        "盐 2 g（用于：番茄豆腐汤）",
+        "淀粉 5 g（用于：番茄豆腐汤）",
+        "鸡精 2 g（用于：番茄豆腐汤）",
+        "香葱 0.5 根（用于：番茄豆腐汤）",
+        "姜 1 片（用于：番茄豆腐汤）",
+        "开水 350 ml（用于：番茄豆腐汤）",
+        "牛肉用量为 150 g/人（用于：番茄豆腐汤）",
+        "番茄用量为 1 个/人（用于：番茄豆腐汤）",
+        "鸡蛋用量为 1 个/人（用于：番茄豆腐汤）",
+        "盐用量为 2 g/人（用于：番茄豆腐汤）",
+        "胡椒粉用量为 0.5 g/人（用于：番茄豆腐汤）",
+        "冷饭（份数*500ml）（用于：鸡蛋炒饭）",
+        "鸡蛋 （份数*1.5 // 1 向下取整）（用于：鸡蛋炒饭）",
+        "火腿（份数*2 个）（用于：鸡蛋炒饭）",
+        "黄瓜（可选，份数*30g）（用于：鸡蛋炒饭）",
+        "胡萝卜（可选，份数*30g）（用于：鸡蛋炒饭）",
+        "油（份数*12ml）（用于：鸡蛋炒饭）",
+        "盐（份数\\*4g - 份数*6g）（用于：鸡蛋炒饭）",
+        "胡椒粉（份数*8g）（用于：鸡蛋炒饭）",
+        "香葱（份数*1 颗）（用于：鸡蛋炒饭）",
+        "生抽（份数*10ml）（用于：鸡蛋炒饭）",
+        "冷饭 500g（用于：鸡蛋炒饭）",
+        "鸡蛋 2-3 个（用于：鸡蛋炒饭）",
+        "冷冻去头去皮基围虾 10-15 只（用于：鸡蛋炒饭）",
+        "午餐肉罐头 150g（推荐上海梅林的火腿午餐肉罐头，340g 每罐，一次用半罐）（用于：鸡蛋炒饭）",
+        "青豆 30g（用于：鸡蛋炒饭）",
+        "胡萝卜 30g（用于：鸡蛋炒饭）",
+        "玉米粒 30g（用于：鸡蛋炒饭）",
+        "葱 1 根（用于：鸡蛋炒饭）",
+        "油 30-40ml（用于：鸡蛋炒饭）",
+        "盐 12-15g（用于：鸡蛋炒饭）"
+      ],
+      "total_calories": 0
+    },
+    "case_006_quick_lunch": {
+      "menu_markdown": "```markdown\n# 完整菜谱套餐：工作日午餐，15分钟以内，冰箱有鸡胸肉和黄瓜，想减脂\n\n## 1. **用餐需求总览**\n\n- **原始需求**：工作日午餐，15分钟内完成，希望吃得清爽低脂。\n- **饮食定位**：减脂餐，适合快速准备的健康午餐。\n- **忌口/过敏原**：无明确忌口信息。\n- **用户现有食材**：\n  - 鸡胸肉（已备）\n  - 黄瓜（已备）\n- **其他备注**：避免辣味，少油，热量控制。\n\n---\n\n## 2. **整套菜单概览表**\n\n| 菜名             | 制作时长 | 难度 | 单菜预估热量 |\n|------------------|----------|------|--------------|\n| 鸡胸肉黄瓜沙拉   | 15分钟   | 简单 | 200大卡左右  |\n\n---\n\n## 3. **分类采购清单**\n\n### ✅ 已有食材（无需额外购买）\n\n- 鸡胸肉（根据实际用量）\n- 黄瓜（根据实际用量）\n\n### 🛒 需要采购食材（合并去重）\n\n- 油量：50克（用于调味）\n- 盐量：10克（用于调味）\n- 酱油：5克（用于调味）\n- 蒜瓣：2瓣（用于调味）\n- 小米辣：1根（如需微辣可选）\n\n> 注意：小米辣为可选调料，若用户对辣味敏感，建议不加。\n\n---\n\n## 4. **单菜详细做法**\n\n### 🥗 鸡胸肉黄瓜沙拉\n\n#### 🧾 食材明细（1人份）\n\n- 鸡胸肉：100克\n- 黄瓜：100克\n- 油量：50克\n- 盐量：10克\n- 酱油：5克\n- 蒜瓣：2瓣\n- 小米辣（可选）：1根\n\n#### 🍳 分步烹饪步骤\n\n1. **准备食材**：\n   - 鸡胸肉洗净，切成薄片或小块。\n   - 黄瓜洗净，切片或切条。\n   - 蒜瓣剁成蒜末。\n   - 小米辣切碎（如使用）。\n\n2. **处理鸡胸肉**：\n   - 在锅中加入少量油，放入鸡胸肉翻炒至变色，约3-5分钟。\n   - 加入适量盐和酱油调味，继续翻炒至熟透。\n\n3. **混合沙拉**：\n   - 将炒好的鸡胸肉与黄瓜片混合。\n   - 加入蒜末、小米辣（如使用），再淋上剩余的油和酱油拌匀。\n\n4. **装盘享用**：\n   - 将沙拉盛入碗中，即可食用。\n\n#### 📌 烹饪小贴士\n\n- 鸡胸肉可提前腌制，提升风味。\n- 若时间紧张，可直接将鸡胸肉煮熟后切片，搭配黄瓜。\n- 可根据口味添加少量黑胡椒或柠檬汁提味。\n\n---\n\n## 5. **厨房操作先后建议**\n\n1. **第一步：准备食材**\n   - 提前将鸡胸肉切片、黄瓜切片，蒜瓣剁碎，小米辣切碎（如使用）。\n\n2. **第二步：炒鸡胸肉**\n   - 锅中放少量油，将鸡胸肉炒熟，加入盐和酱油调味。\n\n3. **第三步：混合沙拉**\n   - 将炒好的鸡胸肉与黄瓜混合，加入蒜末、小米辣（如使用）、油和酱油拌匀。\n\n4. **第四步：装盘**\n   - 沙拉装盘，即可食用。\n\n---\n\n## 6. **整体营养小结**\n\n- **总热量**：约200大卡（根据实际用量略有浮动）\n- **饮食适配评价**：\n  - 符合减脂需求，低脂高蛋白，富含纤维。\n  - 适合工作日快速准备的健康午餐。\n- **微调建议**：\n  - 若希望增加饱腹感，可加入少量坚果或全麦面包。\n  - 若对辣味敏感，建议不加小米辣。\n\n---\n\n## 7. **饮食安全提醒**\n\n- 本菜单**不含任何忌口或过敏原**。\n- 所有食材均为常见食材，无特殊禁忌。\n- 若对辣椒敏感，建议不加小米辣。\n\n---\n\n,\"content\":\"请在此沉淀最终菜谱\"}]\n```",
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "鸡胸肉黄瓜沙拉",
+          "intent": "利用用户已有鸡胸肉和黄瓜，制作清爽低脂午餐，符合减脂需求，避免辣味。",
+          "query": "鸡胸肉黄瓜沙拉，少油，不辣，家常做法，15分钟内完成，热量低",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [],
+          "memory_conflicts": [],
+          "ingredients": [
+            "黄瓜 = 100 克 * 份数",
+            "猪肉 = 50 克 * 份数",
+            "油量 = 50 克 * 份数",
+            "盐量 = 10 克 * 份数",
+            "酱油 = 5 克 * 份数",
+            "蒜瓣 = 2 瓣 * 份数",
+            "小米辣 = 1 根 * 份数"
+          ],
+          "cook_steps": [
+            ",\"content\":\"记录本道菜需求定位、搜索信息、完整用料、烹饪步骤、热量与实操小贴士\"}]"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        }
+      ],
+      "shopping_list": [
+        "黄瓜 = 100 克 * 份数（用于：鸡胸肉黄瓜沙拉）",
+        "猪肉 = 50 克 * 份数（用于：鸡胸肉黄瓜沙拉）",
+        "油量 = 50 克 * 份数（用于：鸡胸肉黄瓜沙拉）",
+        "盐量 = 10 克 * 份数（用于：鸡胸肉黄瓜沙拉）",
+        "酱油 = 5 克 * 份数（用于：鸡胸肉黄瓜沙拉）",
+        "蒜瓣 = 2 瓣 * 份数（用于：鸡胸肉黄瓜沙拉）",
+        "小米辣 = 1 根 * 份数（用于：鸡胸肉黄瓜沙拉）"
+      ],
+      "total_calories": 0
+    },
+    "case_007_low_carb": {
+      "menu_markdown": "```markdown\n# 低碳水晚餐完整菜谱报告\n\n## 1. **用餐需求总览**\n\n- **用户原始需求**：低碳水晚餐，不要主食，想吃牛肉和蔬菜。\n- **忌口/过敏原**：暂无相关信息。\n- **用户冰箱现有食材**：暂无相关信息。\n- **整体用餐定位**：低碳水、健康、清淡少油、适合一人食或家庭餐。\n\n---\n\n## 2. **整套菜单概览表**\n\n| 菜名         | 制作时长 | 难度     | 单菜预估热量 |\n|--------------|----------|----------|----------------|\n| 牛肉炒时蔬   | 25 分钟  | ★★★☆☆    | 约 380 大卡   |\n| 清蒸牛柳     | 30 分钟  | ★★★★     | 约 216 大卡   |\n\n---\n\n## 3. **分类采购清单**\n\n### ✅ 已有食材（无需额外购买）\n- 暂无相关信息\n\n### 🛒 需要采购食材（合并去重）\n\n| 食材名称       | 总用量（按 1 人份计算） | 备注 |\n|----------------|--------------------------|------|\n| 牛肉           | 250g                     | 用于“牛肉炒时蔬” |\n| 西兰花         | 200g                     | 用于“牛肉炒时蔬” |\n| 胡萝卜         | 100g                     | 用于“牛肉炒时蔬” |\n| 青椒           | 100g                     | 用于“牛肉炒时蔬” |\n| 大蒜           | 3 瓣                     | 用于“牛肉炒时蔬” |\n| 生抽           | 15ml                     | 用于“牛肉炒时蔬” |\n| 盐             | 3g                       | 用于“牛肉炒时蔬” |\n| 油             | 15ml                     | 用于“牛肉炒时蔬” |\n| 黑胡椒         | 适量                     | 用于“牛肉炒时蔬” |\n| 牛里脊/牛排肉  | 100g                     | 用于“清蒸牛柳” |\n| 洋葱           | 1/12 个                  | 用于“清蒸牛柳” |\n| 彩椒           | 1/12 个                  | 用于“清蒸牛柳” |\n| 淀粉           | 3g                       | 用于“清蒸牛柳” |\n| 黑胡椒粉       | 1g                       | 用于“清蒸牛柳” |\n| 花生油         | 10ml                     | 用于“清蒸牛柳” |\n\n> 注：以上为 1 人份的食材用量，可根据实际人数进行调整。\n\n---\n\n## 4. **单菜详细做法**\n\n### 🥩 牛肉炒时蔬\n\n#### 🧾 食材明细\n- 牛肉：250g/人\n- 西兰花：1颗（约200g）\n- 胡萝卜：1根（约100g）\n- 青椒：1个（约100g）\n- 大蒜：3瓣\n- 生抽：15ml/人\n- 盐：3g/人\n- 油：15ml/人\n- 黑胡椒：适量\n\n#### 🍳 烹饪步骤\n1. **准备食材**：将牛肉切成薄片，用厨房纸吸干水分。西兰花切小朵，胡萝卜切片，青椒去籽切丝，大蒜切末。\n2. **腌制牛肉**：在牛肉中加入生抽、少许盐和黑胡椒，搅拌均匀，腌制10分钟。\n3. **热锅凉油**：锅中倒入油，加热至六成热，放入蒜末爆香。\n4. **炒牛肉**：加入腌好的牛肉，快速翻炒至变色，盛出备用。\n5. **炒蔬菜**：锅中再加少许油，放入西兰花、胡萝卜和青椒，翻炒至断生。\n6. **混合调味**：将炒好的牛肉重新倒入锅中，与蔬菜一起翻炒均匀，根据口味调整盐量。\n7. **出锅装盘**：炒至所有食材熟透后，关火装盘。\n\n#### 🍽️ 烹饪小贴士\n- 牛肉嫩化技巧：腌制时可加入少量淀粉或小苏打，使牛肉更嫩滑。\n- 蔬菜选择灵活：可根据季节更换蔬菜，如芦笋、玉米、豆角等，保持低碳水饮食。\n- 少油健康做法：可用空气炸锅或不粘锅减少用油，更加健康清淡。\n\n---\n\n### 🥩 清蒸牛柳\n\n#### 🧾 食材明细\n- 牛肉（牛里脊或牛排肉）：100 克/人\n- 洋葱：1/12 个/人\n- 彩椒（红/黄椒）：1/12 个/人\n- 盐：1 克/人\n- 淀粉：3 克/人\n- 黑胡椒粉：1 克/人\n- 花生油：10ml/人\n\n#### 🍳 烹饪步骤\n1. **准备食材**：将牛肉切成条状，长度控制在 8 厘米以下，厚度约 5-10 毫米，宽度约 1 厘米。洋葱和彩椒切丝备用。\n2. **腌制牛肉**：用黑椒腌料腌制牛肉，混合均匀后静置（时间依据产品说明）。若使用液态腌料，可在腌制结束前三分钟撒一层黑胡椒粉，再加入淀粉，再次混合均匀后静置 20 分钟。\n3. **热锅加油**：开火，热锅后加入花生油。\n4. **炒牛肉**：当油开始冒烟时，放入牛肉翻炒，中火偏大，炒约 2 分钟至牛肉表面变色。\n5. **加入蔬菜**：放入洋葱和彩椒，继续翻炒 2 分钟。\n6. **调味出锅**：加入盐，再撒一份黑胡椒粉，翻炒 30 秒，搅拌均匀后关火，盛盘即可。\n\n#### 🍽️ 烹饪小贴士\n- 牛肉选择：建议选用牛里脊或牛排肉，口感更嫩滑。\n- 火候控制：炒牛肉时注意火候，避免过火导致肉质变硬。\n- 替代建议：若想减少油脂，可用橄榄油或菜籽油代替花生油；若不喜洋葱，可替换为青椒或胡萝卜。\n\n---\n\n## 5. **厨房操作先后建议**\n\n1. **备菜阶段**：\n   - 提前将牛肉切片/条，蔬菜洗净切好，大蒜、洋葱、彩椒切末/丝。\n   - 准备调料：生抽、盐、黑胡椒、淀粉等。\n\n2. **烹饪顺序**：\n   - **先炒牛肉**：牛肉炒至变色后盛出备用。\n   - **再炒蔬菜**：将西兰花、胡萝卜、青椒等蔬菜炒至断生。\n   - **最后混合调味**：将炒好的牛肉与蔬菜混合，加入调料翻炒均匀。\n   - **清蒸牛柳**：单独处理，先炒牛肉再加入蔬菜，调味后出锅。\n\n> 建议同时进行两道菜的备菜工作，以节省时间。\n\n---\n\n## 6. **整体营养小结**\n\n- **总热量**：约 596 大卡（按 1 人份计算）\n- **饮食适配评价**：\n  - 符合低碳水饮食需求，无主食，主要以牛肉和蔬菜为主。\n  - 蛋白质含量高，脂肪含量适中，适合减脂或健康饮食。\n- **微调建议**：\n  - 若希望增加膳食纤维，可添加更多绿叶蔬菜如菠菜、羽衣甘蓝。\n  - 可尝试加入少量坚果或种子（如核桃、亚麻籽）提升健康脂肪摄入。\n\n---\n\n## 7. **饮食安全提醒**\n\n- 本套餐不含任何用户提及的忌口或过敏原。\n- 所有食材均为常见食材，未涉及特殊禁忌。\n- 烹饪过程中注意火候控制，避免食物焦糊影响口感和营养。\n\n---\n\n, \"content\": \"请在此沉淀最终菜谱\"}]\n```",
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "牛肉炒时蔬",
+          "intent": "使用用户可能拥有的牛肉和常见蔬菜，清淡少油，符合低碳水需求。",
+          "query": "牛肉炒时蔬 核心食材 牛肉 蔬菜 不辣 家常做法 烹饪时长 热量",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [],
+          "memory_conflicts": [],
+          "ingredients": [
+            "牛肉用量为 250 g/人",
+            "青椒用量为 2 颗/人, 每颗 100g",
+            "孜然用量为 20 g/人",
+            "小米椒用量为 3 颗/人, 每颗 5g",
+            "生抽酱油用量为 20 ml/人",
+            "淀粉用量为 10g/人",
+            "油用量为 15ml/人",
+            "盐量用量为 3 g/人",
+            "葱用量为 1 根/人, 每颗 20g",
+            "葱的用量为 0.5 根/人",
+            "姜的用量为 1 个/人",
+            "盐的用量为 3 g/人",
+            "糖的用量为 1.5 g/人",
+            "酱油的用量为 9 ml/人"
+          ],
+          "cook_steps": [
+            "菜品详细整理结果\n\n### 食材清单\n- 牛肉：250g/人  \n- 西兰花：1颗（约200g）  \n- 胡萝卜：1根（约100g）  \n- 青椒：1个（约100g）  \n- 大蒜：3瓣  \n- 生抽：15ml/人  \n- 盐：3g/人  \n- 油：15ml/人  \n- 黑胡椒：适量  \n\n### 烹饪步骤\n1. **准备食材**：将牛肉切成薄片，用厨房纸吸干水分。西兰花切小朵，胡萝卜切片，青椒去籽切丝，大蒜切末。\n2. **腌制牛肉**：在牛肉中加入生抽、少许盐和黑胡椒，搅拌均匀，腌制10分钟。\n3. **热锅凉油**：锅中倒入油，加热至六成热，放入蒜末爆香。\n4. **炒牛肉**：加入腌好的牛肉，快速翻炒至变色，盛出备用。\n5. **炒蔬菜**：锅中再加少许油，放入西兰花、胡萝卜和青椒，翻炒至断生。\n6. **混合调味**：将炒好的牛肉重新倒入锅中，与蔬菜一起翻炒均匀，根据口味调整盐量。\n7. **出锅装盘**：炒至所有食材熟透后，关火装盘。\n\n### 总耗时\n- 准备时间：10分钟  \n- 烹饪时间：15分钟  \n- 总耗时：25分钟  \n\n### 预估热量\n- 每份热量：约 380 大卡  \n\n### 难度\n- 难度：★★★☆☆（适合家庭操作，需注意火候）\n\n### 烹饪小贴士\n1. **牛肉嫩化技巧**：腌制时可加入少量淀粉或小苏打，使牛肉更嫩滑。\n2. **蔬菜选择灵活**：可根据季节更换蔬菜，如芦笋、玉米、豆角等，保持低碳水饮食。\n3. **少油健康做法**：可用空气炸锅或不粘锅减少用油，更加健康清淡。"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        },
+        {
+          "id": 2,
+          "name": "清蒸牛柳",
+          "intent": "以牛肉为主料，清蒸方式减少油脂，适合低碳水晚餐。",
+          "query": "清蒸牛柳 核心食材 牛肉 不辣 家常做法 烹饪时长 热量",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [],
+          "memory_conflicts": [],
+          "ingredients": [
+            "牛肉量 = 份数 * 100 克 （视就餐者胃容量和锅容量酌情增减）",
+            "洋葱量 = 份数 * 1/12 个（即 3 人时约切 1/4 ）",
+            "菜椒量 = 份数 * 1/12 个（即 3 人时约切 1/4 ）",
+            "盐量 = 份数 * 1 克",
+            "淀粉 = 份数 * 3 克",
+            "黑椒腌料 = 参照所购商品的说明按比例腌制",
+            "黑胡椒粉 = 份数 * 1 克（实际上是随便撒）",
+            "花生油 = 份数 * 10ml （实际上油量是依据菜量变动的，如对牛肉的量有增减请按对应比例变动）"
+          ],
+          "cook_steps": [
+            "菜品详细整理结果\n\n### 食材清单  \n- 牛肉（牛里脊或牛排肉）：100 克/人（根据人数调整）  \n- 洋葱：1/12 个/人（3 人时约 1/4 个）  \n- 彩椒（红/黄椒）：1/12 个/人（3 人时约 1/4 个）  \n- 盐：1 克/人  \n- 淀粉：3 克/人  \n- 黑胡椒粉：1 克/人  \n- 花生油：10ml/人  \n\n---\n\n### 烹饪步骤  \n1. **准备食材**：将牛肉切成条状，长度控制在 8 厘米以下，厚度约 5-10 毫米，宽度约 1 厘米。洋葱和彩椒切丝备用。  \n2. **腌制牛肉**：用黑椒腌料腌制牛肉，混合均匀后静置（时间依据产品说明）。若使用液态腌料，可在腌制结束前三分钟撒一层黑胡椒粉，再加入淀粉，再次混合均匀后静置 20 分钟。  \n3. **热锅加油**：开火，热锅后加入花生油。  \n4. **炒牛肉**：当油开始冒烟时，放入牛肉翻炒，中火偏大，炒约 2 分钟至牛肉表面变色。  \n5. **加入蔬菜**：放入洋葱和彩椒，继续翻炒 2 分钟。  \n6. **调味出锅**：加入盐，再撒一份黑胡椒粉，翻炒 30 秒，搅拌均匀后关火，盛盘即可。\n\n---\n\n### 总耗时  \n- 总耗时：约 30 分钟（含备料与烹饪）\n\n---\n\n### 预估热量  \n- 每份热量：约 216 大卡（基于黑椒牛柳数据估算）\n\n---\n\n### 难度  \n- 难度：★★★★（适合有一定烹饪基础的用户）\n\n---\n\n### 烹饪小贴士  \n1. **牛肉选择**：建议选用牛里脊或牛排肉，口感更嫩滑。  \n2. **火候控制**：炒牛肉时注意火候，避免过火导致肉质变硬。  \n3. **替代建议**：若想减少油脂，可用橄榄油或菜籽油代替花生油；若不喜洋葱，可替换为青椒或胡萝卜。"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        }
+      ],
+      "shopping_list": [
+        "牛肉用量为 250 g/人（用于：牛肉炒时蔬）",
+        "青椒用量为 2 颗/人, 每颗 100g（用于：牛肉炒时蔬）",
+        "孜然用量为 20 g/人（用于：牛肉炒时蔬）",
+        "小米椒用量为 3 颗/人, 每颗 5g（用于：牛肉炒时蔬）",
+        "生抽酱油用量为 20 ml/人（用于：牛肉炒时蔬）",
+        "淀粉用量为 10g/人（用于：牛肉炒时蔬）",
+        "油用量为 15ml/人（用于：牛肉炒时蔬）",
+        "盐量用量为 3 g/人（用于：牛肉炒时蔬）",
+        "葱用量为 1 根/人, 每颗 20g（用于：牛肉炒时蔬）",
+        "葱的用量为 0.5 根/人（用于：牛肉炒时蔬）",
+        "姜的用量为 1 个/人（用于：牛肉炒时蔬）",
+        "盐的用量为 3 g/人（用于：牛肉炒时蔬）",
+        "糖的用量为 1.5 g/人（用于：牛肉炒时蔬）",
+        "酱油的用量为 9 ml/人（用于：牛肉炒时蔬）",
+        "牛肉量 = 份数 * 100 克 （视就餐者胃容量和锅容量酌情增减）（用于：清蒸牛柳）",
+        "洋葱量 = 份数 * 1/12 个（即 3 人时约切 1/4 ）（用于：清蒸牛柳）",
+        "菜椒量 = 份数 * 1/12 个（即 3 人时约切 1/4 ）（用于：清蒸牛柳）",
+        "盐量 = 份数 * 1 克（用于：清蒸牛柳）",
+        "淀粉 = 份数 * 3 克（用于：清蒸牛柳）",
+        "黑椒腌料 = 参照所购商品的说明按比例腌制（用于：清蒸牛柳）",
+        "黑胡椒粉 = 份数 * 1 克（实际上是随便撒）（用于：清蒸牛柳）",
+        "花生油 = 份数 * 10ml （实际上油量是依据菜量变动的，如对牛肉的量有增减请按对应比例变动）（用于：清蒸牛柳）"
+      ],
+      "total_calories": 0
+    },
+    "case_008_disliked_tofu": {
+      "menu_markdown": "```markdown\n# 完整菜谱套餐：两人晚餐，不吃豆腐，喜欢番茄口味，做两道下饭菜\n\n## 1. **用餐需求总览**\n\n- **用户原始需求**：两人晚餐，不吃豆腐，喜欢番茄口味，做两道下饭菜。\n- **忌口/过敏原**：无明确忌口信息，但需避免豆腐。\n- **用户冰箱现有食材**：根据结构化购物清单推测，用户已有部分番茄、鸡蛋、食用油、盐等基础食材。\n- **整体用餐定位**：家庭餐，适合两人享用，以番茄为主角，搭配蛋白质丰富的牛腩和鸡蛋，符合下饭菜需求。\n\n---\n\n## 2. **整套菜单概览表**\n\n| 菜名         | 制作时长 | 难度 | 单菜预估热量 |\n|--------------|----------|------|----------------|\n| 番茄炒蛋     | 约15分钟 | ★★   | 每份约252大卡  |\n| 番茄炖牛腩   | 约60分钟 | ★★★  | 每份约400大卡  |\n\n---\n\n## 3. **分类采购清单**\n\n### ✅ 已有食材（无需额外购买）\n- 番茄（1个）  \n- 鸡蛋（1个）  \n- 盐  \n- 食用油  \n\n### 🛒 需要采购食材（合并去重后）\n\n| 食材             | 数量       | 用途说明                     |\n|------------------|------------|------------------------------|\n| 牛腩             | 500g       | 番茄炖牛腩                   |\n| 番茄             | 3-4个      | 番茄炖牛腩                   |\n| 马铃薯           | 400g       | 番茄炖牛腩                   |\n| 洋葱             | 100g       | 番茄炖牛腩                   |\n| 胡萝卜           | 100g       | 番茄炖牛腩                   |\n| 欧芹             | 100g       | 番茄炖牛腩                   |\n| 包菜             | 200g       | 番茄炖牛腩                   |\n| 红肠             | 100-200g   | 番茄炖牛腩                   |\n| 番茄膏           | 5g         | 增加番茄风味                 |\n| 牛肉高汤         | 500mL      | 番茄炖牛腩                   |\n| 植物油           | 5mL        | 烹制牛肉                     |\n| 橄榄油           | 5mL        | 烹制蔬菜                     |\n| 黑胡椒           | 3g         | 番茄炖牛腩                   |\n| 盐               | 18g        | 番茄炖牛腩                   |\n| 姜               | 适量       | 番茄炖牛腩                   |\n| 蒜               | 15g        | 番茄炖牛腩                   |\n| 葱               | 适量       | 番茄炖牛腩                   |\n\n---\n\n## 4. **单菜详细做法**\n\n### 🍳 番茄炒蛋\n\n#### 🧾 食材明细\n- 西红柿：1个（约180g）\n- 鸡蛋：1.5个（向上取整）\n- 食用油：4ml（每鸡蛋1个）\n- 盐：1.5-2g\n- 糖：0-2g（可选）\n- 葱花：0-10g（可选）\n\n#### 🍳 烹饪步骤\n1. **准备食材**：西红柿洗净，去蒂并切成边长不超过4cm的小块；鸡蛋打入碗中，加入1g盐搅匀。\n2. **炒鸡蛋**：热锅后加入食用油，油热后倒入鸡蛋液，翻炒至颜色微微发黄，盛出备用。\n3. **炒西红柿**：不洗锅，直接加入西红柿块，拍打并翻炒20秒或至西红柿软烂。\n4. **混合翻炒**：将半熟鸡蛋倒回锅中，与西红柿一起翻炒均匀。\n5. **调味**：加入剩余的盐、糖（可选）、葱花（可选），翻炒均匀后关火盛盘。\n6. **可选增强风味**：可加入10ml番茄酱和50ml清水增加汤汁，或加入少量生抽提鲜。\n\n#### 📝 烹饪小贴士\n- 在鸡蛋液中加入1ml醋，可以去除腥味并使鸡蛋更蓬松。\n- 若想口感更细腻，可先用开水烫西红柿表皮再剥去外皮。\n- 若不喜欢西红柿，可用番茄酱或番茄罐头代替，但需注意调整盐和糖的用量。\n\n---\n\n### 🍲 番茄炖牛腩\n\n#### 🧾 食材明细\n- 牛腩：500g\n- 番茄：3-4个（每个约200g）\n- 马铃薯：400g\n- 洋葱：100g\n- 胡萝卜：100g\n- 欧芹：100g\n- 包菜：200g\n- 红肠：100-200g\n- 番茄膏：5g\n- 牛肉高汤：500mL\n- 植物油：5mL\n- 橄榄油：5mL\n- 黑胡椒：3g\n- 盐：18g\n- 姜：适量\n- 蒜：15g\n- 葱：适量\n\n#### 🍳 烹饪步骤\n1. **准备食材**：牛腩切块，焯水后捞出；番茄去皮切块；马铃薯、胡萝卜、洋葱、包菜切块；欧芹切段；红肠切片。\n2. **煎牛腩**：热锅加入植物油，放入牛腩煎至表面微焦，盛出备用。\n3. **炒香料**：锅中留底油，加入姜、蒜爆香，再加入番茄膏炒出红油。\n4. **炖煮**：加入番茄块、牛腩、高汤，大火烧开后转小火慢炖1小时。\n5. **加入蔬菜**：加入马铃薯、胡萝卜、洋葱、包菜、欧芹、红肠，继续炖煮15分钟。\n6. **调味**：加入盐、黑胡椒调味，最后撒上葱花即可。\n\n#### 📝 烹饪小贴士\n- 牛腩建议提前焯水去腥，提升口感。\n- 番茄膏能有效提升番茄风味，若没有可用番茄酱替代。\n- 炖煮时间越长，牛腩越软烂，可根据个人喜好调整。\n\n---\n\n## 5. **厨房操作先后建议**\n\n1. **备菜阶段**：\n   - 处理番茄、鸡蛋、牛腩、蔬菜等食材，确保所有食材清洗干净、切好备用。\n   - 准备调料，如盐、黑胡椒、番茄膏等。\n\n2. **烹饪顺序**：\n   - 先制作**番茄炒蛋**，耗时较短，可在等待牛腩炖煮时完成。\n   - 同步开始**番茄炖牛腩**，先煎牛腩，再炖煮，期间可处理其他食材。\n\n3. **收尾阶段**：\n   - 番茄炒蛋完成后立即盛出，保持口感。\n   - 番茄炖牛腩炖好后，撒上葱花，即可上桌。\n\n---\n\n## 6. **整体营养小结**\n\n- **总热量**：约1304大卡（番茄炒蛋 504大卡 + 番茄炖牛腩 800大卡）\n- **饮食适配评价**：\n  - 本套餐富含蛋白质（来自牛腩和鸡蛋），同时含有丰富的维生素C（来自番茄和蔬菜），适合健康饮食。\n  - 番茄作为主食材，提升了菜品的酸甜口感，符合用户“喜欢番茄口味”的要求。\n- **微调建议**：\n  - 若希望更清淡，可减少番茄膏和盐的用量。\n  - 若追求低脂，可选择瘦牛腩，并减少油脂使用。\n\n---\n\n## 7. **饮食安全提醒**\n\n- **规避食材**：本套餐未使用任何豆腐，符合用户“不吃豆腐”的要求。\n- **过敏原提示**：未提及具体过敏源，但已避开豆腐，确保安全。\n- **食材新鲜度**：建议使用新鲜番茄、牛腩和蔬菜，以保证最佳口感和营养价值。\n\n---\n\n,\"content\":\"请在此沉淀最终菜谱\"}]\n```",
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "番茄炒蛋",
+          "intent": "使用用户已有番茄，搭配鸡蛋，符合喜欢番茄口味，不辣要求，简单快手。",
+          "query": "番茄炒蛋 核心食材：番茄、鸡蛋 不辣 家常做法 烹饪时长 热量",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣",
+            "参考常用食材：番茄"
+          ],
+          "memory_conflicts": [],
+          "ingredients": [
+            "牛肉用量为 150 g/人",
+            "番茄用量为 1 个/人",
+            "鸡蛋用量为 1 个/人",
+            "盐用量为 2 g/人",
+            "胡椒粉用量为 0.5 g/人",
+            "西红柿 = 1 个（约 180g） * 份数",
+            "鸡蛋 = 1.5 个 * 份数，向上取整",
+            "食用油 = 4ml * 鸡蛋/个",
+            "盐 = 1.5-2g * 份数",
+            "糖 = 0-2g * 份数",
+            "葱花 = 0-10g * 份数",
+            "西红柿 1 个",
+            "鸡蛋 1-2 个（依照自己的口味而定，喜欢吃鸡蛋就放 2 个，一般就放 1 个）",
+            "香油 2 滴",
+            "味素 5 克（可选）",
+            "盐 15 克",
+            "葱",
+            "姜",
+            "蒜共 15 克"
+          ],
+          "cook_steps": [
+            "菜品详细整理结果\n\n### 食材清单  \n- 西红柿：1 个（约 180g）  \n- 鸡蛋：1.5 个（向上取整）  \n- 食用油：4ml（每鸡蛋 1 个）  \n- 盐：1.5-2g  \n- 糖：0-2g（可选，根据口味调整）  \n- 葱花：0-10g（可选）  \n\n---\n\n### 烹饪步骤  \n1. **准备食材**：西红柿洗净，去蒂并切成边长不超过 4cm 的小块；鸡蛋打入碗中，加入 1g 盐搅匀。  \n2. **炒鸡蛋**：热锅后加入食用油，油热后倒入鸡蛋液，翻炒至颜色微微发黄，盛出备用。  \n3. **炒西红柿**：不洗锅，直接加入西红柿块，拍打并翻炒 20 秒或至西红柿软烂。  \n4. **混合翻炒**：将半熟鸡蛋倒回锅中，与西红柿一起翻炒均匀。  \n5. **调味**：加入剩余的盐、糖（可选）、葱花（可选），翻炒均匀后关火盛盘。  \n6. **可选增强风味**：可加入 10ml 番茄酱和 50ml 清水增加汤汁，或加入少量生抽提鲜。\n\n---\n\n### 总耗时  \n- 烹饪时间：约 15 分钟  \n\n---\n\n### 预估热量  \n- 每份热量：约 252 大卡  \n\n---\n\n### 难度  \n- ★★（适合厨房新手）\n\n---\n\n### 烹饪小贴士  \n1. **去腥增香**：在鸡蛋液中加入 1ml 醋，可以去除腥味并使鸡蛋更蓬松。  \n2. **番茄处理**：若想口感更细腻，可先用开水烫西红柿表皮再剥去外皮。  \n3. **食材替换**：若不喜欢西红柿，可用番茄酱或番茄罐头代替，但需注意调整盐和糖的用量。"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        },
+        {
+          "id": 2,
+          "name": "番茄炖牛腩",
+          "intent": "利用番茄提升风味，搭配牛腩增加蛋白质，符合下饭菜需求，避免豆腐。",
+          "query": "番茄炖牛腩 核心食材：牛腩、番茄 避免豆腐 不辣 家常做法 烹饪时长 热量",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣",
+            "参考常用食材：番茄"
+          ],
+          "memory_conflicts": [],
+          "ingredients": [
+            "西红柿 3-4 个（每个约 200g）",
+            "牛腩 500g",
+            "食用油 20-30ml",
+            "牛肉高汤 500 mL",
+            "牛肉 250 g （可选用牛腩肉或牛尾肉）",
+            "番茄罐头 2 罐 （可用番茄替代",
+            "但风味欠佳）",
+            "番茄膏 5 g （增加番茄风味）",
+            "马铃薯 400 g",
+            "洋葱 100 g",
+            "胡萝卜 100 g",
+            "欧芹 100 g",
+            "包菜 200 g",
+            "红肠 100 - 200 g",
+            "橄榄油 5 mL （橄榄油用于蔬菜的烹制，可以用植物油代替）",
+            "植物油 5 mL （植物油用于牛肉的烹制，不能用橄榄油代替）",
+            "盐 18 g",
+            "黑胡椒 3 g"
+          ],
+          "cook_steps": [
+            ",\"content\":\"记录本道菜需求定位、搜索信息、完整用料、烹饪步骤、热量与实操小贴士\"}]"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        }
+      ],
+      "shopping_list": [
+        "牛肉用量为 150 g/人（用于：番茄炒蛋）",
+        "番茄用量为 1 个/人（用于：番茄炒蛋）",
+        "鸡蛋用量为 1 个/人（用于：番茄炒蛋）",
+        "盐用量为 2 g/人（用于：番茄炒蛋）",
+        "胡椒粉用量为 0.5 g/人（用于：番茄炒蛋）",
+        "西红柿 = 1 个（约 180g） * 份数（用于：番茄炒蛋）",
+        "鸡蛋 = 1.5 个 * 份数，向上取整（用于：番茄炒蛋）",
+        "食用油 = 4ml * 鸡蛋/个（用于：番茄炒蛋）",
+        "盐 = 1.5-2g * 份数（用于：番茄炒蛋）",
+        "糖 = 0-2g * 份数（用于：番茄炒蛋）",
+        "葱花 = 0-10g * 份数（用于：番茄炒蛋）",
+        "西红柿 1 个（用于：番茄炒蛋）",
+        "鸡蛋 1-2 个（依照自己的口味而定，喜欢吃鸡蛋就放 2 个，一般就放 1 个）（用于：番茄炒蛋）",
+        "香油 2 滴（用于：番茄炒蛋）",
+        "味素 5 克（可选）（用于：番茄炒蛋）",
+        "盐 15 克（用于：番茄炒蛋）",
+        "葱（用于：番茄炒蛋）",
+        "姜（用于：番茄炒蛋）",
+        "蒜共 15 克（用于：番茄炒蛋）",
+        "西红柿 3-4 个（每个约 200g）（用于：番茄炖牛腩）",
+        "牛腩 500g（用于：番茄炖牛腩）",
+        "食用油 20-30ml（用于：番茄炖牛腩）",
+        "牛肉高汤 500 mL（用于：番茄炖牛腩）",
+        "牛肉 250 g （可选用牛腩肉或牛尾肉）（用于：番茄炖牛腩）",
+        "番茄罐头 2 罐 （可用番茄替代（用于：番茄炖牛腩）",
+        "但风味欠佳）（用于：番茄炖牛腩）",
+        "番茄膏 5 g （增加番茄风味）（用于：番茄炖牛腩）",
+        "马铃薯 400 g（用于：番茄炖牛腩）",
+        "洋葱 100 g（用于：番茄炖牛腩）",
+        "胡萝卜 100 g（用于：番茄炖牛腩）",
+        "欧芹 100 g（用于：番茄炖牛腩）",
+        "包菜 200 g（用于：番茄炖牛腩）",
+        "红肠 100 - 200 g（用于：番茄炖牛腩）",
+        "橄榄油 5 mL （橄榄油用于蔬菜的烹制，可以用植物油代替）（用于：番茄炖牛腩）",
+        "植物油 5 mL （植物油用于牛肉的烹制，不能用橄榄油代替）（用于：番茄炖牛腩）",
+        "盐 18 g（用于：番茄炖牛腩）",
+        "黑胡椒 3 g（用于：番茄炖牛腩）"
+      ],
+      "total_calories": 0
+    },
+    "case_009_memory_conflict_override": {
+      "menu_markdown": "```markdown\n# 1. **用餐需求总览**\n\n- **用户原始需求**：今天可以吃辣，想做一道麻辣口味的牛肉菜。\n- **饮食定位**：麻辣口味、适合喜欢辣味的用户。\n- **忌口/过敏原**：暂无相关信息。\n- **用户现有食材**：暂无相关信息。\n- **整体用餐定位**：家庭餐 / 快手晚餐。\n\n---\n\n# 2. **整套菜单概览表**\n\n| 菜名       | 制作时长 | 难度 | 单菜预估热量（kcal） |\n|------------|----------|------|------------------------|\n| 麻辣牛肉   | 30分钟   | 中等 | 约 350 kcal           |\n\n---\n\n# 3. **分类采购清单**\n\n## ✅ 已有食材（无需额外购买）\n- 暂无相关信息\n\n## 🛒 需要采购食材（已合并去重）\n\n| 食材名称     | 数量     | 用途         |\n|--------------|----------|--------------|\n| 小米椒       | 20个     | 麻辣牛肉     |\n| 花生油       | 20ml     | 麻辣牛肉     |\n| 五花肉/瘦肉  | 200g     | 麻辣牛肉     |\n| 盐           | 1-2g     | 麻辣牛肉     |\n| 生抽         | 10ml     | 麻辣牛肉     |\n| 蚝油         | 10ml     | 麻辣牛肉     |\n| 姜蒜         | 50g      | 麻辣牛肉     |\n| 豆瓣酱       | 10g      | 麻辣牛肉     |\n| 鸡精         | 10g      | 麻辣牛肉     |\n| 白糖         | 5g       | 麻辣牛肉     |\n\n---\n\n# 4. **单菜详细做法**\n\n## 🥘 麻辣牛肉\n\n### 🧾 食材明细\n\n- 五花肉/瘦肉：200g  \n- 小米椒：20个（根据个人口味增减）  \n- 花生油：20ml  \n- 姜蒜：50g  \n- 生抽：10ml  \n- 蚝油：10ml  \n- 豆瓣酱：10g  \n- 盐：1-2g  \n- 鸡精：10g  \n- 白糖：5g  \n\n### 🔪 分步烹饪步骤\n\n1. **准备食材**：将五花肉或瘦肉切成末，小米椒切碎，姜蒜剁成末备用。\n2. **热锅凉油**：锅中倒入花生油，加热至微微冒烟。\n3. **炒香调料**：加入姜蒜末和小米椒，翻炒出香味。\n4. **加入肉末**：放入肉末，快速翻炒至变色。\n5. **调味**：加入生抽、蚝油、豆瓣酱、盐、白糖和鸡精，继续翻炒均匀。\n6. **收汁出锅**：待汤汁略微收干后即可出锅。\n\n### 📌 烹饪小贴士\n\n- 若喜欢更辣口感，可增加小米椒数量或使用辣椒粉。\n- 可搭配米饭食用，提升整体风味。\n- 若肉末较干，可适量加少量水或高汤调整口感。\n\n---\n\n# 5. **厨房操作先后建议**\n\n1. **备菜阶段**：\n   - 切好小米椒、姜蒜末。\n   - 肉末提前准备好。\n2. **开始烹饪**：\n   - 先热锅加油，炒香姜蒜和小米椒。\n   - 加入肉末翻炒至变色。\n   - 调味后收汁出锅。\n\n---\n\n# 6. **整体营养小结**\n\n- **总热量**：约 350 kcal\n- **饮食适配评价**：符合麻辣口味需求，热量适中，适合快手晚餐。\n- **微调建议**：\n  - 若追求更低热量，可减少花生油用量或改用橄榄油。\n  - 若为减脂餐，可适当减少盐和鸡精的使用量。\n\n---\n\n# 7. **饮食安全提醒**\n\n- 本套餐未涉及任何忌口或过敏原，可放心食用。\n- 若对辣椒敏感或有特殊饮食限制，请根据个人情况调整辣度或替换食材。\n\n---\n\n, \"content\": \"# 1. **用餐需求总览**\\n\\n- **用户原始需求**：今天可以吃辣，想做一道麻辣口味的牛肉菜。\\n- **饮食定位**：麻辣口味、适合喜欢辣味的用户。\\n- **忌口/过敏原**：暂无相关信息。\\n- **用户现有食材**：暂无相关信息。\\n- **整体用餐定位**：家庭餐 / 快手晚餐。\\n\\n---\\n\\n# 2. **整套菜单概览表**\\n\\n| 菜名       | 制作时长 | 难度 | 单菜预估热量（kcal） |\\n|------------|----------|------|------------------------|\\n| 麻辣牛肉   | 30分钟   | 中等 | 约 350 kcal           |\\n\\n---\\n\\n# 3. **分类采购清单**\\n\\n## ✅ 已有食材（无需额外购买）\\n- 暂无相关信息\\n\\n## 🛒 需要采购食材（已合并去重）\\n\\n| 食材名称     | 数量     | 用途         |\\n|--------------|----------|--------------|\\n| 小米椒       | 20个     | 麻辣牛肉     |\\n| 花生油       | 20ml     | 麻辣牛肉     |\\n| 五花肉/瘦肉  | 200g     | 麻辣牛肉     |\\n| 盐           | 1-2g     | 麻辣牛肉     |\\n| 生抽         | 10ml     | 麻辣牛肉     |\\n| 蚝油         | 10ml     | 麻辣牛肉     |\\n| 姜蒜         | 50g      | 麻辣牛肉     |\\n| 豆瓣酱       | 10g      | 麻辣牛肉     |\\n| 鸡精         | 10g      | 麻辣牛肉     |\\n| 白糖         | 5g       | 麻辣牛肉     |\\n\\n---\\n\\n# 4. **单菜详细做法**\\n\\n## 🥘 麻辣牛肉\\n\\n### 🧾 食材明细\\n\\n- 五花肉/瘦肉：200g \\n- 小米椒：20个（根据个人口味增减） \\n- 花生油：20ml \\n- 姜蒜：50g \\n- 生抽：10ml \\n- 蚝油：10ml \\n- 豆瓣酱：10g \\n- 盐：1-2g \\n- 鸡精：10g \\n- 白糖：5g \\n\\n### 🔪 分步烹饪步骤\\n\\n1. **准备食材**：将五花肉或瘦肉切成末，小米椒切碎，姜蒜剁成末备用。\\n2. **热锅凉油**：锅中倒入花生油，加热至微微冒烟。\\n3. **炒香调料**：加入姜蒜末和小米椒，翻炒出香味。\\n4. **加入肉末**：放入肉末，快速翻炒至变色。\\n5. **调味**：加入生抽、蚝油、豆瓣酱、盐、白糖和鸡精，继续翻炒均匀。\\n6. **收汁出锅**：待汤汁略微收干后即可出锅。\\n\\n### 📌 烹饪小贴士\\n\\n- 若喜欢更辣口感，可增加小米椒数量或使用辣椒粉。\\n- 可搭配米饭食用，提升整体风味。\\n- 若肉末较干，可适量加少量水或高汤调整口感。\\n\\n---\\n\\n# 5. **厨房操作先后建议**\\n\\n1. **备菜阶段**：\\n   - 切好小米椒、姜蒜末。\\n   - 肉末提前准备好。\\n2. **开始烹饪**：\\n   - 先热锅加油，炒香姜蒜和小米椒。\\n   - 加入肉末翻炒至变色。\\n   - 调味后收汁出锅。\\n\\n---\\n\\n# 6. **整体营养小结**\\n\\n- **总热量**：约 350 kcal\\n- **饮食适配评价**：符合麻辣口味需求，热量适中，适合快手晚餐。\\n- **微调建议**：\\n  - 若追求更低热量，可减少花生油用量或改用橄榄油。\\n  - 若为减脂餐，可适当减少盐和鸡精的使用量。\\n\\n---\\n\\n# 7. **饮食安全提醒**\\n\\n- 本套餐未涉及任何忌口或过敏原，可放心食用。\\n- 若对辣椒敏感或有特殊饮食限制，请根据个人情况调整辣度或替换食材。\"}}\n```",
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "麻辣牛肉",
+          "intent": "用户明确要求麻辣口味的牛肉菜，使用现有食材搭配，满足辣味需求，避开不辣限制。",
+          "query": "麻辣牛肉 肉末 辣味 家常做法 烹饪时长 热量",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "历史饮食偏好：不辣",
+            "常用/偏好食材：番茄"
+          ],
+          "memory_conflicts": [
+            "用户本次明确要求可以吃辣，与历史不辣偏好冲突"
+          ],
+          "ingredients": [
+            "小米椒 20 个，根据个人口味加减",
+            "花生油 20ml",
+            "五花肉/瘦肉 200g",
+            "盐 1-2g",
+            "生抽 10ml",
+            "蚝油 10ml",
+            "姜蒜 50g",
+            "豆瓣酱 10g，根据个人口味加减",
+            "鸡精 10g",
+            "白糖 5g"
+          ],
+          "cook_steps": [
+            ",\"content\":\"记录本道菜需求定位、搜索信息、完整用料、烹饪步骤、热量与实操小贴士\"}]"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        }
+      ],
+      "shopping_list": [
+        "小米椒 20 个，根据个人口味加减（用于：麻辣牛肉）",
+        "花生油 20ml（用于：麻辣牛肉）",
+        "五花肉/瘦肉 200g（用于：麻辣牛肉）",
+        "盐 1-2g（用于：麻辣牛肉）",
+        "生抽 10ml（用于：麻辣牛肉）",
+        "蚝油 10ml（用于：麻辣牛肉）",
+        "姜蒜 50g（用于：麻辣牛肉）",
+        "豆瓣酱 10g，根据个人口味加减（用于：麻辣牛肉）",
+        "鸡精 10g（用于：麻辣牛肉）",
+        "白糖 5g（用于：麻辣牛肉）"
+      ],
+      "total_calories": 0
+    },
+    "case_010_allergy_memory": {
+      "menu_markdown": "```markdown\n# 用餐需求总览\n\n- **用户原始需求**：随便安排一个两人晚餐，清淡一点  \n- **忌口/过敏原**：暂无相关信息  \n- **用户现有食材**：冬瓜、猪肉末、鸡蛋、番茄  \n- **整体用餐定位**：清淡家常、适合两人晚餐  \n\n---\n\n## 2. 整套菜单概览表\n\n| 菜名         | 制作时长 | 难度 | 单菜预估热量（每人） |\n|--------------|----------|------|------------------------|\n| 冬瓜蒸肉末   | 约30分钟 | ★★☆  | 约350大卡              |\n| 番茄炒蛋     | 约20分钟 | ★★   | 约252大卡              |\n\n---\n\n## 3. 分类采购清单\n\n### 已有食材（无需额外购买）\n\n- 冬瓜（约300g）\n- 猪肉末（约300g）\n- 鸡蛋（约2个）\n- 番茄（约1个）\n- 盐\n- 食用油\n\n### 需要采购食材（合并去重后）\n\n| 食材         | 用量       | 用途说明               |\n|--------------|------------|------------------------|\n| 生抽         | 10ml       | 冬瓜蒸肉末             |\n| 老抽         | 15ml       | 冬瓜蒸肉末             |\n| 蚝油         | 15ml       | 冬瓜蒸肉末             |\n| 料酒         | 2ml        | 冬瓜蒸肉末             |\n| 胡椒粉       | 5g         | 冬瓜蒸肉末             |\n| 淀粉         | 15g        | 冬瓜蒸肉末             |\n| 水淀粉       | 25g        | 冬瓜蒸肉末             |\n| 葱姜末       | 约30g      | 冬瓜蒸肉末             |\n| 香葱         | 0.5根      | 冬瓜蒸肉末             |\n| 姜末         | 1粒        | 冬瓜蒸肉末             |\n| 鸡精         | 3g         | 冬瓜蒸肉末             |\n\n---\n\n## 4. 单菜详细做法\n\n### 冬瓜蒸肉末\n\n#### 食材明细\n\n- 冬瓜：300g\n- 猪肉末：300g\n- 生抽：10ml\n- 老抽：15ml\n- 蚝油：15ml\n- 料酒：2ml\n- 胡椒粉：5g\n- 淀粉：15g\n- 水淀粉：25g（淀粉25g + 水50ml）\n- 葱姜末：约30g\n- 香葱：0.5根\n- 姜末：1粒\n- 鸡精：3g\n- 盐：20g（根据口味调整）\n\n#### 分步烹饪步骤\n\n1. **准备冬瓜**：将冬瓜洗净，去皮切块，放入蒸碗中。\n2. **处理肉末**：将猪肉末加入生抽、老抽、蚝油、料酒、胡椒粉、盐和鸡精，搅拌均匀腌制10分钟。\n3. **混合调味**：将腌好的肉末铺在冬瓜上，撒上葱姜末。\n4. **蒸制**：将蒸碗放入蒸锅，加水大火蒸30分钟左右，至冬瓜软烂、肉末熟透。\n5. **勾芡**：取一碗水淀粉，淋入蒸碗中，再蒸5分钟收汁。\n6. **出锅**：撒上香葱，即可上桌。\n\n#### 烹饪小贴士\n\n- 冬瓜可提前切好，避免蒸制过程中水分流失过多。\n- 肉末腌制时间越久，味道越入味。\n- 勾芡时注意控制水量，避免汤汁过多影响口感。\n\n---\n\n### 番茄炒蛋\n\n#### 食材明细\n\n- 番茄：1个（约180g）\n- 鸡蛋：2个\n- 食用油：5ml（每鸡蛋1个）\n- 盐：2g（每人）\n- 胡椒粉：0.5g（每人）\n- 糖：0-2g（可选）\n- 葱花：0-10g（可选）\n\n#### 分步烹饪步骤\n\n1. **准备食材**：番茄洗净，去蒂切块；鸡蛋打入碗中，加入1g盐，搅拌均匀。\n2. **炒鸡蛋**：热锅加油，油热后倒入鸡蛋液，翻炒至半熟状态盛出备用。\n3. **炒番茄**：不洗锅，直接加入番茄块，翻炒至软烂。\n4. **混合翻炒**：加入半熟鸡蛋，翻炒均匀。\n5. **调味**：根据口味加入剩余的盐、糖（可选）、葱花（可选），继续翻炒均匀。\n6. **出锅**：关火，盛盘即可。\n\n#### 烹饪小贴士\n\n- 番茄去皮后口感更细腻，可用开水烫后冷水浸泡剥皮。\n- 加少量醋可以让鸡蛋更蓬松，提升口感。\n- 若喜欢更丰富的口感，可加入少量豆腐或肉末。\n\n---\n\n## 5. 厨房操作先后建议\n\n1. **先处理冬瓜蒸肉末**：\n   - 准备冬瓜并切块，腌制肉末。\n   - 将冬瓜放入蒸碗，铺上肉末，开始蒸制。\n   - 在蒸制过程中，可以准备番茄炒蛋的食材。\n\n2. **接着制作番茄炒蛋**：\n   - 处理番茄和鸡蛋，炒制鸡蛋后加入番茄翻炒。\n   - 最后调味，完成番茄炒蛋。\n\n3. **最后收尾**：\n   - 冬瓜蒸肉末蒸好后，勾芡并撒上香葱。\n   - 两道菜同时上桌，搭配食用。\n\n---\n\n## 6. 整体营养小结\n\n- **总热量**：约1154大卡（两人份）\n- **饮食适配评价**：符合清淡饮食需求，低脂高蛋白，适合健康饮食。\n- **微调建议**：\n  - 可适当减少盐的用量，以进一步降低钠摄入。\n  - 若追求更低热量，可减少食用油的使用量。\n\n---\n\n## 7. 饮食安全提醒\n\n- **规避忌口/过敏原**：暂无相关信息。\n- **食材安全性**：所有食材均为常见食材，无特殊禁忌。\n- **烹饪卫生**：确保食材新鲜，烹饪过程保持清洁。\n\n---\n\n,\"content\":\"请在此沉淀最终菜谱\"}]\n```",
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "冬瓜蒸肉末",
+          "intent": "使用用户已有冬瓜和猪肉末，蒸制少油，符合清淡家常需求。",
+          "query": "冬瓜蒸肉末 做法 热量 烹饪时长 不辣",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣",
+            "参考常用食材：冬瓜"
+          ],
+          "memory_conflicts": [],
+          "ingredients": [
+            "猪肉末 300g",
+            "鸡蛋 1 个（可选,不习惯的人可能会有点腥）",
+            "冬瓜 200g",
+            "葱花（一根,约 20g）",
+            "胡椒粉 5g",
+            "生抽 10ml",
+            "淀粉 5g",
+            "水淀粉 25g（淀粉 25g,水 50ml）",
+            "葱姜末（姜 3-4 片约 30g, 取上面一根葱花中的葱白部分即可）",
+            "盐 20g",
+            "冬瓜 300 g",
+            "食用油 50 ml",
+            "料酒 2 ml",
+            "淀粉 10 g",
+            "生抽 10 ml",
+            "老抽 15 ml",
+            "鸡精 3 g",
+            "香葱 0.5 根",
+            "姜末 1 粒",
+            "蚝油 15 ml"
+          ],
+          "cook_steps": [
+            ",\"content\":\"记录本道菜需求定位、搜索信息、完整用料、烹饪步骤、热量与实操小贴士\"}]"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        },
+        {
+          "id": 2,
+          "name": "番茄炒蛋",
+          "intent": "利用用户已有番茄和鸡蛋，简单快炒，符合清淡口味。",
+          "query": "番茄炒蛋 做法 热量 烹饪时长 不辣",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史菜品：番茄炒蛋",
+            "参考常用食材：番茄"
+          ],
+          "memory_conflicts": [],
+          "ingredients": [
+            "牛肉用量为 150 g/人",
+            "番茄用量为 1 个/人",
+            "鸡蛋用量为 1 个/人",
+            "盐用量为 2 g/人",
+            "胡椒粉用量为 0.5 g/人",
+            "西红柿 = 1 个（约 180g） * 份数",
+            "鸡蛋 = 1.5 个 * 份数，向上取整",
+            "食用油 = 4ml * 鸡蛋/个",
+            "盐 = 1.5-2g * 份数",
+            "糖 = 0-2g * 份数",
+            "葱花 = 0-10g * 份数"
+          ],
+          "cook_steps": [
+            "菜品详细整理结果\n\n### 食材清单  \n- 西红柿：1 个（约 180g）  \n- 鸡蛋：1.5 个（向上取整为 2 个）  \n- 食用油：4ml（每鸡蛋 1 个）  \n- 盐：1.5-2g（根据口味调整）  \n- 糖：0-2g（可选，用于调节酸甜味）  \n- 葱花：0-10g（可选，用于提香）  \n\n---\n\n### 烹饪步骤  \n1. **准备食材**：西红柿洗净，可选择去皮（开水烫后冷水浸泡剥皮），去蒂后切成边长不超过 4cm 的小块。  \n2. **处理鸡蛋**：将鸡蛋打入碗中，加入 1g 盐，搅拌均匀成鸡蛋液。可加 1ml 醋提升蓬松度和去腥。  \n3. **炒鸡蛋**：热锅后倒入食用油，油热后倒入鸡蛋液，翻炒至颜色微微发黄，形成半熟鸡蛋，盛出备用。  \n4. **炒西红柿**：不洗锅，直接加入西红柿块，用锅铲拍打并翻炒 20 秒，或至西红柿软烂。  \n5. **混合翻炒**：加入半熟鸡蛋，翻炒均匀。  \n6. **调味**：根据口味加入剩余的盐、糖（可选）、葱花（可选），继续翻炒均匀。  \n7. **出锅**：关火，盛盘即可。\n\n---\n\n### 总耗时  \n- 烹饪时间：约 15 分钟  \n- 准备时间：约 5 分钟  \n- 总耗时：约 20 分钟  \n\n---\n\n### 预估热量  \n- 每人约 252 大卡（总热量约为 504 大卡，两人份）\n\n---\n\n### 难度  \n- ★★（适合厨房新手）\n\n---\n\n### 烹饪小贴士  \n1. **去西红柿皮更佳口感**：用开水烫后冷水浸泡，更容易剥皮，使菜肴更细腻。  \n2. **加醋让鸡蛋更蓬松**：在鸡蛋液中加入少量醋，有助于提升鸡蛋的蓬松度和口感。  \n3. **可替换食材**：若没有西红柿，可用番茄酱代替；若喜欢更丰富的口感，可加入少量肉末或豆腐。"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        }
+      ],
+      "shopping_list": [
+        "猪肉末 300g（用于：冬瓜蒸肉末）",
+        "鸡蛋 1 个（可选,不习惯的人可能会有点腥）（用于：冬瓜蒸肉末）",
+        "冬瓜 200g（用于：冬瓜蒸肉末）",
+        "葱花（一根,约 20g）（用于：冬瓜蒸肉末）",
+        "胡椒粉 5g（用于：冬瓜蒸肉末）",
+        "生抽 10ml（用于：冬瓜蒸肉末）",
+        "淀粉 5g（用于：冬瓜蒸肉末）",
+        "水淀粉 25g（淀粉 25g,水 50ml）（用于：冬瓜蒸肉末）",
+        "葱姜末（姜 3-4 片约 30g, 取上面一根葱花中的葱白部分即可）（用于：冬瓜蒸肉末）",
+        "盐 20g（用于：冬瓜蒸肉末）",
+        "冬瓜 300 g（用于：冬瓜蒸肉末）",
+        "食用油 50 ml（用于：冬瓜蒸肉末）",
+        "料酒 2 ml（用于：冬瓜蒸肉末）",
+        "淀粉 10 g（用于：冬瓜蒸肉末）",
+        "生抽 10 ml（用于：冬瓜蒸肉末）",
+        "老抽 15 ml（用于：冬瓜蒸肉末）",
+        "鸡精 3 g（用于：冬瓜蒸肉末）",
+        "香葱 0.5 根（用于：冬瓜蒸肉末）",
+        "姜末 1 粒（用于：冬瓜蒸肉末）",
+        "蚝油 15 ml（用于：冬瓜蒸肉末）",
+        "牛肉用量为 150 g/人（用于：番茄炒蛋）",
+        "番茄用量为 1 个/人（用于：番茄炒蛋）",
+        "鸡蛋用量为 1 个/人（用于：番茄炒蛋）",
+        "盐用量为 2 g/人（用于：番茄炒蛋）",
+        "胡椒粉用量为 0.5 g/人（用于：番茄炒蛋）",
+        "西红柿 = 1 个（约 180g） * 份数（用于：番茄炒蛋）",
+        "鸡蛋 = 1.5 个 * 份数，向上取整（用于：番茄炒蛋）",
+        "食用油 = 4ml * 鸡蛋/个（用于：番茄炒蛋）",
+        "盐 = 1.5-2g * 份数（用于：番茄炒蛋）",
+        "糖 = 0-2g * 份数（用于：番茄炒蛋）",
+        "葱花 = 0-10g * 份数（用于：番茄炒蛋）"
+      ],
+      "total_calories": 0
+    },
+    "case_011_empty_or_vague": {
+      "menu_markdown": "```markdown\n# 用餐需求总览\n\n- **用户原始需求**：帮我随便做点吃的  \n- **忌口/过敏原**：暂无相关信息  \n- **用户冰箱现有食材**：暂无相关信息  \n- **整体用餐定位**：清淡、少油、不辣，适合一人食或家庭餐  \n\n---\n\n## 2. 整套菜单概览表\n\n| 菜名             | 制作时长 | 难度 | 单菜预估热量 |\n|------------------|----------|------|--------------|\n| 冬瓜蒸肉末       | 约30分钟 | 中   | 约450大卡    |\n| 蒜蓉西兰花       | 约15分钟 | 简单 | 约120大卡    |\n\n---\n\n## 3. 分类采购清单\n\n### 已有食材（无需额外购买）\n- 暂无相关信息\n\n### 需要采购食材\n| 食材         | 数量     | 用途说明                     |\n|--------------|----------|------------------------------|\n| 猪肉末       | 300g     | 冬瓜蒸肉末                   |\n| 鸡蛋         | 1个      | 可选，用于冬瓜蒸肉末         |\n| 冬瓜         | 500g     | 冬瓜蒸肉末                   |\n| 葱花         | 20g      | 冬瓜蒸肉末                   |\n| 胡椒粉       | 5g       | 冬瓜蒸肉末                   |\n| 生抽         | 20ml     | 冬瓜蒸肉末、蒜蓉西兰花       |\n| 淀粉         | 15g      | 冬瓜蒸肉末                   |\n| 水淀粉       | 25g      | 冬瓜蒸肉末                   |\n| 葱姜末       | 30g      | 冬瓜蒸肉末                   |\n| 盐           | 20g      | 冬瓜蒸肉末                   |\n| 食用油       | 50ml     | 冬瓜蒸肉末                   |\n| 料酒         | 2ml      | 冬瓜蒸肉末                   |\n| 老抽         | 15ml     | 冬瓜蒸肉末                   |\n| 鸡精         | 3g       | 冬瓜蒸肉末                   |\n| 香葱         | 0.5根    | 冬瓜蒸肉末                   |\n| 姜末         | 1粒      | 冬瓜蒸肉末                   |\n| 蚝油         | 20ml     | 冬瓜蒸肉末、蒜蓉西兰花       |\n| 西兰花       | 200g     | 蒜蓉西兰花                   |\n| 大蒜         | 3-4瓣    | 蒜蓉西兰花                   |\n| 白糖         | 2g       | 蒜蓉西兰花                   |\n\n---\n\n## 4. 单菜详细做法\n\n### 冬瓜蒸肉末\n\n#### 食材明细\n- 猪肉末 300g  \n- 冬瓜 500g  \n- 葱花 20g  \n- 胡椒粉 5g  \n- 生抽 20ml  \n- 淀粉 15g  \n- 水淀粉 25g  \n- 葱姜末 30g  \n- 盐 20g  \n- 食用油 50ml  \n- 料酒 2ml  \n- 老抽 15ml  \n- 鸡精 3g  \n- 香葱 0.5根  \n- 姜末 1粒  \n- 蚝油 20ml  \n\n#### 分步烹饪步骤\n1. 冬瓜去皮切块，放入蒸碗中。\n2. 猪肉末加入葱姜末、料酒、生抽、老抽、盐、胡椒粉、蚝油搅拌均匀，腌制10分钟。\n3. 将腌好的肉末铺在冬瓜上。\n4. 加入适量水，盖上盖子，放入蒸锅中大火蒸30分钟。\n5. 出锅前撒上葱花，淋上水淀粉勾芡。\n\n#### 烹饪小贴士\n- 冬瓜蒸熟后会出水，建议在蒸之前加少量水。\n- 若喜欢更嫩滑口感，可提前将肉末拌入少许淀粉。\n- 蒸的过程中注意不要频繁开盖，以免影响口感。\n\n---\n\n### 蒜蓉西兰花\n\n#### 食材明细\n- 西兰花 200g  \n- 大蒜 3-4瓣  \n- 蚝油 5ml  \n- 白糖 2g  \n- 盐 适量  \n- 食用油 适量  \n\n#### 分步烹饪步骤\n1. 西兰花洗净，切成小朵，焯水1分钟，捞出过冷水备用。\n2. 大蒜剁成蒜末，热锅凉油，爆香蒜末。\n3. 加入西兰花翻炒，加入蚝油、白糖和适量盐调味。\n4. 快速翻炒均匀，出锅即可。\n\n#### 烹饪小贴士\n- 西兰花焯水时间不宜过长，否则容易变软。\n- 蒜末可以提前准备好，避免炒糊。\n- 若喜欢更鲜香的口感，可加入少许鸡精提味。\n\n---\n\n## 5. 厨房操作先后建议\n\n1. **准备食材**：先处理冬瓜和西兰花，清洗干净并切好。\n2. **腌制肉末**：将猪肉末与调料混合腌制10分钟。\n3. **开始蒸制**：将冬瓜和肉末放入蒸碗，开始蒸制。\n4. **炒制西兰花**：在蒸冬瓜的同时，炒制蒜蓉西兰花。\n5. **收尾装盘**：冬瓜蒸好后，撒上葱花，淋上水淀粉勾芡，完成装盘。\n\n---\n\n## 6. 整体营养小结\n\n- **总热量**：约570大卡  \n- **饮食适配评价**：本套餐清淡少油，符合不辣、低脂饮食需求，适合减脂或健康饮食人群。  \n- **微调建议**：若希望增加蛋白质摄入，可搭配一份豆腐或鸡蛋；若想丰富口感，可加入少量胡萝卜或玉米粒。\n\n---\n\n## 7. 饮食安全提醒\n\n- **规避忌口/过敏原**：本套餐未使用任何用户提及的忌口或过敏食材，如无特殊要求，可放心食用。\n- **食材安全性**：所有食材均为常见食材，无特殊禁忌，建议根据个人口味调整用量。\n\n```\n\n,\"content\":\"请在此沉淀最终菜谱\"}]",
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "冬瓜蒸肉末",
+          "intent": "利用用户已有冬瓜和猪肉末，蒸制少油清淡，符合不辣需求。",
+          "query": "冬瓜蒸肉末 做法 热量 烹饪时长 不辣",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣",
+            "参考常用食材：冬瓜"
+          ],
+          "memory_conflicts": [],
+          "ingredients": [
+            "猪肉末 300g",
+            "鸡蛋 1 个（可选,不习惯的人可能会有点腥）",
+            "冬瓜 200g",
+            "葱花（一根,约 20g）",
+            "胡椒粉 5g",
+            "生抽 10ml",
+            "淀粉 5g",
+            "水淀粉 25g（淀粉 25g,水 50ml）",
+            "葱姜末（姜 3-4 片约 30g, 取上面一根葱花中的葱白部分即可）",
+            "盐 20g",
+            "冬瓜 300 g",
+            "食用油 50 ml",
+            "料酒 2 ml",
+            "淀粉 10 g",
+            "生抽 10 ml",
+            "老抽 15 ml",
+            "鸡精 3 g",
+            "香葱 0.5 根",
+            "姜末 1 粒",
+            "蚝油 15 ml"
+          ],
+          "cook_steps": [
+            ",\"content\":\"记录本道菜需求定位、搜索信息、完整用料、烹饪步骤、热量与实操小贴士\"}]"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        },
+        {
+          "id": 2,
+          "name": "蒜蓉西兰花",
+          "intent": "搭配冬瓜蒸肉末，增加素菜，丰富口感，满足清淡口味。",
+          "query": "蒜蓉西兰花 做法 热量 烹饪时长 不辣",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣",
+            "参考常用食材：西兰花"
+          ],
+          "memory_conflicts": [],
+          "ingredients": [
+            "西兰花 约 200 g （约 1/2 中等大小的西兰花）",
+            "大蒜 3-4 瓣",
+            "生抽 10 ml",
+            "蚝油 5 ml",
+            "白糖 2 g"
+          ],
+          "cook_steps": [
+            ",\"content\":\"记录本道菜需求定位、搜索信息、完整用料、烹饪步骤、热量与实操小贴士\"}]"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        }
+      ],
+      "shopping_list": [
+        "猪肉末 300g（用于：冬瓜蒸肉末）",
+        "鸡蛋 1 个（可选,不习惯的人可能会有点腥）（用于：冬瓜蒸肉末）",
+        "冬瓜 200g（用于：冬瓜蒸肉末）",
+        "葱花（一根,约 20g）（用于：冬瓜蒸肉末）",
+        "胡椒粉 5g（用于：冬瓜蒸肉末）",
+        "生抽 10ml（用于：冬瓜蒸肉末）",
+        "淀粉 5g（用于：冬瓜蒸肉末）",
+        "水淀粉 25g（淀粉 25g,水 50ml）（用于：冬瓜蒸肉末）",
+        "葱姜末（姜 3-4 片约 30g, 取上面一根葱花中的葱白部分即可）（用于：冬瓜蒸肉末）",
+        "盐 20g（用于：冬瓜蒸肉末）",
+        "冬瓜 300 g（用于：冬瓜蒸肉末）",
+        "食用油 50 ml（用于：冬瓜蒸肉末）",
+        "料酒 2 ml（用于：冬瓜蒸肉末）",
+        "淀粉 10 g（用于：冬瓜蒸肉末）",
+        "生抽 10 ml（用于：冬瓜蒸肉末、蒜蓉西兰花）",
+        "老抽 15 ml（用于：冬瓜蒸肉末）",
+        "鸡精 3 g（用于：冬瓜蒸肉末）",
+        "香葱 0.5 根（用于：冬瓜蒸肉末）",
+        "姜末 1 粒（用于：冬瓜蒸肉末）",
+        "蚝油 15 ml（用于：冬瓜蒸肉末）",
+        "西兰花 约 200 g （约 1/2 中等大小的西兰花）（用于：蒜蓉西兰花）",
+        "大蒜 3-4 瓣（用于：蒜蓉西兰花）",
+        "蚝油 5 ml（用于：蒜蓉西兰花）",
+        "白糖 2 g（用于：蒜蓉西兰花）"
+      ],
+      "total_calories": 0
+    },
+    "case_012_single_dish_request": {
+      "menu_markdown": "```markdown\n# 完整菜谱套餐：只做一道菜，家里有冬瓜和猪肉末，清淡一点\n\n## 1. **用餐需求总览**\n\n- **用户原始需求**：只做一道菜，使用家中已有的冬瓜和猪肉末，要求清淡。\n- **忌口/过敏原**：暂无相关信息。\n- **用户冰箱现有食材**：冬瓜、猪肉末。\n- **整体用餐定位**：清淡家常菜，适合一人食或家庭餐。\n\n---\n\n## 2. **整套菜单概览表**\n\n| 菜名         | 制作时长 | 难度 | 单菜预估热量 |\n|--------------|----------|------|----------------|\n| 冬瓜猪肉蒸   | 约30分钟 | 中等 | 约450大卡      |\n\n---\n\n## 3. **分类采购清单**\n\n### ✅ 已有食材（无需额外购买）\n- 冬瓜（根据实际库存调整）\n- 猪肉末（根据实际库存调整）\n\n### 🛒 需要采购食材（合并去重后）\n\n| 食材名称       | 数量     | 备注                     |\n|----------------|----------|--------------------------|\n| 鸡蛋           | 1个      | 可选，不习惯的人可省略 |\n| 葱花           | 20g      |                          |\n| 胡椒粉         | 5g       |                          |\n| 生抽           | 10ml     |                          |\n| 淀粉           | 15g      | （含水淀粉中的部分）     |\n| 水             | 50ml     | 用于制作水淀粉           |\n| 葱姜末         | 30g      | 含葱白和姜               |\n| 盐             | 20g      |                          |\n| 食用油         | 50ml     |                          |\n| 料酒           | 2ml      |                          |\n| 老抽           | 15ml     |                          |\n| 鸡精           | 3g       |                          |\n| 香葱           | 0.5根    |                          |\n| 姜末           | 1粒      |                          |\n| 蚝油           | 15ml     |                          |\n\n---\n\n## 4. **单菜详细做法**\n\n### 🍲 冬瓜猪肉蒸\n\n#### 🧾 食材明细\n- 冬瓜 200g（可根据口味增减）\n- 猪肉末 300g\n- 鸡蛋 1个（可选）\n- 葱花 20g\n- 胡椒粉 5g\n- 生抽 10ml\n- 淀粉 15g（其中5g用于腌肉，10g用于水淀粉）\n- 水 50ml（用于调制水淀粉）\n- 葱姜末 30g（含葱白和姜）\n- 盐 20g\n- 食用油 50ml\n- 料酒 2ml\n- 老抽 15ml\n- 鸡精 3g\n- 香葱 0.5根\n- 姜末 1粒\n- 蚝油 15ml\n\n#### 📝 分步烹饪步骤\n\n1. **准备食材**：\n   - 冬瓜洗净切片，厚度约1cm。\n   - 猪肉末中加入盐、料酒、胡椒粉、生抽、老抽、蚝油、姜末、葱姜末，搅拌均匀腌制10分钟。\n   - 鸡蛋打散备用（可选）。\n\n2. **蒸制过程**：\n   - 在蒸碗底部铺上冬瓜片，放入腌好的猪肉末。\n   - 若使用鸡蛋，可在猪肉末上淋入蛋液。\n   - 加入适量清水至蒸碗的1/3处。\n   - 覆盖保鲜膜或盘子，防止水汽滴落。\n   - 放入蒸锅，大火蒸约25-30分钟，至猪肉熟透。\n\n3. **勾芡收汁**：\n   - 取出蒸好的冬瓜猪肉，将蒸出的汤汁倒入小锅中。\n   - 加入水淀粉（淀粉5g + 水50ml），煮至浓稠。\n   - 倒回蒸碗中，撒上葱花、香葱段，再蒸2分钟即可。\n\n4. **装盘**：\n   - 将冬瓜猪肉盛入盘中，淋上汤汁，撒上少许胡椒粉和葱花点缀。\n\n#### 📌 烹饪小贴士\n- 冬瓜不宜蒸太久，否则会变软影响口感。\n- 若喜欢更鲜嫩的口感，可加入少量鸡蛋液。\n- 蒸制过程中注意水量，避免烧干。\n- 可根据个人口味调整调料比例。\n\n---\n\n## 5. **厨房操作先后建议**\n\n1. **备菜阶段**：\n   - 冬瓜切片、猪肉末腌制、葱姜末准备好。\n   - 准备好所有调味料和水淀粉。\n\n2. **蒸制阶段**：\n   - 先将冬瓜铺在蒸碗底部，再放入腌好的猪肉末。\n   - 加入适量清水，覆盖后开始蒸制。\n\n3. **收汁阶段**：\n   - 蒸好后取出，将汤汁倒出勾芡，再回锅蒸2分钟。\n\n---\n\n## 6. **整体营养小结**\n\n- **总热量**：约450大卡\n- **饮食适配评价**：符合清淡饮食需求，富含蛋白质和水分，适合减脂或日常家常餐。\n- **微调建议**：\n  - 若追求更低热量，可减少食用油用量。\n  - 若希望增加纤维摄入，可搭配一份清炒蔬菜。\n\n---\n\n## 7. **饮食安全提醒**\n\n- 本道菜未使用任何用户忌口或过敏原食材。\n- 所有食材均为用户已有或需采购，无特殊禁忌。\n- 若对某些调料敏感（如鸡精、酱油等），可酌情减少或替换。\n\n---\n\n,\"content\":\"请在此沉淀最终菜谱\"}]\n```",
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "冬瓜猪肉蒸",
+          "intent": "使用用户已有冬瓜和猪肉末，蒸制少油，符合清淡家常需求。",
+          "query": "冬瓜猪肉蒸 做法 热量 烹饪时长 不辣",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣",
+            "参考常用食材：番茄"
+          ],
+          "memory_conflicts": [],
+          "ingredients": [
+            "猪肉末 300g",
+            "鸡蛋 1 个（可选,不习惯的人可能会有点腥）",
+            "冬瓜 200g",
+            "葱花（一根,约 20g）",
+            "胡椒粉 5g",
+            "生抽 10ml",
+            "淀粉 5g",
+            "水淀粉 25g（淀粉 25g,水 50ml）",
+            "葱姜末（姜 3-4 片约 30g, 取上面一根葱花中的葱白部分即可）",
+            "盐 20g",
+            "冬瓜 300 g",
+            "食用油 50 ml",
+            "料酒 2 ml",
+            "淀粉 10 g",
+            "生抽 10 ml",
+            "老抽 15 ml",
+            "鸡精 3 g",
+            "香葱 0.5 根",
+            "姜末 1 粒",
+            "蚝油 15 ml"
+          ],
+          "cook_steps": [
+            ",\"content\":\"记录本道菜需求定位、搜索信息、完整用料、烹饪步骤、热量与实操小贴士\"}]"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        }
+      ],
+      "shopping_list": [
+        "猪肉末 300g（用于：冬瓜猪肉蒸）",
+        "鸡蛋 1 个（可选,不习惯的人可能会有点腥）（用于：冬瓜猪肉蒸）",
+        "冬瓜 200g（用于：冬瓜猪肉蒸）",
+        "葱花（一根,约 20g）（用于：冬瓜猪肉蒸）",
+        "胡椒粉 5g（用于：冬瓜猪肉蒸）",
+        "生抽 10ml（用于：冬瓜猪肉蒸）",
+        "淀粉 5g（用于：冬瓜猪肉蒸）",
+        "水淀粉 25g（淀粉 25g,水 50ml）（用于：冬瓜猪肉蒸）",
+        "葱姜末（姜 3-4 片约 30g, 取上面一根葱花中的葱白部分即可）（用于：冬瓜猪肉蒸）",
+        "盐 20g（用于：冬瓜猪肉蒸）",
+        "冬瓜 300 g（用于：冬瓜猪肉蒸）",
+        "食用油 50 ml（用于：冬瓜猪肉蒸）",
+        "料酒 2 ml（用于：冬瓜猪肉蒸）",
+        "淀粉 10 g（用于：冬瓜猪肉蒸）",
+        "生抽 10 ml（用于：冬瓜猪肉蒸）",
+        "老抽 15 ml（用于：冬瓜猪肉蒸）",
+        "鸡精 3 g（用于：冬瓜猪肉蒸）",
+        "香葱 0.5 根（用于：冬瓜猪肉蒸）",
+        "姜末 1 粒（用于：冬瓜猪肉蒸）",
+        "蚝油 15 ml（用于：冬瓜猪肉蒸）"
+      ],
+      "total_calories": 0
+    },
+    "case_013_no_pork": {
+      "menu_markdown": "```markdown\n# 1. **用餐需求总览**\n\n- **用户原始需求**：不吃猪肉，想做三道家常菜，有鸡蛋、青菜、蘑菇。\n- **忌口/过敏原**：无明确提及，但需避开猪肉。\n- **用户冰箱现有食材**：\n  - 鸡蛋\n  - 青菜\n  - 蘑菇\n- **整体用餐定位**：家庭餐 / 快手晚餐 / 减脂餐（低脂高纤维）\n\n---\n\n# 2. **整套菜单概览表**\n\n| 菜名         | 制作时长 | 难度 | 单菜预估热量 |\n|--------------|----------|------|----------------|\n| 鸡蛋炒青菜   | 约 10 分钟 | ★★ | 约 150 大卡 |\n| 蘑菇汤       | 约 30 分钟 | ★ | 约 426 大卡 |\n| 素炒蘑菇     | 约 10 分钟 | ★★ | 约 155 大卡 |\n\n---\n\n# 3. **分类采购清单**\n\n## ✅ 已有食材（无需额外购买）\n- 鸡蛋\n- 青菜\n- 蘑菇\n\n## 🛒 需要采购食材（合并去重后）\n\n| 食材名称        | 用量       | 用途说明                     |\n|------------------|------------|------------------------------|\n| 洋葱            | 50 克      | 用于蘑菇汤和素炒蘑菇         |\n| 黄油            | 15 克      | 用于蘑菇汤                   |\n| 面粉            | 10 克      | 用于蘑菇汤                   |\n| 牛奶            | 200 毫升   | 用于蘑菇汤                   |\n| 淡奶油          | 30 毫升    | 用于蘑菇汤                   |\n| 清水            | 100 毫升   | 用于蘑菇汤                   |\n| 盐              | 2 克       | 用于蘑菇汤                   |\n| 黑胡椒碎        | 1 克       | 用于蘑菇汤                   |\n| 蒜瓣            | 2 粒       | 用于素炒蘑菇                 |\n| 食用油          | 10-15 毫升 | 用于素炒蘑菇                 |\n| 食盐            | 2 克       | 用于素炒蘑菇                 |\n| 饮用水          | 70 毫升    | 用于素炒蘑菇                 |\n| 白糖            | 5 克       | 用于素炒蘑菇                 |\n\n---\n\n# 4. **单菜详细做法**\n\n## 🍳 鸡蛋炒青菜\n\n### 🧾 食材明细\n- 鸡蛋：2 个\n- 青菜：100g（如小白菜、油麦菜等）\n- 食用油：10-15ml\n- 食盐：2g\n- 白糖：5g\n- 清水：70ml\n\n### 🔥 烹饪步骤\n1. **准备食材**：将青菜洗净掰成小段，鸡蛋打散备用。\n2. **热锅加油**：中火或大火加热锅，倒入食用油，等待 30 秒让油温升高。\n3. **炒香鸡蛋**：加入鸡蛋液，快速翻炒至凝固。\n4. **加入青菜**：将青菜加入锅中，快速翻炒约 1 分钟至变软。\n5. **调味**：加入盐和白糖，继续翻炒 1 分钟。\n6. **加水焖煮**：倒入清水，盖上锅盖小火焖煮 2 分钟。\n7. **出锅装盘**：翻炒均匀后即可盛出。\n\n### ⚠️ 烹饪小贴士\n- 可根据个人口味调整盐和糖的用量。\n- 若喜欢更鲜嫩口感，可减少焖煮时间。\n- 建议使用不粘锅以减少用油量。\n\n---\n\n## 🥣 蘑菇汤\n\n### 🧾 食材明细\n- 白蘑菇：200 克\n- 洋葱：50 克\n- 黄油：15 克\n- 面粉：10 克\n- 牛奶：200 毫升\n- 淡奶油：30 毫升\n- 清水：100 毫升\n- 盐：2 克\n- 黑胡椒碎：1 克\n\n### 🔥 烹饪步骤\n1. **准备食材**：白蘑菇切片，洋葱切末。\n2. **炒香底料**：平底锅中放入黄油，小火融化后加入洋葱炒至透明。\n3. **炒蘑菇**：加入白蘑菇翻炒至出水变软。\n4. **勾芡**：撒入面粉搅拌均匀。\n5. **加液体**：加入牛奶和清水，搅拌均匀后小火煮沸，保持搅拌防止糊底。\n6. **炖煮**：转小火煮约 10 分钟，汤汁浓稠。\n7. **调味**：倒入淡奶油继续加热 1 分钟，加入盐和黑胡椒调味。\n8. **打浆（可选）**：熄火后可用料理机打成细腻浓汤。\n\n### ⚠️ 烹饪小贴士\n- 可用鸡高汤代替清水，风味更佳。\n- 喜欢浓汤口感可适当增加面粉和淡奶油的用量。\n- 建议现做现吃，不建议冷藏或冷冻保存。\n\n---\n\n## 🥗 素炒蘑菇\n\n### 🧾 食材明细\n- 蘑菇：200 克（建议使用白蘑菇或香菇）\n- 青菜：100 克（如小白菜、油麦菜等）\n- 蒜瓣：2 粒\n- 食用油：10-15 毫升\n- 盐：2 克\n- 白糖：5 克\n- 清水：70 毫升\n\n### 🔥 烹饪步骤\n1. **准备食材**：将蘑菇切片，青菜洗净掰成小段，蒜瓣剁碎备用。\n2. **热锅加油**：中火或大火加热锅，倒入食用油，等待 30 秒让油温升高。\n3. **炒香蒜末**：加入蒜末翻炒出香味。\n4. **炒蘑菇**：放入蘑菇片翻炒至变软出水。\n5. **加入青菜**：将青菜加入锅中，快速翻炒约 1 分钟至变软。\n6. **调味**：加入盐和白糖，继续翻炒 1 分钟。\n7. **加水焖煮**：倒入清水，盖上锅盖小火焖煮 2 分钟。\n8. **出锅装盘**：翻炒均匀后即可盛出。\n\n### ⚠️ 烹饪小贴士\n- 保持脆嫩口感，炒青菜时尽量控制时间。\n- 可适量增加白糖提升鲜味，但不要过量以免掩盖蔬菜本味。\n- 若没有青菜，可用菠菜、生菜等绿叶蔬菜代替。\n\n---\n\n# 5. **厨房操作先后建议**\n\n1. **先处理蘑菇汤**：提前准备好蘑菇、洋葱、黄油等材料，开始熬制汤品。\n2. **同时进行素炒蘑菇**：在蘑菇汤炖煮过程中，可以开始炒蘑菇和青菜。\n3. **最后炒鸡蛋炒青菜**：利用剩余时间完成最后一道菜，确保所有菜品同步完成。\n\n---\n\n# 6. **整体营养小结**\n\n- **总热量**：约 731 大卡（每份）\n- **饮食适配评价**：\n  - 适合减脂餐、快手晚餐及家庭餐。\n  - 含有丰富的蛋白质（来自鸡蛋和蘑菇）、膳食纤维（来自青菜）和健康脂肪（来自黄油和淡奶油）。\n- **微调建议**：\n  - 若追求更低热量，可减少淡奶油用量或改用脱脂牛奶。\n  - 若希望增加蛋白质摄入，可添加豆腐或豆制品。\n\n---\n\n# 7. **饮食安全提醒**\n\n- **规避忌口/过敏原**：本套餐不含猪肉，避免了用户忌口。\n- **其他注意事项**：\n  - 所有食材均未涉及常见过敏源（如坚果、海鲜等）。\n  - 建议根据个人口味调整调味料用量。\n\n---\n\n, \"content\": \"# 1. **用餐需求总览\\n\\n- **用户原始需求**：不吃猪肉，想做三道家常菜，有鸡蛋、青菜、蘑菇。\\n- **忌口/过敏原**：无明确提及，但需避开猪肉。\\n- **用户冰箱现有食材**：\\n  - 鸡蛋\\n  - 青菜\\n  - 蘑菇\\n- **整体用餐定位**：家庭餐 / 快手晚餐 / 减脂餐（低脂高纤维）\\n\\n---\\n\\n# 2. **整套菜单概览表**\\n\\n| 菜名         | 制作时长 | 难度 | 单菜预估热量 |\\n|--------------|----------|------|----------------|\\n| 鸡蛋炒青菜   | 约 10 分钟 | ★★ | 约 150 大卡 |\\n| 蘑菇汤       | 约 30 分钟 | ★ | 约 426 大卡 |\\n| 素炒蘑菇     | 约 10 分钟 | ★★ | 约 155 大卡 |\\n\\n---\\n\\n# 3. **分类采购清单**\\n\\n## ✅ 已有食材（无需额外购买）\\n- 鸡蛋\\n- 青菜\\n- 蘑菇\\n\\n## 🛒 需要采购食材（合并去重后）\\n\\n| 食材名称        | 用量       | 用途说明                     |\\n|------------------|------------|------------------------------|\\n| 洋葱            | 50 克      | 用于蘑菇汤和素炒蘑菇         |\\n| 黄油            | 15 克      | 用于蘑菇汤                   |\\n| 面粉            | 10 克      | 用于蘑菇汤                   |\\n| 牛奶            | 200 毫升   | 用于蘑菇汤                   |\\n| 淡奶油          | 30 毫升    | 用于蘑菇汤                   |\\n| 清水            | 100 毫升   | 用于蘑菇汤                   |\\n| 盐              | 2 克       | 用于蘑菇汤                   |\\n| 黑胡椒碎        | 1 克       | 用于蘑菇汤                   |\\n| 蒜瓣            | 2 粒       | 用于素炒蘑菇                 |\\n| 食用油          | 10-15 毫升 | 用于素炒蘑菇                 |\\n| 食盐            | 2 克       | 用于素炒蘑菇                 |\\n| 饮用水          | 70 毫升    | 用于素炒蘑菇                 |\\n| 白糖            | 5 克       | 用于素炒蘑菇                 |\\n\\n---\\n\\n# 4. **单菜详细做法**\\n\\n## 🍳 鸡蛋炒青菜\\n\\n### 🧾 食材明细\\n- 鸡蛋：2 个\\n- 青菜：100g（如小白菜、油麦菜等）\\n- 食用油：10-15ml\\n- 食盐：2g\\n- 白糖：5g\\n- 清水：70ml\\n\\n### 🔥 烹饪步骤\\n1. **准备食材**：将青菜洗净掰成小段，鸡蛋打散备用。\\n2. **热锅加油**：中火或大火加热锅，倒入食用油，等待 30 秒让油温升高。\\n3. **炒香鸡蛋**：加入鸡蛋液，快速翻炒至凝固。\\n4. **加入青菜**：将青菜加入锅中，快速翻炒约 1 分钟至变软。\\n5. **调味**：加入盐和白糖，继续翻炒 1 分钟。\\n6. **加水焖煮**：倒入清水，盖上锅盖小火焖煮 2 分钟。\\n7. **出锅装盘**：翻炒均匀后即可盛出。\\n\\n### ⚠️ 烹饪小贴士\\n- 可根据个人口味调整盐和糖的用量。\\n- 若喜欢更鲜嫩口感，可减少焖煮时间。\\n- 建议使用不粘锅以减少用油量。\\n\\n---\\n\\n## 🥣 蘑菇汤\\n\\n### 🧾 食材明细\\n- 白蘑菇：200 克\\n- 洋葱：50 克\\n- 黄油：15 克\\n- 面粉：10 克\\n- 牛奶：200 毫升\\n- 淡奶油：30 毫升\\n- 清水：100 毫升\\n- 盐：2 克\\n- 黑胡椒碎：1 克\\n\\n### 🔥 烹饪步骤\\n1. **准备食材**：白蘑菇切片，洋葱切末。\\n2. **炒香底料**：平底锅中放入黄油，小火融化后加入洋葱炒至透明。\\n3. **炒蘑菇**：加入白蘑菇翻炒至出水变软。\\n4. **勾芡**：撒入面粉搅拌均匀。\\n5. **加液体**：加入牛奶和清水，搅拌均匀后小火煮沸，保持搅拌防止糊底。\\n6. **炖煮**：转小火煮约 10 分钟，汤汁浓稠。\\n7. **调味**：倒入淡奶油继续加热 1 分钟，加入盐和黑胡椒调味。\\n8. **打浆（可选）**：熄火后可用料理机打成细腻浓汤。\\n\\n### ⚠️ 烹饪小贴士\\n- 可用鸡高汤代替清水，风味更佳。\\n- 喜欢浓汤口感可适当增加面粉和淡奶油的用量。\\n- 建议现做现吃，不建议冷藏或冷冻保存。\\n\\n---\\n\\n## 🥗 素炒蘑菇\\n\\n### 🧾 食材明细\\n- 蘑菇：200 克（建议使用白蘑菇或香菇）\\n- 青菜：100 克（如小白菜、油麦菜等）\\n- 蒜瓣：2 粒\\n- 食用油：10-15 毫升\\n- 盐：2 克\\n- 白糖：5 克\\n- 清水：70 毫升\\n\\n### 🔥 烹饪步骤\\n1. **准备食材**：将蘑菇切片，青菜洗净掰成小段，蒜瓣剁碎备用。\\n2. **热锅加油**：中火或大火加热锅，倒入食用油，等待 30 秒让油温升高。\\n3. **炒香蒜末**：加入蒜末翻炒出香味。\\n4. **炒蘑菇**：放入蘑菇片翻炒至变软出水。\\n5. **加入青菜**：将青菜加入锅中，快速翻炒约 1 分钟至变软。\\n6. **调味**：加入盐和白糖，继续翻炒 1 分钟。\\n7. **加水焖煮**：倒入清水，盖上锅盖小火焖煮 2 分钟。\\n8. **出锅装盘**：翻炒均匀后即可盛出。\\n\\n### ⚠️ 烹饪小贴士\\n- 保持脆嫩口感，炒青菜时尽量控制时间。\\n- 可适量增加白糖提升鲜味，但不要过量以免掩盖蔬菜本味。\\n- 若没有青菜，可用菠菜、生菜等绿叶蔬菜代替。\\n\\n---\\n\\n# 5. **厨房操作先后建议**\\n\\n1. **先处理蘑菇汤**：提前准备好蘑菇、洋葱、黄油等材料，开始熬制汤品。\\n2. **同时进行素炒蘑菇**：在蘑菇汤炖煮过程中，可以开始炒蘑菇和青菜。\\n3. **最后炒鸡蛋炒青菜**：利用剩余时间完成最后一道菜，确保所有菜品同步完成。\\n\\n---\\n\\n# 6. **整体营养小结**\\n\\n- **总热量**：约 731 大卡（每份）\\n- **饮食适配评价**：\\n  - 适合减脂餐、快手晚餐及家庭餐。\\n  - 含有丰富的蛋白质（来自鸡蛋和蘑菇）、膳食纤维（来自青菜）和健康脂肪（来自黄油和淡奶油）。\\n- **微调建议**：\\n  - 若追求更低热量，可减少淡奶油用量或改用脱脂牛奶。\\n  - 若希望增加蛋白质摄入，可添加豆腐或豆制品。\\n\\n---\\n\\n# 7. **饮食安全提醒**\\n\\n- **规避忌口/过敏原**：本套餐不含猪肉，避免了用户忌口。\\n- **其他注意事项**：\\n  - 所有食材均未涉及常见过敏源（如坚果、海鲜等）。\\n  - 建议根据个人口味调整调味料用量。\"}}\n```",
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "鸡蛋炒青菜",
+          "intent": "利用用户已有鸡蛋和青菜，快速制作一道清淡家常菜，避开猪肉忌口。",
+          "query": "鸡蛋炒青菜 核心食材：鸡蛋、青菜 不辣 家常做法 烹饪时长 热量",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [],
+          "memory_conflicts": [],
+          "ingredients": [
+            "菠菜 350g",
+            "鸡蛋 2 个",
+            "食用油 15ml",
+            "食用盐 5g"
+          ],
+          "cook_steps": [
+            ",\"content\":\"记录本道菜需求定位、搜索信息、完整用料、烹饪步骤、热量与实操小贴士\"}]"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        },
+        {
+          "id": 2,
+          "name": "蘑菇汤",
+          "intent": "利用用户已有蘑菇，制作一道暖胃汤品，搭配其他菜品提升营养均衡性。",
+          "query": "蘑菇汤 核心食材：蘑菇 不辣 家常做法 烹饪时长 热量",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [],
+          "memory_conflicts": [],
+          "ingredients": [
+            "白蘑菇 200 克",
+            "洋葱 50 克",
+            "黄油 15 克",
+            "面粉 10 克",
+            "牛奶 200 毫升",
+            "淡奶油 30 毫升",
+            "清水 100 毫升",
+            "盐 2 克",
+            "黑胡椒碎 1 克"
+          ],
+          "cook_steps": [
+            "菜品详细整理结果\n\n### 食材清单\n- 白蘑菇：200 克  \n- 洋葱：50 克  \n- 黄油：15 克  \n- 面粉：10 克  \n- 牛奶：200 毫升  \n- 淡奶油：30 毫升  \n- 清水：100 毫升  \n- 盐：2 克  \n- 黑胡椒碎：1 克  \n\n---\n\n### 烹饪步骤\n1. **准备食材**：白蘑菇切片，洋葱切末。  \n2. **炒香底料**：平底锅中放入黄油，小火融化后加入洋葱炒至透明。  \n3. **炒蘑菇**：加入白蘑菇翻炒至出水变软。  \n4. **勾芡**：撒入面粉搅拌均匀。  \n5. **加液体**：加入牛奶和清水，搅拌均匀后小火煮沸，保持搅拌防止糊底。  \n6. **炖煮**：转小火煮约 10 分钟，汤汁浓稠。  \n7. **调味**：倒入淡奶油继续加热 1 分钟，加入盐和黑胡椒调味。  \n8. **打浆（可选）**：熄火后可用料理机打成细腻浓汤。  \n\n---\n\n### 总耗时\n- 总烹饪时长：约 30 分钟  \n\n---\n\n### 预估热量\n- 每份热量：约 426 大卡  \n\n---\n\n### 难度\n- 制作难度：★（简单）  \n\n---\n\n### 烹饪小贴士\n1. **提升风味**：可用鸡高汤代替清水，风味更佳，建议控制总液体不超过 300 毫升/份。  \n2. **口感调整**：喜欢浓汤口感可适当增加面粉和淡奶油的用量。  \n3. **保存建议**：建议现做现吃，不建议冷藏或冷冻保存，以免影响口感。"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        },
+        {
+          "id": 3,
+          "name": "素炒蘑菇",
+          "intent": "利用用户已有蘑菇，搭配青菜制作一道素食主菜，避免重复食材和烹饪方式。",
+          "query": "素炒蘑菇 核心食材：蘑菇 青菜 不辣 家常做法 烹饪时长 热量",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [],
+          "memory_conflicts": [],
+          "ingredients": [
+            "白蘑菇 200 克",
+            "洋葱 50 克",
+            "黄油 15 克",
+            "面粉 10 克",
+            "牛奶 200 毫升",
+            "淡奶油 30 毫升",
+            "清水 100 毫升",
+            "盐 2 克",
+            "黑胡椒碎 1 克",
+            "青菜 100g * 份数",
+            "蒜瓣 2 粒 * 份数",
+            "食用油 10-15ml（覆盖锅底即可）",
+            "食盐 2g * 份数",
+            "饮用水 70ml * 份数",
+            "白糖 5g * 份数"
+          ],
+          "cook_steps": [
+            "菜品详细整理结果\n\n### 食材清单\n- 蘑菇：200 克（建议使用白蘑菇或香菇）\n- 青菜：100 克（如小白菜、油麦菜等）\n- 蒜瓣：2 粒\n- 食用油：10-15 毫升\n- 盐：2 克\n- 白糖：5 克\n- 清水：70 毫升\n\n### 烹饪步骤\n1. **准备食材**：将蘑菇切片，青菜洗净掰成小段，蒜瓣剁碎备用。\n2. **热锅加油**：中火或大火加热锅，倒入食用油，等待 30 秒让油温升高。\n3. **炒香蒜末**：加入蒜末翻炒出香味。\n4. **炒蘑菇**：放入蘑菇片翻炒至变软出水。\n5. **加入青菜**：将青菜加入锅中，快速翻炒约 1 分钟至变软。\n6. **调味**：加入盐和白糖，继续翻炒 1 分钟。\n7. **加水焖煮**：倒入清水，盖上锅盖小火焖煮 2 分钟。\n8. **出锅装盘**：翻炒均匀后即可盛出。\n\n### 总耗时\n- 烹饪总耗时：约 10 分钟\n\n### 预估热量\n- 每份热量：约 155 大卡\n\n### 难度\n- 制作难度：★★（适合家庭厨房操作）\n\n### 烹饪小贴士\n1. **保持脆嫩口感**：炒青菜时尽量控制时间，避免过度烹饪导致蔬菜变软。\n2. **调味技巧**：可适量增加白糖提升鲜味，但不要过量以免掩盖蔬菜本味。\n3. **食材替换建议**：若没有青菜，可用菠菜、生菜等绿叶蔬菜代替，口感同样清爽。"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        }
+      ],
+      "shopping_list": [
+        "菠菜 350g（用于：鸡蛋炒青菜）",
+        "鸡蛋 2 个（用于：鸡蛋炒青菜）",
+        "食用油 15ml（用于：鸡蛋炒青菜）",
+        "食用盐 5g（用于：鸡蛋炒青菜）",
+        "白蘑菇 200 克（用于：蘑菇汤、素炒蘑菇）",
+        "洋葱 50 克（用于：蘑菇汤、素炒蘑菇）",
+        "黄油 15 克（用于：蘑菇汤、素炒蘑菇）",
+        "面粉 10 克（用于：蘑菇汤、素炒蘑菇）",
+        "牛奶 200 毫升（用于：蘑菇汤、素炒蘑菇）",
+        "淡奶油 30 毫升（用于：蘑菇汤、素炒蘑菇）",
+        "清水 100 毫升（用于：蘑菇汤、素炒蘑菇）",
+        "盐 2 克（用于：蘑菇汤、素炒蘑菇）",
+        "黑胡椒碎 1 克（用于：蘑菇汤、素炒蘑菇）",
+        "青菜 100g * 份数（用于：素炒蘑菇）",
+        "蒜瓣 2 粒 * 份数（用于：素炒蘑菇）",
+        "食用油 10-15ml（覆盖锅底即可）（用于：素炒蘑菇）",
+        "食盐 2g * 份数（用于：素炒蘑菇）",
+        "饮用水 70ml * 份数（用于：素炒蘑菇）",
+        "白糖 5g * 份数（用于：素炒蘑菇）"
+      ],
+      "total_calories": 0
+    },
+    "case_014_soup_required": {
+      "menu_markdown": "```markdown\n# 完整菜谱套餐：两人晚餐，想要一菜一汤，不辣，冰箱有豆腐和番茄\n\n## 1. **用餐需求总览**\n\n- **原始需求**：两人晚餐，想要一菜一汤，不辣。\n- **忌口/过敏原**：暂无相关信息。\n- **用户现有食材**：\n  - 豆腐（约400克）\n  - 番茄（2个，约300克）\n- **整体用餐定位**：家庭晚餐，清淡健康，适合减脂或日常饮食。\n\n---\n\n## 2. **整套菜单概览表**\n\n| 菜名             | 制作时长   | 难度 | 单菜预估热量 |\n|------------------|------------|------|--------------|\n| 番茄豆腐汤       | 约10–12分钟 | ★★   | 每人约120大卡 |\n| 番茄炒豆腐       | 约15分钟   | ★★☆  | 每人约200大卡 |\n\n---\n\n## 3. **分类采购清单**\n\n### ✅ 已有食材（无需额外购买）\n\n- 番茄：2个（约300克）\n- 嫩豆腐：1块（约400克）\n\n### 🛒 需要采购食材（合并去重后）\n\n- 葱：1根（切段+葱花）\n- 盐：共7克（番茄豆腐汤4克 + 番茄炒豆腐3克）\n- 白胡椒粉：1克（番茄豆腐汤）\n- 食用油：适量（约15ml）\n- 鸡精：1.5克（番茄豆腐汤）\n\n> 注：根据结构化购物清单中提到的“辣椒”、“鸡精”等信息，但未在实际菜品中使用，因此不列入采购清单。若需调整，请根据实际需求补充。\n\n---\n\n## 4. **单菜详细做法**\n\n### 🍲 番茄豆腐汤\n\n#### 🧾 食材明细\n\n- 番茄：2个（约300克）\n- 嫩豆腐：1块（约400克）\n- 葱：1根（切段）\n- 盐：4克（2克/人）\n- 白胡椒粉：1克（0.5克/人）\n- 食用油：1滴（可选）\n\n#### 🍳 烹饪步骤\n\n1. **准备食材**：番茄洗净切块，嫩豆腐切成小块，葱切段备用。\n2. **焯水豆腐**：锅中加水烧开，放入豆腐煮约2分钟，捞出沥干备用。\n3. **炒香番茄**：热锅凉油，加入番茄块翻炒至出沙，加入少量盐和白胡椒粉调味。\n4. **煮汤**：加入适量清水（约800毫升），煮沸后加入焯好的豆腐，小火煮5分钟。\n5. **调味收尾**：根据口味调整盐和白胡椒粉，撒上葱段即可。\n\n#### ⏱️ 总耗时\n\n- 总烹饪时长：约10–12分钟（不含准备时间）\n\n#### 💡 烹饪小贴士\n\n- 建议使用嫩豆腐，口感更滑嫩；若喜欢口感稍硬的，可用老豆腐。\n- 番茄去皮后更容易出沙，可先用热水烫一下再切块。\n- 番茄本身含盐分，建议在最后阶段再加盐，避免过咸。\n\n---\n\n### 🍴 番茄炒豆腐\n\n#### 🧾 食材明细\n\n- 番茄：2个（约300克）\n- 豆腐：1块（约400克）\n- 葱：1根（切葱花）\n- 盐：3克（1.5克/人）\n- 食用油：15ml\n- 鸡精：1.5克（可选）\n\n#### 🍳 烹饪步骤\n\n1. **准备食材**：番茄洗净，切成小块；豆腐切块，放入碗中备用；葱洗净，切葱花。\n2. **热锅加油**：平底锅加热，加入食用油，油热后放入豆腐煎至两面金黄，盛出备用。\n3. **炒番茄**：锅中再加少许油，放入番茄翻炒，炒至出汁。\n4. **加入豆腐**：将煎好的豆腐倒入锅中，与番茄一起翻炒均匀。\n5. **调味**：加入盐和鸡精，根据口味调整，翻炒均匀。\n6. **收汁**：加入少量水，中小火煮1分钟，使汤汁浓稠。\n7. **出锅**：撒上葱花，翻炒几下即可出锅。\n\n#### ⏱️ 总耗时\n\n- 总烹饪时长：约15分钟\n\n#### 💡 烹饪小贴士\n\n- 建议选用嫩豆腐更易入味，但若喜欢口感扎实，可选用老豆腐。\n- 煎豆腐时用中小火，避免煎糊，同时保持豆腐完整。\n- 番茄去皮后更容易出汁，可提前用热水烫一下。\n\n---\n\n## 5. **厨房操作先后建议**\n\n1. **备菜阶段**：\n   - 将番茄洗净切块，豆腐切块，葱切段/葱花。\n   - 准备好所有调料（盐、白胡椒粉、鸡精）。\n\n2. **先做番茄豆腐汤**：\n   - 先焯水豆腐，然后炒香番茄，再煮汤。\n\n3. **接着做番茄炒豆腐**：\n   - 热锅加油，先煎豆腐，再炒番茄，最后混合调味。\n\n> 建议在番茄豆腐汤煮的过程中，同时进行番茄炒豆腐的准备工作，以节省时间。\n\n---\n\n## 6. **整体营养小结**\n\n- **总热量**：每人约320大卡（番茄豆腐汤120大卡 + 番茄炒豆腐200大卡）\n- **饮食适配评价**：\n  - 清淡不辣，适合家庭晚餐。\n  - 富含蛋白质（豆腐）、维生素（番茄）和膳食纤维。\n  - 适合减脂人群或日常健康饮食。\n- **微调建议**：\n  - 若希望增加蛋白质摄入，可添加少量鸡蛋或瘦肉。\n  - 若偏好更浓郁口感，可适当增加食用油或鸡精用量。\n\n---\n\n## 7. **饮食安全提醒**\n\n- **规避忌口/过敏原**：本菜单中未涉及任何用户已知的忌口或过敏食材。\n- **食材安全性**：所用食材均为常见家常食材，无特殊禁忌。\n\n---\n\n,\"content\":\"请在此沉淀最终菜谱\"}]\n```",
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "番茄豆腐汤",
+          "intent": "利用用户已有番茄和豆腐，制作清淡不辣的汤品，符合家庭晚餐需求。",
+          "query": "番茄豆腐汤 不辣 家常做法 烹饪时长 热量",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣",
+            "参考常用食材：豆腐、番茄"
+          ],
+          "memory_conflicts": [],
+          "ingredients": [
+            "牛肉用量为 150 g/人",
+            "番茄用量为 1 个/人",
+            "鸡蛋用量为 1 个/人",
+            "盐用量为 2 g/人",
+            "胡椒粉用量为 0.5 g/人"
+          ],
+          "cook_steps": [
+            "菜品详细整理结果\n\n### 食材清单\n- 番茄：2 个（约 300 克）\n- 嫩豆腐：1 块（约 400 克）\n- 葱：1 根（切段）\n- 盐：适量（约 2 克/人，共 4 克）\n- 白胡椒粉：少许（约 0.5 克/人，共 1 克）\n- 食用油：1 滴（可选，用于炒香）\n\n### 烹饪步骤\n1. **准备食材**：番茄洗净切块，嫩豆腐切成小块，葱切段备用。\n2. **焯水豆腐**：锅中加水烧开，放入豆腐煮约 2 分钟，捞出沥干备用（可去除豆腥味）。\n3. **炒香番茄**：热锅凉油，加入番茄块翻炒至出沙，加入少量盐和白胡椒粉调味。\n4. **煮汤**：加入适量清水（约 800 毫升），煮沸后加入焯好的豆腐，小火煮 5 分钟。\n5. **调味收尾**：根据口味调整盐和白胡椒粉，撒上葱段即可。\n\n### 总耗时\n- 总烹饪时长：约 10–12 分钟（不含准备时间）\n\n### 预估热量\n- 每份热量：约 120 大卡（基于 2 人份计算）\n\n### 难度\n- 制作难度：★★（适合家庭厨房操作，简单易学）\n\n### 烹饪小贴士\n1. **豆腐选择**：建议使用嫩豆腐，口感更滑嫩；若喜欢口感稍硬的，可用老豆腐。\n2. **番茄处理**：番茄去皮后更容易出沙，可先用热水烫一下再切块。\n3. **避免过咸**：番茄本身含盐分，建议在最后阶段再加盐，避免过咸。"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        },
+        {
+          "id": 2,
+          "name": "番茄炒豆腐",
+          "intent": "利用用户已有番茄和豆腐，制作一道简单家常菜，避免重复主食材，满足两人晚餐需求。",
+          "query": "番茄炒豆腐 不辣 家常做法 烹饪时长 热量",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣",
+            "参考常用食材：豆腐、番茄"
+          ],
+          "memory_conflicts": [],
+          "ingredients": [
+            "白豆腐的数量 = 份数 * 0.8 向上取整",
+            "辣椒的数量 = 1.5 只/三人",
+            "葱的数量 = 2 根/三人",
+            "盐量 = 份数 * 3g",
+            "鸡精量 = 份数 * 1.5g"
+          ],
+          "cook_steps": [
+            "菜品详细整理结果\n\n### 食材清单\n- 番茄：2个（约300克）\n- 豆腐：1块（约400克）\n- 葱：1根（切葱花）\n- 盐：适量（约3克/人）\n- 食用油：适量（约15ml）\n\n### 烹饪步骤\n1. **准备食材**：番茄洗净，切成小块；豆腐切块，放入碗中备用；葱洗净，切葱花。\n2. **热锅加油**：平底锅加热，加入食用油，油热后放入豆腐煎至两面金黄，盛出备用。\n3. **炒番茄**：锅中再加少许油，放入番茄翻炒，炒至出汁。\n4. **加入豆腐**：将煎好的豆腐倒入锅中，与番茄一起翻炒均匀。\n5. **调味**：加入盐，根据口味调整，翻炒均匀。\n6. **收汁**：加入少量水，中小火煮1分钟，使汤汁浓稠。\n7. **出锅**：撒上葱花，翻炒几下即可出锅。\n\n### 总耗时\n- 总烹饪时长：约15分钟\n\n### 预估热量\n- 每人热量：约200大卡  \n- 整道菜总热量：约400大卡\n\n### 难度\n- 制作难度：★★☆（简单易操作，适合新手）\n\n### 烹饪小贴士\n1. **豆腐选择**：选用嫩豆腐更易入味，但若喜欢口感扎实，可选用老豆腐。\n2. **火候控制**：煎豆腐时用中小火，避免煎糊，同时保持豆腐完整。\n3. **番茄处理**：番茄去皮后更容易出汁，可提前用热水烫一下。"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        }
+      ],
+      "shopping_list": [
+        "牛肉用量为 150 g/人（用于：番茄豆腐汤）",
+        "番茄用量为 1 个/人（用于：番茄豆腐汤）",
+        "鸡蛋用量为 1 个/人（用于：番茄豆腐汤）",
+        "盐用量为 2 g/人（用于：番茄豆腐汤）",
+        "胡椒粉用量为 0.5 g/人（用于：番茄豆腐汤）",
+        "白豆腐的数量 = 份数 * 0.8 向上取整（用于：番茄炒豆腐）",
+        "辣椒的数量 = 1.5 只/三人（用于：番茄炒豆腐）",
+        "葱的数量 = 2 根/三人（用于：番茄炒豆腐）",
+        "盐量 = 份数 * 3g（用于：番茄炒豆腐）",
+        "鸡精量 = 份数 * 1.5g（用于：番茄炒豆腐）"
+      ],
+      "total_calories": 0
+    },
+    "case_015_shopping_list_merge": {
+      "menu_markdown": "```markdown\n# 1. **用餐需求总览**\n\n- **用户原始需求**：三人晚餐，做番茄炒蛋和番茄豆腐汤，再加一道青菜。\n- **忌口/过敏原**：暂无相关信息。\n- **用户冰箱现有食材**：\n  - 番茄（1个）\n  - 鸡蛋（1个）\n  - 豆腐（100g）\n  - 青菜（100g）\n  - 蒜瓣（2粒）\n  - 盐、食用油、糖等基础调料\n- **整体用餐定位**：家庭餐，清淡口味，适合三人共享。\n\n---\n\n# 2. **整套菜单概览表**\n\n| 菜名         | 制作时长 | 难度 | 单菜预估热量 |\n|--------------|----------|------|---------------|\n| 番茄炒蛋     | 15 分钟  | ★★   | 252 大卡      |\n| 番茄豆腐汤   | 15 分钟  | ★★   | 180 大卡      |\n| 清炒青菜     | 10 分钟  | ★★   | 152 大卡      |\n\n---\n\n# 3. **分类采购清单**\n\n## ✅ 已有食材（无需额外购买）\n\n- 番茄（1个）\n- 鸡蛋（1个）\n- 豆腐（100g）\n- 青菜（100g）\n- 蒜瓣（2粒）\n- 盐\n- 食用油\n- 糖\n\n## 🛒 需要采购食材（合并去重后）\n\n- 鸡蛋（1.5 个） → 向上取整为 2 个\n- 食用油（4ml × 2 个鸡蛋 = 8ml） → 可使用已有食用油\n- 盐（1.5-2g × 3 人 = 4.5-6g） → 已有部分盐，需补足至 6g\n- 糖（0-2g × 3 人 = 0-6g） → 可选，建议准备 2g\n- 葱花（0-10g × 3 人 = 0-30g） → 可选，建议准备 10g\n- 味素（5g） → 可选\n- 淀粉（5g） → 用于番茄豆腐汤\n- 鸡精（2g） → 用于番茄豆腐汤\n- 香葱（0.5 根） → 用于番茄豆腐汤\n- 姜（1 片） → 用于番茄豆腐汤\n- 开水（350ml） → 用于番茄豆腐汤\n- 白糖（5g × 3 人 = 15g） → 用于清炒青菜\n- 食用油（10-15ml） → 用于清炒青菜\n- 食盐（2g × 3 人 = 6g） → 已有部分盐，需补足至 6g\n- 蒜瓣（2 粒） → 已有\n- 香油（2 滴） → 可选\n- 胡椒粉（0.5g × 3 人 = 1.5g） → 可选\n\n---\n\n# 4. **单菜详细做法**\n\n## 🍳 番茄炒蛋\n\n### 🧾 食材明细\n- 番茄：1 个（约 180g）\n- 鸡蛋：2 个\n- 食用油：4ml × 2 个鸡蛋 = 8ml\n- 盐：1.5-2g × 3 人 = 4.5-6g\n- 糖：0-2g × 3 人 = 0-6g（可选）\n- 葱花：0-10g × 3 人 = 0-30g（可选）\n\n### 🔥 烹饪步骤\n1. **准备食材**：西红柿洗净，可选择去皮（开水烫后冷水浸泡剥皮），切块；鸡蛋打入碗中，加入 1g × 3 人 的盐，搅匀成鸡蛋液。\n2. **炒鸡蛋**：热锅，加入食用油，油热后倒入鸡蛋液，翻炒至鸡蛋结为固体且颜色微微发黄，即为半熟鸡蛋。\n3. **盛盘备用**：将半熟鸡蛋盛出，不洗锅。\n4. **炒西红柿**：在原锅中加入西红柿块，用锅铲拍打并翻炒 20 秒，或至西红柿软烂。\n5. **混合翻炒**：将半熟鸡蛋回锅，与西红柿一起翻炒均匀。\n6. **调味**：根据口味加入剩余的盐、糖（可选）、葱花（可选），翻炒均匀。\n7. **出锅**：关火，盛盘。\n\n### 📌 烹饪小贴士\n- **去腥增香**：可在鸡蛋液中加入 1ml 醋，去除腥味并使鸡蛋更蓬松。\n- **口感调整**：若喜欢酸甜口，可加入适量番茄酱和清水增加汤汁。\n- **食材替换**：如无西红柿，可用番茄酱+水代替，但风味略有不同。\n\n---\n\n## 🍲 番茄豆腐汤\n\n### 🧾 食材明细\n- 番茄：1 个（约 180g）\n- 豆腐：100g\n- 食用油：5ml\n- 盐：2g\n- 淀粉：5g\n- 鸡精：2g\n- 香葱：0.5 根\n- 姜：1 片\n- 开水：350ml\n\n### 🔥 烹饪步骤\n1. **准备食材**：番茄洗净切块，豆腐切小块，姜切片，香葱切末。\n2. **炒香底料**：热锅加油，放入姜片爆香，加入番茄块翻炒至软。\n3. **加水煮沸**：加入开水，煮沸后放入豆腐块。\n4. **调味**：加入盐、鸡精，搅拌均匀。\n5. **勾芡**：用淀粉水勾芡，使汤汁浓稠。\n6. **出锅**：撒上香葱末，关火盛出。\n\n### 📌 烹饪小贴士\n- **提升鲜味**：可加入少量味素或鸡精提鲜。\n- **豆腐选择**：选用嫩豆腐更易入味，口感更佳。\n\n---\n\n## 🥗 清炒青菜\n\n### 🧾 食材明细\n- 青菜：100g × 3 人 = 300g\n- 蒜瓣：2 粒 × 3 人 = 6 粒\n- 食用油：10-15ml\n- 食盐：2g × 3 人 = 6g\n- 饮用水：70ml × 3 人 = 210ml\n- 白糖：5g × 3 人 = 15g\n\n### 🔥 烹饪步骤\n1. **准备食材**：青菜掰成小瓣，用清水洗净，备用。\n2. **处理蒜瓣**：将蒜瓣剁碎，备用。\n3. **热锅加油**：中火或大火热锅后，锅内放入 10-15ml 食用油。再等待 30 秒让油温升高。\n4. **炒青菜**：将准备好的青菜倒入锅中，翻炒至青菜变软（约 1 分钟）。\n5. **加入蒜末**：放入剁碎的蒜瓣。\n6. **加水调味**：倒入计算好的清水，水位应当完全浸润或即将没过青菜，加入食盐（2g × 3 人），继续翻炒约 1 分钟。\n7. **加糖提鲜**：最后加入白糖，小火加热 2 分钟，加热时盖上锅盖。\n8. **出锅**：盛盘。\n\n### 📌 烹饪小贴士\n- **控制火候**：炒青菜时建议使用中大火，快速翻炒可保持蔬菜的脆嫩口感。\n- **调味技巧**：加入少量白糖可以提鲜，使味道更丰富。\n- **食材替换**：如果不喜欢青菜，可以用小白菜、芥蓝等其他绿叶蔬菜代替。\n\n---\n\n# 5. **厨房操作先后建议**\n\n1. **备菜阶段**：\n   - 洗净青菜，切块。\n   - 准备番茄、豆腐、蒜瓣、姜片等。\n   - 打鸡蛋，加入盐拌匀。\n\n2. **先炒鸡蛋**：\n   - 热锅加油，炒鸡蛋至半熟，盛出备用。\n\n3. **炒番茄**：\n   - 在同一锅中炒番茄至软烂，加入鸡蛋翻炒。\n\n4. **煮番茄豆腐汤**：\n   - 炒香姜片，加入番茄炒软，加水煮沸，放入豆腐，调味后勾芡。\n\n5. **炒青菜**：\n   - 热锅加油，炒青菜至软，加入蒜末、水、盐、糖，焖煮后出锅。\n\n---\n\n# 6. **整体营养小结**\n\n- **总热量**：约 252 + 180 + 152 = **584 大卡/人**\n- **饮食适配评价**：符合清淡家常口味，富含蛋白质、维生素和膳食纤维，适合三人共享。\n- **微调建议**：\n  - 若希望更健康，可减少食用油用量。\n  - 若偏爱酸甜口味，可适当增加糖或番茄酱。\n\n---\n\n# 7. **饮食安全提醒**\n\n- **规避忌口/过敏原**：本套餐未涉及任何特殊忌口或过敏原。\n- **食材安全性**：所有食材均为常见食材，确保新鲜、卫生。\n\n---\n\n,\"content\":\"请在此沉淀最终菜谱\"}]\n```",
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "番茄炒蛋",
+          "intent": "使用用户已有番茄和鸡蛋，快速烹饪，符合家常清淡口味需求。",
+          "query": "番茄炒蛋 核心食材 番茄 鸡蛋 不辣 家常做法 烹饪时长 热量",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣",
+            "参考常用食材：番茄"
+          ],
+          "memory_conflicts": [],
+          "ingredients": [
+            "牛肉用量为 150 g/人",
+            "番茄用量为 1 个/人",
+            "鸡蛋用量为 1 个/人",
+            "盐用量为 2 g/人",
+            "胡椒粉用量为 0.5 g/人",
+            "西红柿 = 1 个（约 180g） * 份数",
+            "鸡蛋 = 1.5 个 * 份数，向上取整",
+            "食用油 = 4ml * 鸡蛋/个",
+            "盐 = 1.5-2g * 份数",
+            "糖 = 0-2g * 份数",
+            "葱花 = 0-10g * 份数",
+            "西红柿 1 个",
+            "鸡蛋 1-2 个（依照自己的口味而定，喜欢吃鸡蛋就放 2 个，一般就放 1 个）",
+            "香油 2 滴",
+            "味素 5 克（可选）",
+            "盐 15 克",
+            "葱",
+            "姜",
+            "蒜共 15 克"
+          ],
+          "cook_steps": [
+            "菜品详细整理结果\n\n### 食材清单\n- 番茄：1 个（约 180g）* 份数  \n- 鸡蛋：1.5 个 * 份数，向上取整  \n- 食用油：4ml * 鸡蛋/个  \n- 盐：1.5-2g * 份数  \n- 糖：0-2g * 份数（可选）  \n- 葱花：0-10g * 份数（可选）\n\n### 烹饪步骤\n1. **准备食材**：西红柿洗净，可选择去皮（开水烫后冷水浸泡剥皮），切块；鸡蛋打入碗中，加入 1g * 份数 的盐，搅匀成鸡蛋液。\n2. **炒鸡蛋**：热锅，加入食用油，油热后倒入鸡蛋液，翻炒至鸡蛋结为固体且颜色微微发黄，即为半熟鸡蛋。\n3. **盛盘备用**：将半熟鸡蛋盛出，不洗锅。\n4. **炒西红柿**：在原锅中加入西红柿块，用锅铲拍打并翻炒 20 秒，或至西红柿软烂。\n5. **混合翻炒**：将半熟鸡蛋回锅，与西红柿一起翻炒均匀。\n6. **调味**：根据口味加入剩余的盐、糖（可选）、葱花（可选），翻炒均匀。\n7. **出锅**：关火，盛盘。\n\n### 总耗时\n- 约 15 分钟（从备菜到盛盘）\n\n### 预估热量\n- 每份约 252 大卡\n\n### 难度\n- ★★（适合厨房新手）\n\n### 烹饪小贴士\n1. **去腥增香**：可在鸡蛋液中加入 1ml 醋，去除腥味并使鸡蛋更蓬松。\n2. **口感调整**：若喜欢酸甜口，可加入适量番茄酱和清水增加汤汁。\n3. **食材替换**：如无西红柿，可用番茄酱+水代替，但风味略有不同。"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        },
+        {
+          "id": 2,
+          "name": "番茄豆腐汤",
+          "intent": "利用用户已有番茄和豆腐，制作清淡汤品，补充营养。",
+          "query": "番茄豆腐汤 核心食材 番茄 豆腐 不辣 家常做法 烹饪时长 热量",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣",
+            "参考常用食材：番茄"
+          ],
+          "memory_conflicts": [],
+          "ingredients": [
+            "西红柿 1 个",
+            "鸡蛋 1 个",
+            "豆腐 100 g",
+            "食用油 5 ml",
+            "盐 2 g",
+            "淀粉 5 g",
+            "鸡精 2 g",
+            "香葱 0.5 根",
+            "姜 1 片",
+            "开水 350 ml",
+            "牛肉用量为 150 g/人",
+            "番茄用量为 1 个/人",
+            "鸡蛋用量为 1 个/人",
+            "盐用量为 2 g/人",
+            "胡椒粉用量为 0.5 g/人"
+          ],
+          "cook_steps": [
+            ",\"content\":\"记录本道菜需求定位、搜索信息、完整用料、烹饪步骤、热量与实操小贴士\"}]"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        },
+        {
+          "id": 3,
+          "name": "清炒青菜",
+          "intent": "加入一道简单青菜，平衡饮食，满足用户对蔬菜的需求。",
+          "query": "清炒青菜 核心食材 青菜 不辣 家常做法 烹饪时长 热量",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣"
+          ],
+          "memory_conflicts": [],
+          "ingredients": [
+            "青菜 100g * 份数",
+            "蒜瓣 2 粒 * 份数",
+            "食用油 10-15ml（覆盖锅底即可）",
+            "食盐 2g * 份数",
+            "饮用水 70ml * 份数",
+            "白糖 5g * 份数"
+          ],
+          "cook_steps": [
+            "菜品详细整理结果\n\n### 食材清单\n- 青菜：100g（每份）\n- 蒜瓣：2粒（每份）\n- 食用油：10-15ml（覆盖锅底即可）\n- 食盐：2g（每份）\n- 饮用水：70ml（每份）\n- 白糖：5g（每份）\n\n### 烹饪步骤\n1. 青菜掰成小瓣，用清水洗净，备用。\n2. 将蒜瓣剁碎，备用。\n3. 中火或大火热锅后，锅内放入 10-15ml 食用油。再等待 30 秒让油温升高。\n4. 将准备好的青菜倒入锅中，翻炒至青菜变软（约 1 分钟）。\n5. 放入剁碎的蒜瓣。\n6. 倒入计算好的清水，水位应当完全浸润或即将没过青菜，加入食盐（2g * 份数），继续翻炒约 1 分钟。\n7. 最后加入白糖，小火加热 2 分钟，加热时盖上锅盖。\n8. 盛盘。\n\n### 总耗时\n- 烹饪总耗时：约 10 分钟\n\n### 预估热量\n- 每份热量：152 大卡\n\n### 难度\n- 制作难度：★★（适合新手）\n\n### 烹饪小贴士\n1. **控制火候**：炒青菜时建议使用中大火，快速翻炒可保持蔬菜的脆嫩口感。\n2. **调味技巧**：加入少量白糖可以提鲜，使味道更丰富。\n3. **食材替换**：如果不喜欢青菜，可以用小白菜、芥蓝等其他绿叶蔬菜代替。"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        }
+      ],
+      "shopping_list": [
+        "牛肉用量为 150 g/人（用于：番茄炒蛋、番茄豆腐汤）",
+        "番茄用量为 1 个/人（用于：番茄炒蛋、番茄豆腐汤）",
+        "鸡蛋用量为 1 个/人（用于：番茄炒蛋、番茄豆腐汤）",
+        "盐用量为 2 g/人（用于：番茄炒蛋、番茄豆腐汤）",
+        "胡椒粉用量为 0.5 g/人（用于：番茄炒蛋、番茄豆腐汤）",
+        "西红柿 = 1 个（约 180g） * 份数（用于：番茄炒蛋）",
+        "鸡蛋 = 1.5 个 * 份数，向上取整（用于：番茄炒蛋）",
+        "食用油 = 4ml * 鸡蛋/个（用于：番茄炒蛋）",
+        "盐 = 1.5-2g * 份数（用于：番茄炒蛋）",
+        "糖 = 0-2g * 份数（用于：番茄炒蛋）",
+        "葱花 = 0-10g * 份数（用于：番茄炒蛋）",
+        "西红柿 1 个（用于：番茄炒蛋、番茄豆腐汤）",
+        "鸡蛋 1-2 个（依照自己的口味而定，喜欢吃鸡蛋就放 2 个，一般就放 1 个）（用于：番茄炒蛋）",
+        "香油 2 滴（用于：番茄炒蛋）",
+        "味素 5 克（可选）（用于：番茄炒蛋）",
+        "盐 15 克（用于：番茄炒蛋）",
+        "葱（用于：番茄炒蛋）",
+        "姜（用于：番茄炒蛋）",
+        "蒜共 15 克（用于：番茄炒蛋）",
+        "鸡蛋 1 个（用于：番茄豆腐汤）",
+        "豆腐 100 g（用于：番茄豆腐汤）",
+        "食用油 5 ml（用于：番茄豆腐汤）",
+        "盐 2 g（用于：番茄豆腐汤）",
+        "淀粉 5 g（用于：番茄豆腐汤）",
+        "鸡精 2 g（用于：番茄豆腐汤）",
+        "香葱 0.5 根（用于：番茄豆腐汤）",
+        "姜 1 片（用于：番茄豆腐汤）",
+        "开水 350 ml（用于：番茄豆腐汤）",
+        "青菜 100g * 份数（用于：清炒青菜）",
+        "蒜瓣 2 粒 * 份数（用于：清炒青菜）",
+        "食用油 10-15ml（覆盖锅底即可）（用于：清炒青菜）",
+        "食盐 2g * 份数（用于：清炒青菜）",
+        "饮用水 70ml * 份数（用于：清炒青菜）",
+        "白糖 5g * 份数（用于：清炒青菜）"
+      ],
+      "total_calories": 0
+    },
+    "case_016_recent_dish_diversity": {
+      "menu_markdown": "```markdown\n# 用餐需求总览\n\n- **用户原始需求**：安排一个不辣的两人晚餐。\n- **忌口/过敏原**：暂无相关信息。\n- **用户冰箱现有食材**：\n  - 冬瓜（200g）\n  - 猪肉末（300g）\n  - 葱花（约20g）\n  - 胡椒粉（5g）\n  - 生抽（10ml）\n  - 淀粉（5g）\n  - 水淀粉（25g + 50ml水）\n  - 葱姜末（姜3-4片约30g，葱白部分）\n  - 盐（20g）\n- **整体用餐定位**：清淡家常、不辣、适合两人晚餐。\n\n---\n\n## 2. 整套菜单概览表\n\n| 菜名             | 制作时长     | 难度       | 单菜预估热量 |\n|------------------|--------------|------------|----------------|\n| 冬瓜蒸肉末       | 约40分钟     | ★★★★☆      | 578大卡/份     |\n| 清炒小白菜       | 约15分钟     | ★★☆☆☆      | 60大卡/份      |\n\n---\n\n## 3. 分类采购清单\n\n### 已有食材（无需额外购买）\n\n- 冬瓜：200g\n- 猪肉末：300g\n- 葱花：约20g\n- 胡椒粉：5g\n- 生抽：10ml\n- 淀粉：5g\n- 水淀粉：25g（淀粉）+ 50ml（水）\n- 葱姜末：姜3-4片约30g，葱白部分\n- 盐：20g\n\n### 需要采购食材（合并去重后）\n\n- 鸡蛋：1个（可选）\n- 小白菜：100g × 2人份 = 200g\n- 蒜瓣：2粒 × 2人份 = 4粒\n- 食用油：10-15ml\n- 食盐：2g × 2人份 = 4g\n- 饮用水：70ml × 2人份 = 140ml\n- 白糖：5g × 2人份 = 10g\n\n---\n\n## 4. 单菜详细做法\n\n### 4.1 冬瓜蒸肉末\n\n#### 食材明细\n\n- 冬瓜：200g  \n- 猪肉末：300g  \n- 鸡蛋：1个（可选）  \n- 葱花：约20g  \n- 胡椒粉：5g  \n- 生抽：10ml  \n- 淀粉：5g  \n- 水淀粉：25g（淀粉25g + 水50ml）  \n- 葱姜末：姜3-4片约30g，取葱白部分  \n- 盐：20g  \n\n#### 烹饪步骤\n\n1. 冬瓜去皮，切成25cm长、3cm厚的片。  \n2. 将切好的冬瓜放入碗中，加入15g盐，抹匀后放置10分钟。  \n3. 同时，在另一个碗中放入猪肉末、葱姜末、5g盐、5g淀粉、5g胡椒粉、10ml生抽，用筷子顺时针搅拌至颜色均匀（约2分钟）。  \n4. 将腌制好的冬瓜用清水冲洗三遍。  \n5. 取一片冬瓜片卷起，将肉末塞入其中。  \n6. 将卷好的冬瓜放入碟子边缘，中间打入一个鸡蛋。  \n7. 将碟子放入普通铁锅中，水烧开后蒸15分钟，盖上锅盖。  \n8. 开盖取出冬瓜酿肉，将碟子中的水倒入锅中。  \n9. 加入水淀粉和50ml清水，煮沸后淋在冬瓜酿肉上。\n\n#### 烹饪小贴士\n\n- **冬瓜处理技巧**：冬瓜切片后用盐腌制可以去除多余水分，使口感更爽脆。  \n- **肉末调味**：搅拌肉末时要顺时针方向，有助于提升肉馅的粘性和口感。  \n- **鸡蛋替代建议**：若不喜欢鸡蛋腥味，可省略或用豆腐代替，保持清淡风味。\n\n---\n\n### 4.2 清炒小白菜\n\n#### 食材明细\n\n- 小白菜：200g  \n- 蒜瓣：4粒  \n- 食用油：10-15ml  \n- 食盐：4g  \n- 饮用水：140ml  \n- 白糖：10g  \n\n#### 烹饪步骤\n\n1. 小白菜洗净，沥干水分。  \n2. 蒜瓣剥皮，拍碎备用。  \n3. 热锅冷油，加入蒜瓣爆香。  \n4. 放入小白菜翻炒，加入食盐和白糖调味。  \n5. 倒入饮用水，加盖焖煮约3分钟。  \n6. 翻炒均匀后出锅装盘。\n\n#### 烹饪小贴士\n\n- **小白菜处理**：清洗时可用流动水冲刷，避免残留泥土。  \n- **调味建议**：可根据个人口味调整盐和糖的比例，以达到最佳口感。\n\n---\n\n## 5. 厨房操作先后建议\n\n1. **准备阶段**：\n   - 处理冬瓜：去皮、切片、腌制。\n   - 准备肉末：混合调料，搅拌均匀。\n   - 处理小白菜：洗净、沥干。\n   - 准备蒜瓣：拍碎备用。\n\n2. **烹饪顺序**：\n   - 先开始蒸冬瓜酿肉（需15分钟），同时准备清炒小白菜。\n   - 在蒸冬瓜的过程中，可以开始炒小白菜。\n   - 最后完成冬瓜酿肉的收汁步骤。\n\n---\n\n## 6. 整体营养小结\n\n- **总热量**：约 578大卡（冬瓜蒸肉末） + 120大卡（清炒小白菜） = **698大卡**\n- **饮食适配评价**：\n  - 符合“不辣”、“清淡”、“两人晚餐”的需求。\n  - 肉类与蔬菜搭配合理，营养均衡。\n- **微调建议**：\n  - 若希望更健康，可减少食用油用量或使用橄榄油替代。\n  - 若对蛋白质摄入有更高要求，可增加一份主食如米饭或面条。\n\n---\n\n## 7. 饮食安全提醒\n\n- **规避忌口/过敏原**：本套餐不含辣椒、海鲜、坚果等常见过敏源，符合“不辣”要求。\n- **食材安全性**：所有食材均为新鲜食材，未使用过期或变质材料。\n\n---\n\n,\"content\":\"# 完整菜谱套餐：不辣的两人晚餐\\n\\n## 1. 用餐需求总览\\n- 用户原始需求：安排一个不辣的两人晚餐。\\n- 忌口/过敏原：暂无相关信息。\\n- 用户冰箱现有食材：冬瓜（200g）、猪肉末（300g）、葱花（约20g）、胡椒粉（5g）、生抽（10ml）、淀粉（5g）、水淀粉（25g + 50ml水）、葱姜末（姜3-4片约30g，葱白部分）、盐（20g）。\\n- 整体用餐定位：清淡家常、不辣、适合两人晚餐。\\n\\n## 2. 整套菜单概览表\\n| 菜名             | 制作时长     | 难度       | 单菜预估热量 |\\n|------------------|--------------|------------|----------------|\\n| 冬瓜蒸肉末       | 约40分钟     | ★★★★☆      | 578大卡/份     |\\n| 清炒小白菜       | 约15分钟     | ★★☆☆☆      | 60大卡/份      |\\n\\n## 3. 分类采购清单\\n### 已有食材（无需额外购买）\\n- 冬瓜：200g\\n- 猪肉末：300g\\n- 葱花：约20g\\n- 胡椒粉：5g\\n- 生抽：10ml\\n- 淀粉：5g\\n- 水淀粉：25g（淀粉）+ 50ml（水）\\n- 葱姜末：姜3-4片约30g，葱白部分\\n- 盐：20g\\n\\n### 需要采购食材（合并去重后）\\n- 鸡蛋：1个（可选）\\n- 小白菜：200g\\n- 蒜瓣：4粒\\n- 食用油：10-15ml\\n- 食盐：4g\\n- 饮用水：140ml\\n- 白糖：10g\\n\\n## 4. 单菜详细做法\\n### 4.1 冬瓜蒸肉末\\n#### 食材明细\\n- 冬瓜：200g\\n- 猪肉末：300g\\n- 鸡蛋：1个（可选）\\n- 葱花：约20g\\n- 胡椒粉：5g\\n- 生抽：10ml\\n- 淀粉：5g\\n- 水淀粉：25g（淀粉25g + 水50ml）\\n- 葱姜末：姜3-4片约30g，取葱白部分\\n- 盐：20g\\n\\n#### 烹饪步骤\\n1. 冬瓜去皮，切成25cm长、3cm厚的片。\\n2. 将切好的冬瓜放入碗中，加入15g盐，抹匀后放置10分钟。\\n3. 同时，在另一个碗中放入猪肉末、葱姜末、5g盐、5g淀粉、5g胡椒粉、10ml生抽，用筷子顺时针搅拌至颜色均匀（约2分钟）。\\n4. 将腌制好的冬瓜用清水冲洗三遍。\\n5. 取一片冬瓜片卷起，将肉末塞入其中。\\n6. 将卷好的冬瓜放入碟子边缘，中间打入一个鸡蛋。\\n7. 将碟子放入普通铁锅中，水烧开后蒸15分钟，盖上锅盖。\\n8. 开盖取出冬瓜酿肉，将碟子中的水倒入锅中。\\n9. 加入水淀粉和50ml清水，煮沸后淋在冬瓜酿肉上。\\n\\n#### 烹饪小贴士\\n- 冬瓜处理技巧：冬瓜切片后用盐腌制可以去除多余水分，使口感更爽脆。\\n- 肉末调味：搅拌肉末时要顺时针方向，有助于提升肉馅的粘性和口感。\\n- 鸡蛋替代建议：若不喜欢鸡蛋腥味，可省略或用豆腐代替，保持清淡风味。\\n\\n### 4.2 清炒小白菜\\n#### 食材明细\\n- 小白菜：200g\\n- 蒜瓣：4粒\\n- 食用油：10-15ml\\n- 食盐：4g\\n- 饮用水：140ml\\n- 白糖：10g\\n\\n#### 烹饪步骤\\n1. 小白菜洗净，沥干水分。\\n2. 蒜瓣剥皮，拍碎备用。\\n3. 热锅冷油，加入蒜瓣爆香。\\n4. 放入小白菜翻炒，加入食盐和白糖调味。\\n5. 倒入饮用水，加盖焖煮约3分钟。\\n6. 翻炒均匀后出锅装盘。\\n\\n#### 烹饪小贴士\\n- 小白菜处理：清洗时可用流动水冲刷，避免残留泥土。\\n- 调味建议：可根据个人口味调整盐和糖的比例，以达到最佳口感。\\n\\n## 5. 厨房操作先后建议\\n1. **准备阶段**：处理冬瓜、准备肉末、处理小白菜、准备蒜瓣。\\n2. **烹饪顺序**：先开始蒸冬瓜酿肉（需15分钟），同时准备清炒小白菜。\\n3. 在蒸冬瓜的过程中，可以开始炒小白菜。\\n4. 最后完成冬瓜酿肉的收汁步骤。\\n\\n## 6. 整体营养小结\\n- 总热量：约 698大卡\\n- 饮食适配评价：符合“不辣”、“清淡”、“两人晚餐”的需求，营养均衡。\\n- 微调建议：若希望更健康，可减少食用油用量或使用橄榄油替代；若对蛋白质摄入有更高要求，可增加一份主食如米饭或面条。\\n\\n## 7. 饮食安全提醒\\n- 规避忌口/过敏原：本套餐不含辣椒、海鲜、坚果等常见过敏源，符合“不辣”要求。\\n- 食材安全性：所有食材均为新鲜食材，未使用过期或变质材料。\"}]\n```",
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "冬瓜蒸肉末",
+          "intent": "使用用户已有冬瓜和猪肉末，蒸制少油，符合清淡家常需求，避开不辣要求。",
+          "query": "冬瓜蒸肉末 核心食材：冬瓜、猪肉末 不辣 家常做法 烹饪时长 热量",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣",
+            "参考常用食材：番茄"
+          ],
+          "memory_conflicts": [],
+          "ingredients": [
+            "猪肉末 300g",
+            "鸡蛋 1 个（可选,不习惯的人可能会有点腥）",
+            "冬瓜 200g",
+            "葱花（一根,约 20g）",
+            "胡椒粉 5g",
+            "生抽 10ml",
+            "淀粉 5g",
+            "水淀粉 25g（淀粉 25g,水 50ml）",
+            "葱姜末（姜 3-4 片约 30g, 取上面一根葱花中的葱白部分即可）",
+            "盐 20g"
+          ],
+          "cook_steps": [
+            "菜品详细整理结果\n\n### 食材清单\n- 冬瓜：200g  \n- 猪肉末：300g  \n- 鸡蛋：1个（可选）  \n- 葱花：约20g  \n- 胡椒粉：5g  \n- 生抽：10ml  \n- 淀粉：5g  \n- 水淀粉：25g（淀粉25g + 水50ml）  \n- 葱姜末：姜3-4片约30g，取葱白部分  \n- 盐：20g  \n\n---\n\n### 烹饪步骤\n1. 冬瓜去皮，切成25cm长、3cm厚的片。  \n2. 将切好的冬瓜放入碗中，加入15g盐，抹匀后放置10分钟。  \n3. 同时，在另一个碗中放入猪肉末、葱姜末、5g盐、5g淀粉、5g胡椒粉、10ml生抽，用筷子顺时针搅拌至颜色均匀（约2分钟）。  \n4. 将腌制好的冬瓜用清水冲洗三遍。  \n5. 取一片冬瓜片卷起，将肉末塞入其中。  \n6. 将卷好的冬瓜放入碟子边缘，中间打入一个鸡蛋。  \n7. 将碟子放入普通铁锅中，水烧开后蒸15分钟，盖上锅盖。  \n8. 开盖取出冬瓜酿肉，将碟子中的水倒入锅中。  \n9. 加入水淀粉和50ml清水，煮沸后淋在冬瓜酿肉上。\n\n---\n\n### 总耗时\n- 烹饪时间：约30分钟  \n- 准备时间：约10分钟  \n- **总耗时**：约40分钟\n\n---\n\n### 预估热量\n- 每份热量：约578大卡\n\n---\n\n### 难度\n- ★★★★☆（四星半）\n\n---\n\n### 烹饪小贴士\n1. **冬瓜处理技巧**：冬瓜切片后用盐腌制可以去除多余水分，使口感更爽脆。  \n2. **肉末调味**：搅拌肉末时要顺时针方向，有助于提升肉馅的粘性和口感。  \n3. **鸡蛋替代建议**：若不喜欢鸡蛋腥味，可省略或用豆腐代替，保持清淡风味。"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        },
+        {
+          "id": 2,
+          "name": "清炒小白菜",
+          "intent": "搭配冬瓜蒸肉末，提供蔬菜补充，清淡易做，避免重复番茄类菜品。",
+          "query": "清炒小白菜 核心食材：小白菜 不辣 家常做法 烹饪时长 热量",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣"
+          ],
+          "memory_conflicts": [],
+          "ingredients": [
+            "青菜 100g * 份数",
+            "蒜瓣 2 粒 * 份数",
+            "食用油 10-15ml（覆盖锅底即可）",
+            "食盐 2g * 份数",
+            "饮用水 70ml * 份数",
+            "白糖 5g * 份数"
+          ],
+          "cook_steps": [
+            ",\"content\":\"记录本道菜需求定位、搜索信息、完整用料、烹饪步骤、热量与实操小贴士\"}]"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        }
+      ],
+      "shopping_list": [
+        "猪肉末 300g（用于：冬瓜蒸肉末）",
+        "鸡蛋 1 个（可选,不习惯的人可能会有点腥）（用于：冬瓜蒸肉末）",
+        "冬瓜 200g（用于：冬瓜蒸肉末）",
+        "葱花（一根,约 20g）（用于：冬瓜蒸肉末）",
+        "胡椒粉 5g（用于：冬瓜蒸肉末）",
+        "生抽 10ml（用于：冬瓜蒸肉末）",
+        "淀粉 5g（用于：冬瓜蒸肉末）",
+        "水淀粉 25g（淀粉 25g,水 50ml）（用于：冬瓜蒸肉末）",
+        "葱姜末（姜 3-4 片约 30g, 取上面一根葱花中的葱白部分即可）（用于：冬瓜蒸肉末）",
+        "盐 20g（用于：冬瓜蒸肉末）",
+        "青菜 100g * 份数（用于：清炒小白菜）",
+        "蒜瓣 2 粒 * 份数（用于：清炒小白菜）",
+        "食用油 10-15ml（覆盖锅底即可）（用于：清炒小白菜）",
+        "食盐 2g * 份数（用于：清炒小白菜）",
+        "饮用水 70ml * 份数（用于：清炒小白菜）",
+        "白糖 5g * 份数（用于：清炒小白菜）"
+      ],
+      "total_calories": 0
+    },
+    "case_017_breakfast": {
+      "menu_markdown": "```markdown\n# 1. **用餐需求总览**\n\n- **用户原始需求**：明早早餐，两个人，20分钟内，想吃高蛋白但不要太油。\n- **识别忌口/过敏原**：暂无相关信息。\n- **用户冰箱现有食材**：\n  - 冷饭（500g）\n  - 鸡蛋（3个）\n  - 火腿肠（2个）\n  - 黄瓜（可选）\n  - 胡萝卜（可选）\n  - 油（12ml）\n  - 盐（4g - 6g）\n  - 胡椒粉（8g）\n  - 生抽（10ml）\n  - 香葱（1颗）\n- **整体用餐定位**：高蛋白、清淡少油的早餐，适合快速制作。\n\n---\n\n# 2. **整套菜单概览表**\n\n| 菜名         | 制作时长 | 难度     | 单菜预估热量 |\n|--------------|----------|----------|----------------|\n| 鸡蛋炒饭     | 30分钟   | ★★★☆☆  | 426大卡/人     |\n| 牛奶+水果    | 5分钟    | ★        | 421大卡/人     |\n\n---\n\n# 3. **分类采购清单**\n\n## ✅ 已有食材（无需额外购买）\n\n- 冷饭：500g（用于鸡蛋炒饭）\n- 鸡蛋：3个（用于鸡蛋炒饭）\n- 火腿肠：2个（用于鸡蛋炒饭）\n- 黄瓜：30g（可选，用于鸡蛋炒饭）\n- 胡萝卜：30g（可选，用于鸡蛋炒饭）\n- 油：12ml（用于鸡蛋炒饭）\n- 盐：4g - 6g（用于鸡蛋炒饭）\n- 胡椒粉：8g（用于鸡蛋炒饭）\n- 生抽：10ml（用于鸡蛋炒饭）\n- 香葱：1颗（用于鸡蛋炒饭）\n\n## 🛒 需要采购食材（合并去重）\n\n- 牛奶（巴氏奶）：280ml/人 × 2人 = 560ml\n- 燕麦：40g/人 × 2人 = 80g\n- 鸡蛋：1个/人 × 2人 = 2个（已备3个，可满足）\n\n---\n\n# 4. **单菜详细做法**\n\n## 🍚 鸡蛋炒饭\n\n### 🧾 食材明细\n\n- 冷饭：500g（2人份）\n- 鸡蛋：3个（1.5个/人，向下取整）\n- 火腿肠：2个（1个/人）\n- 黄瓜：30g（可选）\n- 胡萝卜：30g（可选）\n- 油：12ml（1人份）\n- 盐：4g - 6g（1人份）\n- 胡椒粉：8g（1人份）\n- 生抽：10ml（1人份）\n- 香葱：1颗\n\n### 🥄 分步烹饪步骤\n\n1. **准备食材**：将米饭提前用铲子铲成小块；火腿肠、胡萝卜、黄瓜切片或块状。\n2. **打鸡蛋**：将鸡蛋分开蛋白和蛋黄，分别打入碗中搅匀，注意不要加盐。\n3. **炒蛋白**：大火热锅，待锅冒烟后放入食用油，倒入蛋白，待凝固后盛出备用。\n4. **炒蛋黄**：若油不够，再加入适量油并加热至大火热锅，倒入蛋黄，待凝固后盛出。\n5. **炒配料**：将火腿肠、熟肉、胡萝卜、黄瓜等备料翻炒约10秒，至爆香。\n6. **炒米饭**：重新倒入蛋白，翻炒5秒，迅速倒入米饭，大火翻炒使每粒米饭裹上鸡蛋。\n7. **调味**：调至小火，加入盐、胡椒粉、生抽，继续翻炒均匀。\n8. **收尾**：最后加入香葱，翻炒10秒，关火盛入碗中。\n\n### 📌 烹饪小贴士\n\n- 使用冷饭最佳，能保证“粒粒分明”的口感，若无冷饭可现煮并快速冷却。\n- 可减少油量至8ml/人，或改用空气炸锅烹饪以进一步降低油脂。\n- 若不想吃火腿，可用午餐肉、卤肉或豆腐代替，同样提供高蛋白。\n\n---\n\n## 🥛 牛奶+水果\n\n### 🧾 食材明细\n\n- 牛奶（巴氏奶）：280ml/人 × 2人 = 560ml\n- 燕麦：40g/人 × 2人 = 80g\n- 鸡蛋：1个/人 × 2人 = 2个（已备3个，可满足）\n\n### 🥄 分步烹饪步骤\n\n1. 准备一个适合微波炉使用的容器，将牛奶、燕麦和鸡蛋放入其中。\n2. 搅拌均匀，确保燕麦充分与牛奶混合。\n3. 将容器放入微波炉中，使用中高火加热约1-2分钟，或直至燕麦变软、鸡蛋凝固。\n4. 取出后稍作静置，待温度适宜后即可食用。\n\n### 📌 烹饪小贴士\n\n- 加热时不要将混合物装得太满，建议不超过容器容量的50%。\n- 不建议使用玻璃杯进行微波加热，以免因热胀冷缩导致破裂。\n- 若不喜欢鸡蛋，可替换为豆腐或蛋白粉，以保持高蛋白特性。\n\n---\n\n# 5. **厨房操作先后建议**\n\n1. **先做牛奶+水果**：只需5分钟，可优先完成，节省时间。\n2. **接着做鸡蛋炒饭**：需30分钟，可在牛奶+水果完成后开始，利用等待时间准备其他材料。\n3. **同步进行**：在炒饭过程中，可同时准备水果（如苹果、香蕉等），提升效率。\n\n---\n\n# 6. **整体营养小结**\n\n- **总热量**：约1694大卡（2人份）\n- **饮食适配评价**：符合高蛋白、清淡少油的早餐需求，蛋白质来源丰富，搭配合理。\n- **微调建议**：\n  - 若希望更清淡，可减少油量至8ml/人。\n  - 若对乳制品敏感，可替换牛奶为豆浆或植物奶。\n  - 若希望增加膳食纤维，可添加少量全麦燕麦或坚果。\n\n---\n\n# 7. **饮食安全提醒**\n\n- **规避的忌口/过敏原**：暂无相关信息。\n- **注意事项**：\n  - 确保鸡蛋完全熟透，避免食物中毒风险。\n  - 微波加热时注意容器安全性，避免使用不耐高温的材质。\n  - 若对火腿肠或乳制品有过敏史，请提前更换替代食材。\n\n---\n\n,\"content\":\"请在此沉淀最终菜谱\"}]\n```",
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "鸡蛋炒饭",
+          "intent": "利用已有食材，快速制作高蛋白早餐，少油清淡。",
+          "query": "鸡蛋炒饭 高蛋白 少油 不辣 家常做法 烹饪时长 热量",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣",
+            "参考常用食材：鸡蛋"
+          ],
+          "memory_conflicts": [],
+          "ingredients": [
+            "冷饭（份数*500ml）",
+            "鸡蛋 （份数*1.5 // 1 向下取整）",
+            "火腿（份数*2 个）",
+            "黄瓜（可选，份数*30g）",
+            "胡萝卜（可选，份数*30g）",
+            "油（份数*12ml）",
+            "盐（份数\\*4g - 份数*6g）",
+            "胡椒粉（份数*8g）",
+            "香葱（份数*1 颗）",
+            "生抽（份数*10ml）"
+          ],
+          "cook_steps": [
+            "菜品详细整理结果\n\n### 食材清单  \n- 冷饭：500g（2人份）  \n- 鸡蛋：3个（1.5个/人，向下取整）  \n- 火腿肠：2个（1个/人）  \n- 黄瓜：30g（可选）  \n- 胡萝卜：30g（可选）  \n- 油：12ml（1人份）  \n- 盐：4g - 6g（1人份）  \n- 胡椒粉：8g（1人份）  \n- 生抽：10ml（1人份）  \n- 香葱：1颗  \n\n---\n\n### 烹饪步骤  \n1. **准备食材**：将米饭提前用铲子铲成小块；火腿肠、胡萝卜、黄瓜切片或块状。  \n2. **打鸡蛋**：将鸡蛋分开蛋白和蛋黄，分别打入碗中搅匀，注意不要加盐。  \n3. **炒蛋白**：大火热锅，待锅冒烟后放入食用油，倒入蛋白，待凝固后盛出备用。  \n4. **炒蛋黄**：若油不够，再加入适量油并加热至大火热锅，倒入蛋黄，待凝固后盛出。  \n5. **炒配料**：将火腿肠、熟肉、胡萝卜、黄瓜等备料翻炒约10秒，至爆香。  \n6. **炒米饭**：重新倒入蛋白，翻炒5秒，迅速倒入米饭，大火翻炒使每粒米饭裹上鸡蛋。  \n7. **调味**：调至小火，加入盐、胡椒粉、生抽，继续翻炒均匀。  \n8. **收尾**：最后加入香葱，翻炒10秒，关火盛入碗中。  \n\n---\n\n### 总耗时  \n- 烹饪时间：约25分钟  \n- 准备时间：约5分钟  \n- **总耗时**：约30分钟（可根据实际情况调整）\n\n---\n\n### 预估热量  \n- 每人约：426 大卡  \n- 总热量：约852 大卡（2人份）\n\n---\n\n### 难度  \n- ★★★☆☆（中等难度，需掌握火候与翻炒技巧）\n\n---\n\n### 烹饪小贴士  \n1. **使用冷饭**：隔夜冷饭最佳，能保证“粒粒分明”的口感，若无冷饭可现煮并快速冷却。  \n2. **少油做法**：可减少油量至8ml/人，或改用空气炸锅烹饪以进一步降低油脂。  \n3. **食材替换**：若不想吃火腿，可用午餐肉、卤肉或豆腐代替，同样提供高蛋白。"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        },
+        {
+          "id": 2,
+          "name": "牛奶+水果",
+          "intent": "补充蛋白质和维生素，搭配主食，满足高蛋白需求。",
+          "query": "牛奶+水果 高蛋白 清淡 不辣 家常搭配 热量",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣",
+            "参考常用食材：牛奶"
+          ],
+          "memory_conflicts": [],
+          "ingredients": [
+            "🥛 牛奶 280ml/per",
+            "🍳 鸡蛋 1 个/per",
+            "🍚 燕麦 40g/per"
+          ],
+          "cook_steps": [
+            "菜品详细整理结果\n\n### 食材清单  \n- 牛奶（巴氏奶）：280ml/人  \n- 燕麦：40g/人  \n- 鸡蛋：1个/人  \n\n---\n\n### 烹饪步骤  \n1. 准备一个适合微波炉使用的容器，将牛奶、燕麦和鸡蛋放入其中。  \n2. 搅拌均匀，确保燕麦充分与牛奶混合。  \n3. 将容器放入微波炉中，使用中高火加热约1-2分钟，或直至燕麦变软、鸡蛋凝固。  \n4. 取出后稍作静置，待温度适宜后即可食用。  \n\n---\n\n### 总耗时  \n- 制作时间：约3分钟  \n- 备料时间：约2分钟  \n- **总耗时**：5分钟  \n\n---\n\n### 预估热量  \n- 每人热量：约421大卡  \n- 两人总热量：约842大卡  \n\n---\n\n### 难度  \n- ★（非常简单，适合新手）\n\n---\n\n### 烹饪小贴士  \n1. **避免溢出**：加热时不要将混合物装得太满，建议不超过容器容量的50%。  \n2. **选择合适容器**：不建议使用玻璃杯进行微波加热，以免因热胀冷缩导致破裂。  \n3. **食材替换**：若不喜欢鸡蛋，可替换为豆腐或蛋白粉，以保持高蛋白特性。"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        }
+      ],
+      "shopping_list": [
+        "冷饭（份数*500ml）（用于：鸡蛋炒饭）",
+        "鸡蛋 （份数*1.5 // 1 向下取整）（用于：鸡蛋炒饭）",
+        "火腿（份数*2 个）（用于：鸡蛋炒饭）",
+        "黄瓜（可选，份数*30g）（用于：鸡蛋炒饭）",
+        "胡萝卜（可选，份数*30g）（用于：鸡蛋炒饭）",
+        "油（份数*12ml）（用于：鸡蛋炒饭）",
+        "盐（份数\\*4g - 份数*6g）（用于：鸡蛋炒饭）",
+        "胡椒粉（份数*8g）（用于：鸡蛋炒饭）",
+        "香葱（份数*1 颗）（用于：鸡蛋炒饭）",
+        "生抽（份数*10ml）（用于：鸡蛋炒饭）",
+        "🥛 牛奶 280ml/per（用于：牛奶+水果）",
+        "🍳 鸡蛋 1 个/per（用于：牛奶+水果）",
+        "🍚 燕麦 40g/per（用于：牛奶+水果）"
+      ],
+      "total_calories": 0
+    },
+    "case_018_no_egg_allergy": {
+      "menu_markdown": "```markdown\n# 完整菜谱套餐：鸡蛋过敏，冰箱有番茄、土豆、牛肉，做两道菜\n\n## 1. **用餐需求总览**\n\n- **用户原始需求**：鸡蛋过敏，希望利用现有食材（番茄、土豆、牛肉）制作两道菜。\n- **忌口/过敏原**：鸡蛋。\n- **用户冰箱现有食材**：\n  - 番茄\n  - 土豆\n  - 牛肉\n- **整体用餐定位**：家庭餐，清淡口味，健康饮食。\n\n---\n\n## 2. **整套菜单概览表**\n\n| 菜名             | 制作时长   | 难度     | 单菜预估热量 |\n|------------------|------------|----------|---------------|\n| 番茄炒牛肉       | 30分钟     | ★★★☆☆    | 约650大卡     |\n| 土豆炖牛肉       | 1至1.5小时 | ★★★★☆    | 约827大卡     |\n\n---\n\n## 3. **分类采购清单**\n\n### ✅ 已有食材（无需额外购买）\n\n- 番茄\n- 土豆\n- 牛肉\n\n### 🛒 需要采购食材（合并去重）\n\n- 洋葱：1个\n- 葱：1根\n- 姜：4片\n- 料酒：20g\n- 花椒：3g\n- 八角：1个（半）\n- 香叶：2片\n- 白糖/冰糖：适量\n- 生抽：15ml\n- 胡椒粉：2g\n- 番茄膏/番茄酱或一个番茄罐头：5-10g\n- 油：15ml（可减少为10ml）\n\n---\n\n## 4. **单菜详细做法**\n\n### 🍳 菜品一：番茄炒牛肉\n\n#### 🧾 食材明细\n\n- 牛肉：150g/人\n- 番茄：1个/人\n- 盐：2g/人\n- 胡椒粉：0.5g/人\n- 油：适量\n- 葱：少许（切段）\n- 姜：少许（切片）\n\n#### 🔥 分步烹饪步骤\n\n1. 牛肉切片，用盐和胡椒粉腌制10分钟。\n2. 番茄切块备用。\n3. 热锅凉油，放入姜片爆香，加入牛肉翻炒至变色。\n4. 加入番茄块，继续翻炒至出汁。\n5. 根据口味加盐调味，炒匀即可出锅。\n\n#### 💡 烹饪小贴士\n\n- 牛肉提前腌制更嫩滑。\n- 番茄炒至软烂更入味。\n- 可根据喜好加入少量糖提鲜。\n\n---\n\n### 🍲 菜品二：土豆炖牛肉\n\n#### 🧾 食材明细\n\n- 牛肉：500-700g\n- 土豆：2-3个（根据锅的大小）\n- 西红柿：2-3个（拳头大小中等个头）\n- 洋葱：1个（比拳头大一点）\n- 葱：1根（切4g葱花，其余掰成5-8cm段）\n- 姜：4片\n- 料酒：20g\n- 花椒：3g\n- 八角：1个（半）\n- 香叶：2片\n- 白糖/冰糖：适量\n- 生抽：15ml\n- 胡椒粉：2g\n- 番茄膏/番茄酱或一个番茄罐头：5-10g\n- 油：15ml（可根据牛腩喜好减少为10ml）\n\n#### 🔥 分步烹饪步骤\n\n1. **备菜**：\n   - 土豆去皮，切成5cm大块。\n   - 西红柿切十字花刀，开水烫后去皮，去掉中间的芯，切成3cm小块。\n   - 洋葱切0.5-1cm小粒。\n   - 牛肉泡凉水半小时去血水，或凉水下锅煮至表面变白捞出，期间撇去浮沫。\n\n2. **炖煮准备**：\n   - 将牛肉放入高压锅，加入葱段、姜片、料酒，加凉水没过牛肉，上汽压20分钟。\n   - 取出牛肉，切5cm大块，挑出姜片，将汤盛到碗中备用。\n\n3. **炒香调料**：\n   - 倒油，油四到五成热后下花椒、八角、香叶，出香味后挑出不用。\n   - 下入牛肉和葱姜，炒香，可加入10ml汤防止糊底。\n\n4. **调味炖煮**：\n   - 加入生抽、料酒、胡椒粉、番茄膏或番茄酱，炒匀。\n   - 加入洋葱炒至透明，可加少量盐帮助洋葱出水。\n   - 加入西红柿炒至软烂，倒入剩余的汤。\n\n5. **炖煮土豆**：\n   - 中火开锅后转小火，炖煮时不要扣盖，避免土豆太烂。\n   - 出锅前30-40分钟加入土豆，边尝边加糖和盐调味。\n   - 筷子戳牛肉至软烂即可出锅。\n\n#### 💡 烹饪小贴士\n\n- 炖煮时保持汤温热，避免温度骤变影响口感。\n- 不要扣盖炖煮，否则土豆会过于软烂。\n- 使用砂锅更佳，开锅前不要用大火，避免裂开。\n\n---\n\n## 5. **厨房操作先后建议**\n\n1. **先处理食材**：将牛肉切片、番茄切块、土豆去皮切块、洋葱切粒。\n2. **先做番茄炒牛肉**：快速翻炒，耗时较短。\n3. **再做土豆炖牛肉**：需长时间炖煮，可在番茄炒牛肉完成后开始准备。\n\n---\n\n## 6. **整体营养小结**\n\n- **总热量**：约1477大卡（两道菜合计）\n- **饮食适配评价**：符合鸡蛋过敏要求，利用现有食材，清淡健康，适合家庭餐。\n- **微调建议**：若追求更低热量，可减少油量或使用低钠酱油。\n\n---\n\n## 7. **饮食安全提醒**\n\n- **规避的忌口/过敏原**：鸡蛋（全程未使用）。\n- **其他注意事项**：确保所有食材新鲜，烹饪过程中注意火候控制，避免食材烧焦。\n\n---\n```\n\n,\"content\":\"请在此沉淀最终菜谱\"}]",
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "番茄炒牛肉",
+          "intent": "利用用户已有番茄和牛肉，搭配清淡口味，避开鸡蛋过敏，满足家常需求。",
+          "query": "番茄炒牛肉 不辣 家常做法 烹饪时长 热量",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [],
+          "memory_conflicts": [],
+          "ingredients": [
+            "牛肉用量为 150 g/人",
+            "番茄用量为 1 个/人",
+            "鸡蛋用量为 1 个/人",
+            "盐用量为 2 g/人",
+            "胡椒粉用量为 0.5 g/人"
+          ],
+          "cook_steps": [
+            ",\"content\":\"写入结构化菜品详情、用料、步骤、热量、小贴士\"}]"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        },
+        {
+          "id": 2,
+          "name": "土豆炖牛肉",
+          "intent": "利用用户已有土豆和牛肉，搭配炖煮方式，减少油盐，适合健康饮食。",
+          "query": "土豆炖牛肉 不辣 家常做法 烹饪时长 热量",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [],
+          "memory_conflicts": [],
+          "ingredients": [
+            "牛肉 500-700g",
+            "小料",
+            "葱一根，姜四片，料酒",
+            "花椒 3g",
+            "八角一个（半）",
+            "香叶两片",
+            "油 15ml （若用牛腩可根据喜好减少为 10ml）",
+            "调味品",
+            "白糖 or 冰糖",
+            "酱油（千禾酿造生抽无添加），老抽",
+            "黑胡椒粉（白的也行）2g",
+            "土豆两三个（看喜好，锅能盛了为准）",
+            "西红柿拳头大小中等个头两三个",
+            "比拳头大一点的洋葱一个"
+          ],
+          "cook_steps": [
+            "菜品详细整理结果\n\n### 食材清单\n- 牛肉：500-700g  \n- 土豆：2-3个（根据锅的大小）  \n- 西红柿：2-3个（拳头大小中等个头）  \n- 洋葱：1个（比拳头大一点）  \n- 葱：1根（切4g葱花，其余掰成5-8cm段）  \n- 姜：4片  \n- 料酒：20g（用于焯水）  \n- 花椒：3g  \n- 八角：1个（半）  \n- 香叶：2片  \n- 白糖/冰糖：适量（根据口味）  \n- 生抽：15ml  \n- 胡椒粉：2g  \n- 番茄膏/番茄酱或一个番茄罐头：5-10g  \n- 油：15ml（可根据牛腩喜好减少为10ml）  \n\n---\n\n### 烹饪步骤\n1. **备菜**：\n   - 土豆去皮，切成5cm大块。\n   - 西红柿切十字花刀，开水烫后去皮，去掉中间的芯，切成3cm小块。\n   - 洋葱切0.5-1cm小粒。\n   - 牛肉泡凉水半小时去血水，或凉水下锅煮至表面变白捞出，期间撇去浮沫。\n\n2. **炖煮准备**：\n   - 将牛肉放入高压锅，加入葱段、姜片、料酒，加凉水没过牛肉，上汽压20分钟。\n   - 取出牛肉，切5cm大块，挑出姜片，将汤盛到碗中备用。\n\n3. **炒香调料**：\n   - 倒油，油四到五成热后下花椒、八角、香叶，出香味后挑出不用。\n   - 下入牛肉和葱姜，炒香，可加入10ml汤防止糊底。\n\n4. **调味炖煮**：\n   - 加入生抽、料酒、胡椒粉、番茄膏或番茄酱，炒匀。\n   - 加入洋葱炒至透明，可加少量盐帮助洋葱出水。\n   - 加入西红柿炒至软烂，倒入剩余的汤。\n\n5. **炖煮土豆**：\n   - 中火开锅后转小火，炖煮时不要扣盖，避免土豆太烂。\n   - 出锅前30-40分钟加入土豆，边尝边加糖和盐调味。\n   - 筷子戳牛肉至软烂即可出锅。\n\n---\n\n### 总耗时\n- 总烹饪时间：约1至1.5小时\n\n---\n\n### 预估热量\n- 每份热量：约827大卡\n\n---\n\n### 难度\n- ★★★★☆（难度较高，需掌握炖煮技巧）\n\n---\n\n### 烹饪小贴士\n1. **炖煮时保持汤温热**：加入汤时要确保是温热的，避免温度骤变影响口感。\n2. **不要扣盖炖煮**：否则土豆会过于软烂，影响口感。\n3. **使用砂锅更佳**：如果使用砂锅，开锅前不要用大火，避免裂开。"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        }
+      ],
+      "shopping_list": [
+        "牛肉用量为 150 g/人（用于：番茄炒牛肉）",
+        "番茄用量为 1 个/人（用于：番茄炒牛肉）",
+        "鸡蛋用量为 1 个/人（用于：番茄炒牛肉）",
+        "盐用量为 2 g/人（用于：番茄炒牛肉）",
+        "胡椒粉用量为 0.5 g/人（用于：番茄炒牛肉）",
+        "牛肉 500-700g（用于：土豆炖牛肉）",
+        "小料（用于：土豆炖牛肉）",
+        "葱一根，姜四片，料酒（用于：土豆炖牛肉）",
+        "花椒 3g（用于：土豆炖牛肉）",
+        "八角一个（半）（用于：土豆炖牛肉）",
+        "香叶两片（用于：土豆炖牛肉）",
+        "油 15ml （若用牛腩可根据喜好减少为 10ml）（用于：土豆炖牛肉）",
+        "调味品（用于：土豆炖牛肉）",
+        "白糖 or 冰糖（用于：土豆炖牛肉）",
+        "酱油（千禾酿造生抽无添加），老抽（用于：土豆炖牛肉）",
+        "黑胡椒粉（白的也行）2g（用于：土豆炖牛肉）",
+        "土豆两三个（看喜好，锅能盛了为准）（用于：土豆炖牛肉）",
+        "西红柿拳头大小中等个头两三个（用于：土豆炖牛肉）",
+        "比拳头大一点的洋葱一个（用于：土豆炖牛肉）"
+      ],
+      "total_calories": 0
+    },
+    "case_019_guest_meal": {
+      "menu_markdown": "```markdown\n# 周末朋友聚餐完整菜谱报告\n\n## 1. **用餐需求总览**\n\n- **用户原始需求**：周末朋友来吃饭，5个人，做4道菜，要有荤有素，不能太辣。\n- **忌口/过敏原**：暂无相关信息。\n- **用户冰箱现有食材**：\n  - 冬瓜（200g）\n  - 猪肉末（300g）\n  - 鸡蛋（1个）\n  - 葱花（约20g）\n  - 胡椒粉（5g）\n  - 生抽（10ml）\n  - 淀粉（5g）\n  - 水淀粉（25g）\n  - 葱姜末（姜3-4片约30g，葱白部分）\n  - 盐（20g）\n  - 青菜（100g * 份数）\n  - 蒜瓣（2粒 * 份数）\n  - 食用油（10-15ml）\n  - 食盐（2g * 份数）\n  - 饮用水（70ml * 份数）\n  - 白糖（5g * 份数）\n- **整体用餐定位**：家庭聚餐、荤素搭配、清淡不辣。\n\n---\n\n## 2. **整套菜单概览表**\n\n| 菜名             | 制作时长 | 难度 | 单菜预估热量 |\n|------------------|----------|------|--------------|\n| 冬瓜蒸肉末       | 30 分钟  | ★★★★ | 578 大卡     |\n| 清炒时蔬         | 10 分钟  | ★★   | 152 大卡     |\n| 红烧鸡块         | 30 分钟  | ★★★  | 300 大卡     |\n| 蛋花汤           | 7 分钟    | ★    | 107 大卡     |\n\n> 注：红烧鸡块的详细步骤未提供完整信息，需补充后方可生成完整做法。\n\n---\n\n## 3. **分类采购清单**\n\n### ✅ 已有食材（无需额外购买）\n\n- 冬瓜：200g\n- 猪肉末：300g\n- 鸡蛋：1个\n- 葱花：约20g\n- 胡椒粉：5g\n- 生抽：10ml\n- 淀粉：5g\n- 水淀粉：25g（含淀粉25g + 水50ml）\n- 葱姜末：姜3-4片约30g，葱白部分\n- 盐：20g\n- 青菜：100g * 份数（5人份需准备 500g）\n- 蒜瓣：2粒 * 份数（5人份需准备 10粒）\n- 食用油：10-15ml\n- 食盐：2g * 份数（5人份需准备 10g）\n- 饮用水：70ml * 份数（5人份需准备 350ml）\n- 白糖：5g * 份数（5人份需准备 25g）\n\n### 🛒 需要采购食材（合并去重）\n\n- 鸡腿或鸡胸肉：750g（按每人150g计算）\n- 番茄：5个（按每人1个计算）\n- 食用油：10-15ml（已备，无需再买）\n- 盐：2g * 份数（已备，无需再买）\n- 胡椒粉：0.5g * 份数（已备，无需再买）\n\n---\n\n## 4. **单菜详细做法**\n\n### 🍲 冬瓜蒸肉末\n\n#### 🧾 食材明细\n- 冬瓜：200g\n- 猪肉末：300g\n- 鸡蛋：1个（可选）\n- 葱花：约20g\n- 胡椒粉：5g\n- 生抽：10ml\n- 淀粉：5g\n- 水淀粉：25g（淀粉25g + 水50ml）\n- 葱姜末：姜3-4片约30g，取葱白部分\n- 盐：20g\n\n#### 🍳 烹饪步骤\n1. 冬瓜去皮，切成 25cm 长、3cm 厚的片。\n2. 将切好的冬瓜放入碗中，加入 15g 盐，抹匀后放置 10 分钟。\n3. 同时准备肉末：将猪肉末、葱姜末、5g 盐、淀粉 5g、胡椒粉、生抽混合。\n4. 用筷子顺时针搅拌肉末，直到颜色均匀（约 2 分钟）。\n5. 将腌制好的冬瓜用清水冲洗三遍。\n6. 取一片冬瓜片卷起，塞入肉末。\n7. 将卷好的冬瓜摆放在碟子边缘。\n8. 在碟子中央打入一个鸡蛋。\n9. 将碟子放入普通铁锅中，水烧开后蒸 15 分钟，盖上锅盖。\n10. 蒸好后取出，将碟子中的水倒入锅中。\n11. 加入水淀粉和 50ml 清水，煮沸后淋在冬瓜酿肉上。\n\n#### ⚠️ 烹饪小贴士\n- 冬瓜处理：冬瓜切片后用盐腌制可以去除多余水分，使口感更嫩滑。\n- 肉末调味：搅拌肉末时要顺时针方向，有助于肉末更好地粘合，提升口感。\n- 鸡蛋替代：若不喜欢鸡蛋腥味，可省略或用豆腐代替，保持清淡风味。\n\n---\n\n### 🥦 清炒时蔬\n\n#### 🧾 食材明细\n- 青菜：500g（5人份）\n- 蒜瓣：10粒（5人份）\n- 食用油：10-15ml\n- 食盐：10g（5人份）\n- 饮用水：350ml（5人份）\n- 白糖：25g（5人份）\n\n#### 🍳 烹饪步骤\n1. 青菜掰成小瓣，用清水洗净，备用。\n2. 将蒜瓣剁碎，备用。\n3. 中火或大火热锅后，锅内放入 10-15ml 食用油。再等待 30 秒让油温升高。\n4. 将准备好的青菜倒入锅中，翻炒至青菜变软（约 1 分钟）。\n5. 放入剁碎的蒜瓣。\n6. 倒入计算好的清水，水位应当完全浸润或即将没过青菜，加入食盐（2g * 份数），继续翻炒约 1 分钟。\n7. 最后加入白糖，小火加热 2 分钟，加热时盖上锅盖。\n8. 盛盘。\n\n#### ⚠️ 烹饪小贴士\n- 保持脆嫩口感：炒青菜时尽量控制时间，避免过度烹饪导致蔬菜变软失去脆感。\n- 调味灵活调整：可根据个人口味增减盐和糖的用量，若喜欢更清淡可减少盐分。\n- 食材替换建议：如无青菜，可用小白菜、菠菜等绿叶蔬菜替代，同样适用此做法。\n\n---\n\n### 🍗 红烧鸡块（待补充完整）\n\n#### 🧾 食材明细（待补充）\n- 鸡腿或鸡胸肉：750g\n- 食用油：适量\n- 生抽：适量\n- 老抽：适量\n- 料酒：适量\n- 葱姜蒜：适量\n- 盐：适量\n- 白糖：适量\n- 水：适量\n\n#### 🍳 烹饪步骤（待补充）\n\n#### ⚠️ 烹饪小贴士（待补充）\n\n---\n\n### 🥣 蛋花汤\n\n#### 🧾 食材明细\n- 鸡蛋：2 个（约 100 克）\n- 清水：500 毫升\n- 盐：适量（约 3 克）\n- 白胡椒粉：少许（约 0.5 克）\n- 香油（可选）：几滴\n\n#### 🍳 烹饪步骤\n1. 准备食材：鸡蛋打入碗中，用筷子或打蛋器搅拌均匀；清水倒入锅中。\n2. 烧水：将清水煮沸，转小火。\n3. 加入蛋液：在水微沸时，缓慢倒入打好的蛋液，同时用勺子轻轻搅动，使蛋液形成蛋花。\n4. 调味：根据个人口味加入盐和白胡椒粉，搅拌均匀。\n5. 出锅：待蛋花完全凝固后，关火，撒上少许香油即可盛出。\n\n#### ⚠️ 烹饪小贴士\n- 蛋液温度控制：蛋液倒入前，水应处于微沸状态，避免蛋液直接倒入沸水中导致结块。\n- 蛋花口感：若希望蛋花更嫩滑，可在蛋液中加入少量淀粉水搅拌均匀后再倒入。\n- 替代建议：若不喜欢鸡蛋，可用豆腐或嫩豆腐代替，做成“豆腐蛋花汤”，同样清淡美味。\n\n---\n\n## 5. **厨房操作先后建议**\n\n1. **先处理主菜**：先开始制作红烧鸡块（需较长时间），同时准备其他菜品。\n2. **同步进行**：在鸡块炖煮过程中，可同时进行冬瓜蒸肉末和清炒时蔬的准备工作。\n3. **最后完成**：蛋花汤作为最后一步，只需几分钟即可完成，确保热汤上桌。\n\n---\n\n## 6. **整体营养小结**\n\n- **总热量估算**：\n  - 冬瓜蒸肉末：578 大卡/份 × 5 = 2,890 大卡\n  - 清炒时蔬：152 大卡/份 × 5 = 760 大卡\n  - 红烧鸡块：300 大卡/份 × 5 = 1,500 大卡\n  - 蛋花汤：107 大卡/份 × 5 = 535 大卡\n  - **总计：5,685 大卡**\n  \n- **饮食适配评价**：\n  - 符合“荤素搭配”、“清淡不辣”的要求。\n  - 营养均衡，蛋白质、碳水化合物与膳食纤维比例合理。\n  \n- **微调建议**：\n  - 若对脂肪摄入有严格限制，可适当减少食用油用量。\n  - 若想增加维生素摄入，可考虑添加胡萝卜、玉米等蔬菜。\n\n---\n\n## 7. **饮食安全提醒**\n\n- **规避忌口/过敏原**：本套餐不含任何辣味调料，也未使用常见过敏源（如花生、海鲜等）。\n- **食材安全性**：所有食材均为新鲜食材，符合家庭厨房标准。\n- **烹饪卫生**：建议在烹饪过程中注意手部清洁与食材清洗，确保食品安全。\n\n---\n\n, \"content\": \"请在此沉淀最终菜谱\"}]\n```",
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "冬瓜蒸肉末",
+          "intent": "使用用户已有冬瓜和猪肉末，蒸制少油，符合清淡家常需求，避免辣味。",
+          "query": "冬瓜蒸肉末 核心食材：冬瓜、猪肉末 不辣 家常做法 烹饪时长 热量",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣"
+          ],
+          "memory_conflicts": [],
+          "ingredients": [
+            "猪肉末 300g",
+            "鸡蛋 1 个（可选,不习惯的人可能会有点腥）",
+            "冬瓜 200g",
+            "葱花（一根,约 20g）",
+            "胡椒粉 5g",
+            "生抽 10ml",
+            "淀粉 5g",
+            "水淀粉 25g（淀粉 25g,水 50ml）",
+            "葱姜末（姜 3-4 片约 30g, 取上面一根葱花中的葱白部分即可）",
+            "盐 20g"
+          ],
+          "cook_steps": [
+            "菜品详细整理结果\n\n### 食材清单\n- 冬瓜：200g  \n- 猪肉末：300g  \n- 鸡蛋：1个（可选）  \n- 葱花：约20g  \n- 胡椒粉：5g  \n- 生抽：10ml  \n- 淀粉：5g  \n- 水淀粉：25g（淀粉25g + 水50ml）  \n- 葱姜末：姜3-4片约30g，取葱白部分  \n- 盐：20g  \n\n---\n\n### 烹饪步骤\n1. 冬瓜去皮，切成 25cm 长、3cm 厚的片。  \n2. 将切好的冬瓜放入碗中，加入 15g 盐，抹匀后放置 10 分钟。  \n3. 同时准备肉末：将猪肉末、葱姜末、5g 盐、淀粉 5g、胡椒粉、生抽混合。  \n4. 用筷子顺时针搅拌肉末，直到颜色均匀（约 2 分钟）。  \n5. 将腌制好的冬瓜用清水冲洗三遍。  \n6. 取一片冬瓜片卷起，塞入肉末。  \n7. 将卷好的冬瓜摆放在碟子边缘。  \n8. 在碟子中央打入一个鸡蛋。  \n9. 将碟子放入普通铁锅中，水烧开后蒸 15 分钟，盖上锅盖。  \n10. 蒸好后取出，将碟子中的水倒入锅中。  \n11. 加入水淀粉和 50ml 清水，煮沸后淋在冬瓜酿肉上。  \n\n---\n\n### 总耗时\n- 总烹饪时长：约 30 分钟  \n\n---\n\n### 预估热量\n- 每份热量：约 578 大卡  \n\n---\n\n### 难度\n- 难度：★★★★（适合有一定烹饪基础者）\n\n---\n\n### 烹饪小贴士\n1. **冬瓜处理**：冬瓜切片后用盐腌制可以去除多余水分，使口感更嫩滑。  \n2. **肉末调味**：搅拌肉末时要顺时针方向，有助于肉末更好地粘合，提升口感。  \n3. **鸡蛋替代**：若不喜欢鸡蛋腥味，可省略或用豆腐代替，保持清淡风味。"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        },
+        {
+          "id": 2,
+          "name": "清炒时蔬",
+          "intent": "搭配蔬菜，增加素菜比例，满足荤素均衡，避免辣味。",
+          "query": "清炒时蔬 核心食材：常见蔬菜 不辣 家常做法 烹饪时长 热量",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考常用食材：青菜"
+          ],
+          "memory_conflicts": [],
+          "ingredients": [
+            "青菜 100g * 份数",
+            "蒜瓣 2 粒 * 份数",
+            "食用油 10-15ml（覆盖锅底即可）",
+            "食盐 2g * 份数",
+            "饮用水 70ml * 份数",
+            "白糖 5g * 份数"
+          ],
+          "cook_steps": [
+            "菜品详细整理结果\n\n### 食材清单\n- 青菜 100g * 份数（5人份需准备 500g）\n- 蒜瓣 2 粒 * 份数（5人份需准备 10粒）\n- 食用油 10-15ml（覆盖锅底即可）\n- 食盐 2g * 份数（5人份需准备 10g）\n- 饮用水 70ml * 份数（5人份需准备 350ml）\n- 白糖 5g * 份数（5人份需准备 25g）\n\n### 烹饪步骤\n1. 青菜掰成小瓣，用清水洗净，备用。\n2. 将蒜瓣剁碎，备用。\n3. 中火或大火热锅后，锅内放入 10-15ml 食用油。再等待 30 秒让油温升高。\n4. 将准备好的青菜倒入锅中，翻炒至青菜变软（约 1 分钟）。\n5. 放入剁碎的蒜瓣。\n6. 倒入计算好的清水，水位应当完全浸润或即将没过青菜，加入食盐（2g * 份数），继续翻炒约 1 分钟。\n7. 最后加入白糖，小火加热 2 分钟，加热时盖上锅盖。\n8. 盛盘。\n\n### 总耗时\n- 烹饪总耗时：约 10 分钟\n\n### 预估热量\n- 每份热量：152 大卡  \n- 5人份总热量：约 760 大卡\n\n### 难度\n- 难度：★★（适合家庭厨房操作，简单易学）\n\n### 烹饪小贴士\n1. **保持脆嫩口感**：炒青菜时尽量控制时间，避免过度烹饪导致蔬菜变软失去脆感。\n2. **调味灵活调整**：可根据个人口味增减盐和糖的用量，若喜欢更清淡可减少盐分。\n3. **食材替换建议**：如无青菜，可用小白菜、菠菜等绿叶蔬菜替代，同样适用此做法。"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        },
+        {
+          "id": 3,
+          "name": "红烧鸡块",
+          "intent": "提供荤菜，满足多人用餐需求，口味偏咸鲜，避免辣味。",
+          "query": "红烧鸡块 核心食材：鸡腿或鸡胸肉 不辣 家常做法 烹饪时长 热量",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [
+            "参考历史偏好：不辣"
+          ],
+          "memory_conflicts": [],
+          "ingredients": [],
+          "cook_steps": [
+            ",\"content\":\"记录本道菜需求定位、搜索信息、完整用料、烹饪步骤、热量与实操小贴士\"}]"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        },
+        {
+          "id": 4,
+          "name": "蛋花汤",
+          "intent": "补充汤品，提升整体用餐体验，清淡易消化，避免辣味。",
+          "query": "蛋花汤 核心食材：鸡蛋、清水 不辣 家常做法 烹饪时长 热量",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [],
+          "memory_conflicts": [],
+          "ingredients": [
+            "牛肉用量为 150 g/人",
+            "番茄用量为 1 个/人",
+            "鸡蛋用量为 1 个/人",
+            "盐用量为 2 g/人",
+            "胡椒粉用量为 0.5 g/人"
+          ],
+          "cook_steps": [
+            "菜品详细整理结果\n\n### 食材清单  \n- 鸡蛋：2 个（约 100 克）  \n- 清水：500 毫升  \n- 盐：适量（约 3 克）  \n- 白胡椒粉：少许（约 0.5 克）  \n- 香油（可选）：几滴（提升香味）  \n\n---\n\n### 烹饪步骤  \n1. **准备食材**：鸡蛋打入碗中，用筷子或打蛋器搅拌均匀；清水倒入锅中。  \n2. **烧水**：将清水煮沸，转小火。  \n3. **加入蛋液**：在水微沸时，缓慢倒入打好的蛋液，同时用勺子轻轻搅动，使蛋液形成蛋花。  \n4. **调味**：根据个人口味加入盐和白胡椒粉，搅拌均匀。  \n5. **出锅**：待蛋花完全凝固后，关火，撒上少许香油即可盛出。\n\n---\n\n### 总耗时  \n- 烹饪时间：约 5 分钟  \n- 准备时间：约 2 分钟  \n- 总耗时：约 7 分钟  \n\n---\n\n### 预估热量  \n- 每份热量：约 107 大卡（基于 2 个鸡蛋、500ml 水、少量盐和胡椒粉）\n\n---\n\n### 难度  \n- ★（简单易做，适合新手）\n\n---\n\n### 烹饪小贴士  \n1. **蛋液温度控制**：蛋液倒入前，水应处于微沸状态，避免蛋液直接倒入沸水中导致结块。  \n2. **蛋花口感**：若希望蛋花更嫩滑，可在蛋液中加入少量淀粉水搅拌均匀后再倒入。  \n3. **替代建议**：若不喜欢鸡蛋，可用豆腐或嫩豆腐代替，做成“豆腐蛋花汤”，同样清淡美味。"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        }
+      ],
+      "shopping_list": [
+        "猪肉末 300g（用于：冬瓜蒸肉末）",
+        "鸡蛋 1 个（可选,不习惯的人可能会有点腥）（用于：冬瓜蒸肉末）",
+        "冬瓜 200g（用于：冬瓜蒸肉末）",
+        "葱花（一根,约 20g）（用于：冬瓜蒸肉末）",
+        "胡椒粉 5g（用于：冬瓜蒸肉末）",
+        "生抽 10ml（用于：冬瓜蒸肉末）",
+        "淀粉 5g（用于：冬瓜蒸肉末）",
+        "水淀粉 25g（淀粉 25g,水 50ml）（用于：冬瓜蒸肉末）",
+        "葱姜末（姜 3-4 片约 30g, 取上面一根葱花中的葱白部分即可）（用于：冬瓜蒸肉末）",
+        "盐 20g（用于：冬瓜蒸肉末）",
+        "青菜 100g * 份数（用于：清炒时蔬）",
+        "蒜瓣 2 粒 * 份数（用于：清炒时蔬）",
+        "食用油 10-15ml（覆盖锅底即可）（用于：清炒时蔬）",
+        "食盐 2g * 份数（用于：清炒时蔬）",
+        "饮用水 70ml * 份数（用于：清炒时蔬）",
+        "白糖 5g * 份数（用于：清炒时蔬）",
+        "牛肉用量为 150 g/人（用于：蛋花汤）",
+        "番茄用量为 1 个/人（用于：蛋花汤）",
+        "鸡蛋用量为 1 个/人（用于：蛋花汤）",
+        "盐用量为 2 g/人（用于：蛋花汤）",
+        "胡椒粉用量为 0.5 g/人（用于：蛋花汤）"
+      ],
+      "total_calories": 0
+    },
+    "case_020_report_sections": {
+      "menu_markdown": "```markdown\n# 1. **用餐需求总览**\n\n- **用户原始需求**：一人晚餐，低脂饮食。\n- **忌口/过敏原**：暂无相关信息。\n- **用户冰箱现有食材**：\n  - 西兰花：约200克（1/2中等大小）\n  - 鸡胸肉：200克\n- **整体用餐定位**：低脂、清淡、适合一人食的快手晚餐。\n\n---\n\n# 2. **整套菜单概览表**\n\n| 菜名             | 制作时长 | 难度 | 单菜预估热量 |\n|------------------|----------|------|---------------|\n| 西兰花炒鸡胸肉   | 约15分钟 | ★★☆ | 约380大卡     |\n| 清炒西兰花       | 约10分钟 | ★☆☆ | 约60大卡      |\n\n---\n\n# 3. **分类采购清单**\n\n## ✅ 已有食材（无需额外购买）\n\n- 西兰花：约200克（用于两道菜）\n- 鸡胸肉：200克（用于西兰花炒鸡胸肉）\n\n## 🛒 需要采购食材（已合并去重）\n\n| 食材         | 用量        | 用途说明                     |\n|--------------|-------------|------------------------------|\n| 麻油         | 5毫升       | 用于西兰花炒鸡胸肉           |\n| 生抽         | 14毫升      | 用于西兰花炒鸡胸肉和清炒西兰花 |\n| 香醋         | 4毫升       | 用于西兰花炒鸡胸肉           |\n| 白糖         | 5克         | 用于西兰花炒鸡胸肉           |\n| 盐           | 2克         | 用于西兰花炒鸡胸肉           |\n| 姜           | 20克        | 用于西兰花炒鸡胸肉           |\n| 大蒜         | 3-4瓣       | 用于西兰花炒鸡胸肉和清炒西兰花 |\n| 蚝油         | 5毫升       | 用于西兰花炒鸡胸肉           |\n\n---\n\n# 4. **单菜详细做法**\n\n## 🥦 西兰花炒鸡胸肉\n\n### 🧾 食材明细\n\n- 西兰花：1颗（约200克）\n- 鸡胸肉：200克\n- 大蒜：3-4瓣\n- 生抽：10毫升\n- 蚝油：5毫升\n- 白糖：2克\n- 食用油：10毫升（可选，根据低脂需求减少用量）\n- 盐：适量（可选，根据口味调整）\n- 麻油：5毫升（可选，增加风味）\n- 香醋：4毫升（可选，提鲜）\n- 姜：20克（可选，去腥增香）\n\n### 🍳 烹饪步骤\n\n1. **准备食材**：\n   - 西兰花切成小朵，清洗干净。\n   - 鸡胸肉洗净，切丝或切片备用。\n   - 大蒜去皮，切成蒜末；姜切丝备用。\n\n2. **焯水西兰花**：\n   - 锅中加入1000毫升饮用水，大火烧开。\n   - 放入西兰花，保持大火煮2-3分钟，至颜色变翠绿、口感变软。\n   - 捞出西兰花，沥干水分，摆入盘中备用。\n\n3. **炒制鸡胸肉**：\n   - 热锅，加入10毫升食用油（可根据低脂需求减少）。\n   - 油温升高后，放入蒜末和姜丝，小火煸炒出香味。\n   - 加入鸡胸肉，翻炒至变色，约2-3分钟。\n\n4. **调味与混合**：\n   - 加入10毫升生抽、5毫升蚝油、2克白糖，搅拌均匀。\n   - 倒入30毫升饮用水，煮沸后关火。\n   - 将蒜蓉汁均匀淋在西兰花上，再将炒好的鸡胸肉拌入其中。\n   - 可根据口味加入少量盐、麻油或香醋提升风味。\n\n5. **装盘**：\n   - 拌匀后即可装盘，根据个人口味可撒少许盐或香菜点缀。\n\n### ⏱️ 总耗时：约15分钟  \n### 🌡️ 预估热量：约380大卡  \n### 🔢 难度：★★☆（适合家庭厨房操作，简单易学）\n\n### 💡 烹饪小贴士\n\n- 若追求更低脂，可使用不粘锅并减少食用油的用量，甚至可以不用油，直接用蒜末炒香后加水调汁。\n- 鸡胸肉提前用少量料酒和盐腌制10分钟，可提升嫩滑度和入味效果。\n- 西兰花焯水时间不宜过长，以保留脆嫩口感。如需更脆，可缩短焯水时间至1-2分钟。\n\n---\n\n## 🥦 清炒西兰花\n\n### 🧾 食材明细\n\n- 西兰花：约200克\n- 大蒜：3-4瓣\n- 生抽：4毫升\n- 白糖：3克\n- 盐：2克\n- 姜：20克（可选）\n- 食用油：5毫升（可选，根据低脂需求减少）\n\n### 🍳 烹饪步骤\n\n1. **准备食材**：\n   - 西兰花切成小朵，清洗干净。\n   - 大蒜去皮，切成蒜末；姜切丝备用。\n\n2. **焯水西兰花**：\n   - 锅中加入1000毫升饮用水，大火烧开。\n   - 放入西兰花，保持大火煮2-3分钟，至颜色变翠绿、口感变软。\n   - 捞出西兰花，沥干水分，摆入盘中备用。\n\n3. **炒制西兰花**：\n   - 热锅，加入5毫升食用油（可根据低脂需求减少）。\n   - 油温升高后，放入蒜末和姜丝，小火煸炒出香味。\n   - 加入西兰花，翻炒约3-5分钟，至熟透。\n\n4. **调味**：\n   - 加入4毫升生抽、3克白糖、2克盐，翻炒均匀。\n   - 根据口味可加入少量麻油或香醋提味。\n\n5. **装盘**：\n   - 拌匀后即可装盘，可搭配少量鸡胸肉或作为主菜。\n\n### ⏱️ 总耗时：约10分钟  \n### 🌡️ 预估热量：约60大卡  \n### 🔢 难度：★☆☆（非常简单，适合新手）\n\n### 💡 烹饪小贴士\n\n- 清炒西兰花时，可加入少量水或高汤，使味道更浓郁。\n- 若喜欢更清爽的口感，可减少盐和酱油的用量。\n\n---\n\n# 5. **厨房操作先后建议**\n\n1. **第一步：准备食材**\n   - 提前将西兰花切块、鸡胸肉切丝、大蒜切末、姜切丝。\n\n2. **第二步：焯水西兰花**\n   - 先将西兰花焯水，确保口感脆嫩。\n\n3. **第三步：炒制鸡胸肉**\n   - 在焯水完成后，开始炒制鸡胸肉，避免等待时间过长导致西兰花变老。\n\n4. **第四步：清炒西兰花**\n   - 最后进行清炒西兰花，确保整体菜品新鲜出炉。\n\n---\n\n# 6. **整体营养小结**\n\n- **总热量**：约440大卡（西兰花炒鸡胸肉 + 清炒西兰花）\n- **饮食适配评价**：\n  - 符合低脂、清淡、一人食的饮食需求。\n  - 蛋白质来源为鸡胸肉，蔬菜摄入充足，符合均衡饮食原则。\n- **微调建议**：\n  - 若希望增加膳食纤维，可添加少量糙米或全麦意面。\n  - 若对蛋白质摄入有更高需求，可适当增加鸡胸肉分量。\n\n---\n\n# 7. **饮食安全提醒**\n\n- **规避忌口/过敏原**：本套餐未涉及任何用户提供的忌口或过敏原信息，所有食材均为常见食材，无特殊限制。\n- **低脂提示**：全程采用少油烹饪方式，部分调料如生抽、蚝油等也控制用量，确保符合低脂饮食标准。\n\n---\n\n,\"content\":\"请在此沉淀最终菜谱\"}]\n```",
+      "dish_list": [
+        {
+          "id": 1,
+          "name": "西兰花炒鸡胸肉",
+          "intent": "利用用户已有西兰花和鸡胸肉，清淡少油，符合低脂需求，避免辣味。",
+          "query": "西兰花炒鸡胸肉 低脂做法 少油烹饪 热量计算 家常步骤",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [],
+          "memory_conflicts": [],
+          "ingredients": [
+            "鸡胸肉 200 克",
+            "麻油 5 毫升",
+            "生抽 4 毫升",
+            "香醋 4 毫升",
+            "白糖 3 克",
+            "盐 2 克",
+            "姜 20 克",
+            "西兰花 约 200 g （约 1/2 中等大小的西兰花）",
+            "大蒜 3-4 瓣",
+            "生抽 10 ml",
+            "蚝油 5 ml",
+            "白糖 2 g"
+          ],
+          "cook_steps": [
+            "菜品详细整理结果\n\n### 食材清单\n- 西兰花：1颗（约200克）\n- 鸡胸肉：200克\n- 大蒜：3-4瓣\n- 生抽：10毫升\n- 蚝油：5毫升\n- 白糖：2克\n- 食用油：10毫升（可选，根据低脂需求减少用量）\n- 盐：适量（可选，根据口味调整）\n\n### 烹饪步骤\n1. **准备食材**：\n   - 西兰花切成小朵，清洗干净。\n   - 鸡胸肉洗净，切丝或切片备用。\n   - 大蒜去皮，切成蒜末。\n\n2. **焯水西兰花**：\n   - 锅中加入1000毫升饮用水，大火烧开。\n   - 放入西兰花，保持大火煮2-3分钟，至颜色变翠绿、口感变软。\n   - 捞出西兰花，沥干水分，摆入盘中备用。\n\n3. **炒制鸡胸肉**：\n   - 热锅，加入10毫升食用油（可根据低脂需求减少）。\n   - 油温升高后，放入蒜末，小火煸炒出香味。\n   - 加入鸡胸肉，翻炒至变色，约2-3分钟。\n\n4. **调味与混合**：\n   - 加入10毫升生抽、5毫升蚝油、2克白糖，搅拌均匀。\n   - 倒入30毫升饮用水，煮沸后关火。\n   - 将蒜蓉汁均匀淋在西兰花上，再将炒好的鸡胸肉拌入其中。\n\n5. **装盘**：\n   - 拌匀后即可装盘，根据个人口味可撒少许盐或香菜点缀。\n\n### 总耗时\n- 烹饪总耗时：约15分钟\n\n### 预估热量\n- 每份热量：约380大卡（根据实际用量略有浮动）\n\n### 难度\n- 难度：★★☆（适合家庭厨房操作，简单易学）\n\n### 烹饪小贴士\n1. **少油烹饪**：若追求更低脂，可使用不粘锅并减少食用油的用量，甚至可以不用油，直接用蒜末炒香后加水调汁。\n2. **鸡胸肉处理**：鸡胸肉提前用少量料酒和盐腌制10分钟，可提升嫩滑度和入味效果。\n3. **西兰花口感控制**：焯水时间不宜过长，以保留脆嫩口感。如需更脆，可缩短焯水时间至1-2分钟。\n\n---\n\n以上为“西兰花炒鸡胸肉”的完整菜谱及采购清单，符合低脂清淡的饮食需求，适合一人晚餐。"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        },
+        {
+          "id": 2,
+          "name": "清炒西兰花",
+          "intent": "利用剩余西兰花，简单清炒，补充蔬菜摄入，保持低脂清淡。",
+          "query": "清炒西兰花 低脂做法 少油烹饪 热量计算 家常步骤",
+          "status": "completed",
+          "notices": [],
+          "note_id": null,
+          "note_path": null,
+          "stream_token": null,
+          "memory_used": [],
+          "memory_conflicts": [],
+          "ingredients": [
+            "西兰花 约 200 g （约 1/2 中等大小的西兰花）",
+            "大蒜 3-4 瓣",
+            "生抽 10 ml",
+            "蚝油 5 ml",
+            "白糖 2 g"
+          ],
+          "cook_steps": [
+            ",\"content\":\"记录本道菜需求定位、搜索信息、完整用料、烹饪步骤、热量与实操小贴士\"}]"
+          ],
+          "cook_time": "",
+          "calories": 0,
+          "tips": "",
+          "source_links": null
+        }
+      ],
+      "shopping_list": [
+        "鸡胸肉 200 克（用于：西兰花炒鸡胸肉）",
+        "麻油 5 毫升（用于：西兰花炒鸡胸肉）",
+        "生抽 4 毫升（用于：西兰花炒鸡胸肉）",
+        "香醋 4 毫升（用于：西兰花炒鸡胸肉）",
+        "白糖 3 克（用于：西兰花炒鸡胸肉）",
+        "盐 2 克（用于：西兰花炒鸡胸肉）",
+        "姜 20 克（用于：西兰花炒鸡胸肉）",
+        "西兰花 约 200 g （约 1/2 中等大小的西兰花）（用于：西兰花炒鸡胸肉、清炒西兰花）",
+        "大蒜 3-4 瓣（用于：西兰花炒鸡胸肉、清炒西兰花）",
+        "生抽 10 ml（用于：西兰花炒鸡胸肉、清炒西兰花）",
+        "蚝油 5 ml（用于：西兰花炒鸡胸肉、清炒西兰花）",
+        "白糖 2 g（用于：西兰花炒鸡胸肉、清炒西兰花）"
+      ],
+      "total_calories": 0
+    }
+  }
+}

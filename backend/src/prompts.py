@@ -53,6 +53,10 @@ todo_planner_instructions = """
 用户用餐需求：{research_topic}
 </CONTEXT>
 
+<USER_MEMORY>
+{user_memory}
+</USER_MEMORY>
+
 <TASK>
 先从用户需求中识别：
 - 用餐人数
@@ -70,6 +74,8 @@ todo_planner_instructions = """
 - 不重复主食材和烹饪方式
 - 如果新增采购，说明必要性
 - 并为每道菜生成后续联网搜索可用的 query
+- 可以参考长期记忆中的历史偏好、常用食材、最近菜品，但本次用户明确输入永远优先。
+- 如果本次输入与长期记忆冲突，必须服从本次输入，并在 memory_conflicts 说明冲突。
 </TASK>
 
 <FORMAT>
@@ -83,6 +89,8 @@ todo_planner_instructions = """
       "matched_ingredients": ["冬瓜", "猪肉末"],
       "avoided_constraints": ["不辣"],
       "reason": "使用用户已有冬瓜和猪肉末，蒸制少油，符合清淡家常需求。",
+      "memory_used": ["参考历史偏好：不辣", "参考常用食材：番茄"],
+      "memory_conflicts": []
     }}
   ]
 }}
