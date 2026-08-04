@@ -1,0 +1,55 @@
+# Environment variables and local secrets
+.env
+.env.*
+!.env.example
+!**/.env.example
+
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Python environments and packaging artifacts
+.venv/
+venv/
+env/
+ENV/
+build/
+site/
+*.egg-info/
+
+# Node and Vite artifacts
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Logs and runtime output
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+backend/notes/
+backend/src/notes/
+backend/src/data/user_memory.json
+
+# Editor and operating-system files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.sw?
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
