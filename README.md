@@ -51,7 +51,7 @@ pip install -r requirements.txt
 前端：
 
 ```bash
-cd Smart_Recipe_Assistant/recipe-frontend
+cd Smart_Recipe_Assistant/frontend
 npm install
 ```
 
@@ -100,7 +100,7 @@ python src/main.py
 另开一个终端启动前端：
 
 ```bash
-cd Smart_Recipe_Assistant/recipe-frontend
+cd Smart_Recipe_Assistant/frontend
 npm run dev
 ```
 
