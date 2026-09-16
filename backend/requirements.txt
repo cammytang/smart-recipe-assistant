@@ -10,3 +10,5 @@ ddgs>=9.6.1
 loguru>=0.7.3
 huggingface_hub
 qdrant-client>=1.10.0
+psycopg[binary,pool]>=3.2,<4
+argon2-cffi>=23.1

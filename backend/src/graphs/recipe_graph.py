@@ -46,9 +46,7 @@ class RecipeWorkflowGraph:
         config: Configuration | None = None,
         memory_service: MemoryService | None = None,
     ) -> None:
-        self.agent = DeepResearchAgent(config=config)
-        if memory_service is not None:
-            self.agent.memory = memory_service
+        self.agent = DeepResearchAgent(config=config, memory_service=memory_service)
         self.app = self._build_graph()
 
     def invoke(self, user_requirement: str) -> MenuStateOutput:

@@ -1,0 +1,40 @@
+.auth-entry,.auth-avatar { border: 1px solid #cbded0; background: #edf5ef; color: #316748; border-radius: 10px; padding: 7px 14px; font: inherit; font-size: 13px; cursor: pointer; }
+.auth-avatar { border-radius: 50%; height: 36px; width: 36px; padding: 0; font-weight: 600; }
+.auth-check { font-size: 12px; color: #708577; }
+.auth-header-actions { display: flex; align-items: center; gap: 10px; }
+.auth-dialog,.auth-drawer { color-scheme: light; color: #304637; background: #fcfdfa; text-align: left; border: 1px solid #e0e9df; font-size: 14px; line-height: 1.6; }
+.auth-dialog { position: fixed; inset: 0; margin: auto; width: min(440px, calc(100% - 28px)); max-height: calc(100dvh - 28px); border-radius: 22px; padding: 30px; overflow-y: auto; }
+.auth-dialog::backdrop,.auth-drawer::backdrop { background: #162b2766; backdrop-filter: blur(3px); }
+.auth-dialog h2,.auth-drawer h2 { font-size: 22px; margin: 9px 0; color: #294b34; line-height: 1.4; }
+.auth-eyebrow { display: block; color: #799178; font-size: 10px; letter-spacing: 1.8px; padding-right: 30px; }
+.auth-description { font-size: 12px; color: #7f8e80; margin: 8px 0 20px; }
+.auth-close { position: absolute; top: 16px; right: 16px; background: #edf2e9; border: 0; color: #59745e; border-radius: 50%; display: grid; place-items: center; width: 32px; height: 32px; cursor: pointer; }
+.auth-dialog label { display: block; margin: 16px 0 6px; font-size: 13px; }
+.auth-dialog input { box-sizing: border-box; width: 100%; padding: 11px 12px; border: 1px solid #d5e2d3; border-radius: 9px; background: white; color: #2b4233; font: inherit; font-size: 16px; }
+.auth-password { position: relative; }
+.auth-password input { padding-right: 45px; }
+.auth-password button { position: absolute; right: 10px; top: 11px; color: #759078; background: none; border: none; cursor: pointer; }
+.auth-primary,.auth-secondary,.auth-link { font: inherit; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 9px; }
+.auth-primary { background: #316849; color: white; padding: 11px 15px; border: 1px solid #316849; width: 100%; }
+.auth-secondary { background: white; color: #54745a; padding: 9px 13px; border: 1px solid #d5e3d3; }
+.auth-link { background: none; border: 0; color: #638769; padding: 12px; }
+.auth-dialog .auth-link { width: 100%; }
+.auth-error { font-size: 12px; color: #ae5039; margin: 10px 0; overflow-wrap: anywhere; }
+.auth-notice { color: #3c8152; font-size: 12px; margin: 8px 0; }
+.auth-dialog button:disabled,.auth-drawer button:disabled { opacity: .5; cursor: not-allowed; }
+.auth-dialog :focus-visible,.auth-drawer :focus-visible,.auth-entry:focus-visible,.auth-avatar:focus-visible { outline: 2px solid #4c8b60; outline-offset: 3px; }
+.auth-drawer { position: fixed; inset: 0 0 0 auto; margin: 0; width: min(420px, 100%); max-width: 100%; height: 100dvh; max-height: 100dvh; padding: 0; border-radius: 20px 0 0 20px; }
+.auth-drawer[open] { display: flex; flex-direction: column; }
+.auth-drawer header { position: relative; padding: 26px 26px 16px; border-bottom: 1px solid #e2eadd; }
+.auth-drawer h2 { font-size: 19px; padding-right: 20px; overflow-wrap: anywhere; }
+.auth-profile-body { padding: 10px 26px 25px; flex: 1; min-height: 0; overflow-y: auto; }
+.auth-profile-body section { margin: 17px 0 22px; }
+.auth-profile-body h3 { font-size: 13px; font-weight: 600; margin: 0 0 9px; }
+.auth-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.auth-tags span { background: #eaf3e7; border-radius: 20px; color: #5c7958; padding: 4px 11px; font-size: 12px; }
+.auth-tags p { color: #95a28e; font-size: 12px; }
+.auth-clear-confirm { background: #f6f2e9; padding: 15px; border-radius: 12px; }
+.auth-clear-confirm small { display: block; color: #909581; margin: 8px 0; }
+.auth-drawer footer { padding: 18px 26px max(20px, env(safe-area-inset-bottom)); border-top: 1px solid #e1eadb; }
+.auth-gate { min-height: 100dvh; background: #f8faf9; color: #526c59; display: grid; place-content: center; gap: 18px; text-align: center; padding: 24px; }
+@media(max-width:600px) { .auth-drawer { border-radius: 0; } .auth-dialog { padding: 25px 20px; } .auth-header-actions { gap: 7px; } }

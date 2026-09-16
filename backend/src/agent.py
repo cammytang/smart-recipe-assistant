@@ -12,7 +12,7 @@ from typing import Any, Callable, Iterator
 
 from hello_agents import HelloAgentsLLM, ToolAwareSimpleAgent
 from hello_agents.tools import ToolRegistry
-from hello_agents.tools.builtin.note_tool import NoteTool
+from services.scoped_notes import ScopedNoteTool
 
 from config import Configuration
 from prompts import (
@@ -38,13 +38,13 @@ DEFAULT_RECIPE_RAG_LIMIT = 5
 class DeepResearchAgent:
     """Coordinator orchestrating TODO-based research workflow using HelloAgents."""
 
-    def __init__(self, config: Configuration | None = None) -> None:
+    def __init__(self, config: Configuration | None = None, *, memory_service: MemoryService | None = None) -> None:
         """Initialise the coordinator with configuration and shared tools."""
         self.config = config or Configuration.from_env()
         self.llm = self._init_llm()
 
         self.note_tool = (
-            NoteTool(workspace=self.config.notes_workspace)
+            ScopedNoteTool(workspace=self.config.notes_workspace)
             if self.config.enable_notes
             else None
         )
@@ -77,7 +77,7 @@ class DeepResearchAgent:
         self.planner = PlanningService(self.todo_agent, self.config)
         self.summarizer = SummarizationService(self._summarizer_factory, self.config)
         self.reporting = ReportingService(self.report_agent, self.config)
-        self.memory = MemoryService()
+        self.memory = memory_service if memory_service is not None else MemoryService()
         self._last_search_notices: list[str] = []
 
     # ------------------------------------------------------------------
@@ -163,7 +163,7 @@ class DeepResearchAgent:
     def plan_menu(self, topic: str, user_memory: str | None = None) -> list[dict[str, Any]]:
         """Plan menu dishes without executing search and summarization."""
         state = MenuState(user_requirement=topic)
-        memory_context = user_memory or self.memory.format_memory_for_prompt()
+        memory_context = user_memory if user_memory is not None else self.memory.format_memory_for_prompt()
         state.dish_list = self.planner.plan_todo_list(state, memory_context)
         self._drain_tool_events(state, step=0)
         if not state.dish_list:

@@ -1,4 +1,4 @@
-"""Lightweight long-term memory for the recipe assistant demo."""
+"""Preference extraction and formatting with explicit storage selection."""
 
 from __future__ import annotations
 
@@ -15,7 +15,7 @@ DEFAULT_MEMORY: dict[str, Any] = {
     "allergies": [],
     "disliked_ingredients": [],
     "favorite_ingredients": [],
-    "common_serving_size": "",
+    "common_serving_size": None,
     "recent_dishes": [],
     "rejected_patterns": [],
     "updated_at": "",
@@ -56,14 +56,22 @@ INGREDIENT_KEYWORDS = [
 
 
 class MemoryService:
-    """Persist and format simple user preference memory as local JSON."""
+    """User-bound repository in HTTP; explicit files for offline fixtures only."""
 
-    def __init__(self, memory_path: Path | None = None) -> None:
-        src_dir = Path(__file__).resolve().parents[1]
-        self.memory_path = memory_path or src_dir / "data" / "user_memory.json"
+    def __init__(self, memory_path: Path | None = None, *, repository=None, snapshot=None) -> None:
+        if sum(value is not None for value in (memory_path, repository, snapshot)) > 1:
+            raise ValueError("Choose exactly one memory source")
+        self.memory_path = memory_path
+        self.repository = repository
+        self._local = self._normalize_memory(snapshot or self._default_memory())
 
     def load_memory(self) -> dict[str, Any]:
         """Load memory from disk, creating a default file when missing."""
+
+        if self.repository is not None:
+            return self._normalize_memory(self.repository.load())
+        if self.memory_path is None:
+            return deepcopy(self._local)
 
         if not self.memory_path.exists():
             memory = self._default_memory()
@@ -85,7 +93,12 @@ class MemoryService:
         """Persist normalized memory to disk."""
 
         normalized = self._normalize_memory(memory)
+        if self.repository is not None:
+            return self._normalize_memory(self.repository.update(lambda previous: normalized))
         normalized["updated_at"] = datetime.now().isoformat(timespec="seconds")
+        if self.memory_path is None:
+            self._local = deepcopy(normalized)
+            return normalized
         self.memory_path.parent.mkdir(parents=True, exist_ok=True)
         with self.memory_path.open("w", encoding="utf-8") as f:
             json.dump(normalized, f, ensure_ascii=False, indent=2)
@@ -99,7 +112,7 @@ class MemoryService:
     def format_memory_for_prompt(self, memory: dict[str, Any] | None = None) -> str:
         """Format memory into a concise planner prompt section."""
 
-        memory = self._normalize_memory(memory or self.load_memory())
+        memory = self._normalize_memory(memory if memory is not None else self.load_memory())
         lines: list[str] = []
 
         if memory["diet_preferences"]:
@@ -111,7 +124,7 @@ class MemoryService:
         if memory["favorite_ingredients"]:
             lines.append("常用/偏好食材：" + "、".join(memory["favorite_ingredients"]))
         if memory["common_serving_size"]:
-            lines.append("常见用餐人数：" + memory["common_serving_size"])
+            lines.append("常见用餐人数：" + str(memory["common_serving_size"]))
         if memory["recent_dishes"]:
             lines.append("最近确认过的菜品：" + "、".join(memory["recent_dishes"][:8]))
         if memory["rejected_patterns"]:
@@ -131,7 +144,7 @@ class MemoryService:
     def summarize_for_ui(self, memory: dict[str, Any] | None = None) -> list[str]:
         """Return short reader-facing memory chips for the frontend."""
 
-        memory = self._normalize_memory(memory or self.load_memory())
+        memory = self._normalize_memory(memory if memory is not None else self.load_memory())
         items: list[str] = []
         items.extend([f"偏好：{value}" for value in memory["diet_preferences"][:5]])
         items.extend([f"忌口：{value}" for value in memory["allergies"][:4]])
@@ -149,22 +162,20 @@ class MemoryService:
     ) -> dict[str, Any]:
         """Update long-term memory only after the user confirms a plan."""
 
-        memory = self.load_memory()
         extracted = self._extract_memory_candidates(user_requirement, dish_list)
 
-        for key in [
-            "diet_preferences",
-            "allergies",
-            "disliked_ingredients",
-            "favorite_ingredients",
-            "recent_dishes",
-        ]:
-            memory[key] = self._merge_unique(memory.get(key, []), extracted.get(key, []), limit=20)
+        def merge(current):
+            memory = self._normalize_memory(current)
+            for key in ["diet_preferences", "allergies", "disliked_ingredients",
+                        "favorite_ingredients", "recent_dishes"]:
+                memory[key] = self._merge_unique(memory.get(key, []), extracted.get(key, []), limit=20)
+            if extracted.get("common_serving_size"):
+                memory["common_serving_size"] = extracted["common_serving_size"]
+            return memory
 
-        if extracted.get("common_serving_size"):
-            memory["common_serving_size"] = extracted["common_serving_size"]
-
-        return self.save_memory(memory)
+        if self.repository is not None:
+            return self._normalize_memory(self.repository.update(merge))
+        return self.save_memory(merge(self.load_memory()))
 
     def _extract_memory_candidates(
         self,
@@ -222,7 +233,8 @@ class MemoryService:
         ]:
             normalized[key] = self._merge_unique([], normalized.get(key, []), limit=20)
 
-        normalized["common_serving_size"] = str(normalized.get("common_serving_size") or "")
+        serving = normalized.get("common_serving_size")
+        normalized["common_serving_size"] = serving if isinstance(serving, int) and not isinstance(serving, bool) else (str(serving) if serving else None)
         normalized["updated_at"] = str(normalized.get("updated_at") or "")
         return normalized
 

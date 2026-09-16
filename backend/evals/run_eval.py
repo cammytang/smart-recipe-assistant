@@ -186,8 +186,7 @@ def run_case(case: dict[str, Any], args: argparse.Namespace) -> dict[str, Any]:
                 raise ValueError("--agent graph currently supports --mode full only.")
             from agent import DeepResearchAgent
 
-            agent = DeepResearchAgent(config=config)
-            agent.memory = memory_service
+            agent = DeepResearchAgent(config=config, memory_service=memory_service)
             memory_context = memory_service.format_memory_for_prompt(memory)
             dish_list = agent.plan_menu(str(case.get("input") or ""), memory_context)
             return {
@@ -205,8 +204,7 @@ def run_case(case: dict[str, Any], args: argparse.Namespace) -> dict[str, Any]:
         else:
             from agent import DeepResearchAgent
 
-            agent = DeepResearchAgent(config=config)
-            agent.memory = memory_service
+            agent = DeepResearchAgent(config=config, memory_service=memory_service)
             result = agent.run(str(case.get("input") or ""))
         return to_plain_data(result)
 
