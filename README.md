@@ -18,6 +18,23 @@
 - [x] 购物清单生成：从确认菜谱中提取每份食材并合并去重。
 - [x] 固定用例评测：提供规划模式和完整流程模式，支持传统 Agent 与 LangGraph 实现。
 
+## 界面预览
+
+### 默认页
+
+![默认页](docs/images/home.png)
+
+### 菜单
+
+![菜单](docs/images/menu.png)
+
+### 菜谱
+
+![菜谱](docs/images/recipe.png)
+
+### 用户profile
+![用户](docs/images/profile.png)
+
 ## 🛠️ 技术栈
 
 - 后端：Python、FastAPI、Uvicorn、Pydantic

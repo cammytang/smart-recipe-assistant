@@ -2,7 +2,7 @@
 .menu-chat * { box-sizing: border-box; }
 .menu-chat button { cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 7px; font: inherit; transition: background .15s; }
 .menu-chat button:disabled { opacity: .45; cursor: not-allowed; }
-.menu-chat button:focus-visible, .menu-chat textarea:focus-visible { outline: 2px solid #268568; outline-offset: 3px; }
+.menu-chat button:focus-visible { outline: 2px solid #268568; outline-offset: 3px; }
 .chat-header { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px max(24px, calc((100% - 960px) / 2)); background: #fff; border-bottom: 1px solid #e7ede9; }
 .chat-brand { display: flex; align-items: center; gap: 12px; }
 .chat-logo { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 15px; background: #e8f3ec; color: #267052; }
@@ -45,7 +45,8 @@
 .chat-retry { margin-left: 44px; }
 .chat-footer { padding: 12px 24px max(12px, env(safe-area-inset-bottom)); background: #f8faf9; }
 .chat-composer { max-width: 712px; margin: 0 auto; padding: 13px 15px 10px; background: white; border: 1px solid #dbe5dd; border-radius: 18px; box-shadow: 0 5px 24px #1f432708; }
-.chat-composer:focus-within { border-color: #7da38c; }
+.chat-composer:focus-within { border-color: #268568; outline: 1px solid #268568;}
+.chat-composer textarea:focus { outline: none; }
 .chat-composer textarea { width: 100%; display: block; resize: none; border: none; background: transparent; color: #25352e; font: inherit; font-size: 15px; line-height: 1.6; }
 .chat-composer textarea::placeholder { color: #89958d; }
 .chat-composer-tools { display: flex; justify-content: flex-end; align-items: center; margin-top: 8px; }

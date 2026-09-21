@@ -160,7 +160,7 @@ report_writer_instructions = """
 </REQUIREMENTS>
 
 <NOTES>
-- 生成完整菜单前，逐个读取所有菜品笔记：`[TOOL_CALL:note:{"action":"read","note_id":"<note_id>"}]`
+- 生成完整菜单前，使用调用上下文提供的真实笔记 ID 和读取指令逐个读取菜品笔记。没有可用笔记时跳过读取，使用菜单概览生成报告；禁止编造 ID 或将占位符作为 ID。
 - 整套菜单完成后，创建 conclusion 类型总笔记存档整套菜谱，示例：`[TOOL_CALL:note:{"action":"create","title":"完整菜谱套餐：{研究主题}","note_type":"conclusion","tags":["recipe_assistant","menu_report"],"content":"写入完整菜谱全文内容"}]`。
 </NOTES>
 """

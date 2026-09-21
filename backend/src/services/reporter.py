@@ -38,8 +38,11 @@ class ReportingService:
         note_references = []
         for task in state.dish_list:
             if task.note_id:
+                read_payload = json.dumps(
+                    {"action": "read", "note_id": task.note_id}, ensure_ascii=False,
+                )
                 note_references.append(
-                    f"- 菜单 {task.id}《{task.name}》：note_id={task.note_id}"
+                    f"- 菜单 {task.id}《{task.name}》：[TOOL_CALL:note:{read_payload}]"
                 )
 
         notes_section = "\n".join(note_references) if note_references else "- 暂无可用任务笔记"
@@ -49,7 +52,6 @@ class ReportingService:
             else "- 暂无结构化购物清单"
         )
 
-        read_template = json.dumps({"action": "read", "note_id": "<note_id>"}, ensure_ascii=False)
         create_conclusion_template = json.dumps(
             {
                 "action": "create",
@@ -66,7 +68,7 @@ class ReportingService:
             f"菜单概览：\n{''.join(tasks_block)}\n"
             f"结构化购物清单：\n{shopping_section}\n"
             f"可用笔记：\n{notes_section}\n"
-            f"请针对每条任务笔记使用格式：[TOOL_CALL:note:{read_template}] 读取内容，整合所有信息后撰写菜谱。\n"
+            "仅使用上面列出的真实笔记 ID 读取内容；没有可用笔记时跳过读取，直接根据菜单概览撰写菜谱。不要编造 ID 或使用占位符。\n"
             f"如需输出汇总菜谱，可追加调用：[TOOL_CALL:note:{create_conclusion_template}] 保存最终菜谱。"
         )
 
