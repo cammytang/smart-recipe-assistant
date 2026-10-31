@@ -1,0 +1,75 @@
+name: Publish container images
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-images-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Publish ${{ matrix.component }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    permissions:
+      contents: read
+      packages: write
+    strategy:
+      fail-fast: false
+      matrix:
+        component: [backend, frontend]
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      - name: Set image name
+        id: image
+        env:
+          REPOSITORY_OWNER: ${{ github.repository_owner }}
+          COMPONENT: ${{ matrix.component }}
+        run: |
+          owner="${REPOSITORY_OWNER,,}"
+          echo "name=ghcr.io/${owner}/smart-recipe-${COMPONENT}" >> "$GITHUB_OUTPUT"
+
+      - name: Set up Docker Buildx
+        run: docker buildx create --driver docker-container --use --bootstrap
+
+      - name: Log in to GHCR
+        uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push image
+        id: build
+        uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
+        with:
+          context: ./${{ matrix.component }}
+          file: ./${{ matrix.component }}/Dockerfile
+          platforms: linux/amd64
+          push: true
+          tags: ${{ steps.image.outputs.name }}:sha-${{ github.sha }}
+          labels: |
+            org.opencontainers.image.source=https://github.com/${{ github.repository }}
+            org.opencontainers.image.revision=${{ github.sha }}
+          cache-from: type=gha,scope=${{ matrix.component }}
+          cache-to: type=gha,mode=max,scope=${{ matrix.component }}
+
+      - name: Record published image
+        env:
+          IMAGE_NAME: ${{ steps.image.outputs.name }}
+          IMAGE_DIGEST: ${{ steps.build.outputs.digest }}
+          COMMIT_SHA: ${{ github.sha }}
+        run: |
+          {
+            echo "### Published image"
+            echo "Tag: \`${IMAGE_NAME}:sha-${COMMIT_SHA}\`"
+            echo "Digest: \`${IMAGE_NAME}@${IMAGE_DIGEST}\`"
+          } >> "$GITHUB_STEP_SUMMARY"
