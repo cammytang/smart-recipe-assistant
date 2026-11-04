@@ -59,18 +59,19 @@ login/menu-generation flow. Build and deployment do not call model APIs.
 
 ## Publish images with GitHub Actions
 
-`.github/workflows/publish-images.yml` is manually triggered and publishes both
-images for `linux/amd64`. Commit and push the workflow and image definitions to
-the repository's default branch. In GitHub select **Actions → Publish container
-images → Run workflow** and choose the intended branch. No personal access token
+`.github/workflows/publish-images.yml` publishes both images for `linux/amd64`
+on pushes to `main` or manual dispatch. On `main`, successful builds deploy through
+the reusable deployment workflow; manual runs may disable deployment. Complete
+the server/SSH setup in [CD.md](CD.md) before enabling production publishing.
+No personal access token
 or model credentials are needed: the jobs use `GITHUB_TOKEN` with `packages: write`.
 Repository or organization policies must allow these actions and package writes.
 
 Images are named `ghcr.io/<lowercase-owner>/smart-recipe-backend` and
 `ghcr.io/<lowercase-owner>/smart-recipe-frontend`. Each has a `sha-<full-commit-sha>`
 tag; the run summary also records its digest. There is no mutable `latest` tag.
-Both jobs must succeed before treating the pair as a usable release. This workflow
-builds/publishes only; it does not run the project test suite or deploy to a server.
+Both build jobs must succeed before deployment. The build jobs do not run the
+project test suite; deployment runs service and HTTPS health checks.
 
 Find published images under the GitHub profile's **Packages** section. Newly
 published packages may be private even when the source repository is public.
@@ -79,5 +80,6 @@ otherwise configure a server-side credential with `read:packages` access. Never
 paste tokens into chat or commit them. Pull the exact image references from the
 successful run summary to verify server access and full layer downloads.
 
-Compose, HTTPS and automatic deployment will be added separately; publishing
-images alone does not deploy the application.
+The application Compose file and release script live in `deploy/`. The existing
+database and HTTPS gateway remain independently managed. See [CD.md](CD.md) for
+first-time adoption, specified-version deployment and rollback limitations.

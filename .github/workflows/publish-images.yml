@@ -1,7 +1,14 @@
 name: Publish container images
 
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
+    inputs:
+      deploy:
+        description: Deploy after both images have been published
+        type: boolean
+        default: true
 
 permissions:
   contents: read
@@ -73,3 +80,12 @@ jobs:
             echo "Tag: \`${IMAGE_NAME}:sha-${COMMIT_SHA}\`"
             echo "Digest: \`${IMAGE_NAME}@${IMAGE_DIGEST}\`"
           } >> "$GITHUB_STEP_SUMMARY"
+
+  deploy:
+    name: Deploy published images
+    needs: publish
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || inputs.deploy)
+    uses: ./.github/workflows/deploy.yml
+    with:
+      version: sha-${{ github.sha }}
+    secrets: inherit

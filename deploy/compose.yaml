@@ -1,0 +1,40 @@
+services:
+  backend:
+    image: ${BACKEND_IMAGE:?BACKEND_IMAGE is required}
+    container_name: smart-recipe-backend
+    restart: unless-stopped
+    env_file:
+      - backend.env
+    volumes:
+      - ./runtime/qdrant_data:/app/qdrant_data
+      - ./runtime/notes:/app/notes
+      - ./runtime/logs:/app/logs
+    networks:
+      smart-recipe:
+        aliases: [backend]
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+  frontend:
+    image: ${FRONTEND_IMAGE:?FRONTEND_IMAGE is required}
+    container_name: smart-recipe-frontend
+    restart: unless-stopped
+    environment:
+      BACKEND_HOST: backend
+      BACKEND_PORT: "8000"
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - smart-recipe
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+networks:
+  smart-recipe:
+    external: true
+    name: smart-recipe

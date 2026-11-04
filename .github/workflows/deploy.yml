@@ -1,0 +1,97 @@
+name: Deploy application
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Published version: sha- followed by the full 40-character commit SHA'
+        required: true
+        type: string
+  workflow_call:
+    inputs:
+      version:
+        required: true
+        type: string
+    secrets:
+      DEPLOY_HOST:
+        required: true
+      DEPLOY_USER:
+        required: true
+      DEPLOY_SSH_KEY:
+        required: true
+      DEPLOY_KNOWN_HOSTS:
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: production-deployment
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    environment: production
+    steps:
+      - name: Check out deployment scripts
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      - name: Configure SSH and validate inputs
+        env:
+          SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_PATH: ${{ vars.DEPLOY_PATH || '/home/ubuntu/apps/smart-recipe' }}
+          DEPLOY_PORT: ${{ vars.DEPLOY_PORT || '22' }}
+          VERSION: ${{ inputs.version }}
+          OWNER: ${{ github.repository_owner }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$VERSION" =~ ^sha-[a-f0-9]{40}$ ]]
+          [[ "$DEPLOY_HOST" =~ ^[a-zA-Z0-9][a-zA-Z0-9.-]*$ ]]
+          [[ "$DEPLOY_USER" =~ ^[a-z_][a-z0-9_-]*$ ]]
+          [[ "$DEPLOY_PATH" =~ ^/[a-zA-Z0-9_./-]+$ ]]
+          [[ "$DEPLOY_PORT" =~ ^[0-9]{1,5}$ ]]
+          (( 10#$DEPLOY_PORT > 0 && 10#$DEPLOY_PORT <= 65535 ))
+          [[ -n "$SSH_KEY" && -n "$KNOWN_HOSTS" ]]
+          umask 077
+          mkdir -p ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/deploy_key
+          printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+          {
+            printf 'TARGET=%s@%s\n' "$DEPLOY_USER" "$DEPLOY_HOST"
+            printf 'DEPLOY_PORT=%s\n' "$DEPLOY_PORT"
+            printf 'DEPLOY_PATH=%s\n' "$DEPLOY_PATH"
+            printf 'IMAGE_OWNER=%s\n' "${OWNER,,}"
+            printf 'VERSION=%s\n' "$VERSION"
+            printf 'REMOTE_STAGE=%s/releases/%s-%s-%s\n' "$DEPLOY_PATH" "$VERSION" "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT"
+          } >> "$GITHUB_ENV"
+
+      - name: Upload deployment bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          ssh -i ~/.ssh/deploy_key -p "$DEPLOY_PORT" -o BatchMode=yes -o StrictHostKeyChecking=yes \
+            -o ConnectTimeout=15 "$TARGET" "umask 077; mkdir -p '$REMOTE_STAGE'"
+          scp -i ~/.ssh/deploy_key -P "$DEPLOY_PORT" -o BatchMode=yes -o StrictHostKeyChecking=yes \
+            deploy/compose.yaml deploy/deploy.sh "$TARGET:$REMOTE_STAGE/"
+
+      - name: Deploy and check health
+        shell: bash
+        run: |
+          set -euo pipefail
+          ssh -i ~/.ssh/deploy_key -p "$DEPLOY_PORT" -o BatchMode=yes -o StrictHostKeyChecking=yes \
+            -o ServerAliveInterval=15 -o ServerAliveCountMax=4 "$TARGET" \
+            "bash '$REMOTE_STAGE/deploy.sh' '$DEPLOY_PATH' '$IMAGE_OWNER' '$VERSION'"
+          printf 'Deployed version: `%s`\n\nSite: https://chef-ai.club\n' "$VERSION" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Remove runner SSH key
+        if: always()
+        run: rm -f ~/.ssh/deploy_key
