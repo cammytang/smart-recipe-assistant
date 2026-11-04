@@ -21,6 +21,9 @@ s['calls'].append([program] + args)
 status = 0
 if program == 'sudo':
     assert args[:2] == ['-n', 'docker']
+    # Ubuntu sudo normally drops arbitrary exported image variables.
+    os.environ.pop('BACKEND_IMAGE', None)
+    os.environ.pop('FRONTEND_IMAGE', None)
     a = args[2:]
     if a[:2] == ['container', 'inspect']:
         status = 0 if a[2] in s['containers'] else 1
@@ -34,11 +37,18 @@ if program == 'sudo':
             print(c['project'])
     elif a[0] == 'rm':
         s['containers'].pop(a[1], None)
-    elif a[0] == 'compose':
+    elif a[0] == 'compose' and a[1:] != ['version']:
+        image_env = Path(a[a.index('--env-file') + 1])
+        values = dict(line.split('=', 1) for line in image_env.read_text().splitlines()
+                      if line and not line.startswith('#'))
+        if not values.get('BACKEND_IMAGE') or not values.get('FRONTEND_IMAGE'):
+            print('required variable BACKEND_IMAGE is missing a value', file=sys.stderr)
+            p.write_text(json.dumps(s))
+            sys.exit(1)
         if 'pull' in a and os.environ.get('FAIL_PHASE') == 'pull':
             status = 1
         if 'up' in a:
-            image = os.environ['BACKEND_IMAGE']
+            image = values['BACKEND_IMAGE']
             rollback = image == 'old-backend:release'
             s['ups'].append({'rollback': rollback, 'backend': image})
             if not rollback and os.environ.get('FAIL_PHASE') == 'up':
@@ -46,7 +56,7 @@ if program == 'sudo':
             else:
                 s['containers'] = {
                     'smart-recipe-backend': {'image': image, 'project': 'smart-recipe-app'},
-                    'smart-recipe-frontend': {'image': os.environ['FRONTEND_IMAGE'], 'project': 'smart-recipe-app'},
+                    'smart-recipe-frontend': {'image': values['FRONTEND_IMAGE'], 'project': 'smart-recipe-app'},
                 }
 elif program == 'curl' and os.environ.get('FAIL_PHASE') == 'https':
     status = 1

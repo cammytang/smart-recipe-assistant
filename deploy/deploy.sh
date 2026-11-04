@@ -27,10 +27,17 @@ docker_cmd=(sudo -n docker)
 "${docker_cmd[@]}" network inspect smart-recipe >/dev/null
 "${docker_cmd[@]}" compose version >/dev/null
 
-export BACKEND_IMAGE="ghcr.io/${owner}/smart-recipe-backend:${version}"
-export FRONTEND_IMAGE="ghcr.io/${owner}/smart-recipe-frontend:${version}"
+# sudo drops shell exports. Pass non-secret image references through an explicit
+# Compose env file instead, including during rollback. Do not inherit stale refs.
+unset BACKEND_IMAGE FRONTEND_IMAGE
+image_env="$bundle_dir/images.env"
+write_images() {
+    printf 'BACKEND_IMAGE=%s\nFRONTEND_IMAGE=%s\n' "$1" "$2" > "$image_env"
+}
+write_images "ghcr.io/${owner}/smart-recipe-backend:${version}" \
+    "ghcr.io/${owner}/smart-recipe-frontend:${version}"
 compose=("${docker_cmd[@]}" compose --project-name smart-recipe-app
-    --project-directory "$deploy_dir" --env-file /dev/null -f "$bundle_dir/compose.yaml")
+    --project-directory "$deploy_dir" --env-file "$image_env" -f "$bundle_dir/compose.yaml")
 "${compose[@]}" config --quiet
 
 # Pull BOTH images before interrupting any running application container.
@@ -43,7 +50,7 @@ rollback() {
     trap - ERR
     echo "Deployment failed. Attempting to restore previous application images." >&2
     if [[ -n "$previous_backend" && -n "$previous_frontend" ]]; then
-        export BACKEND_IMAGE="$previous_backend" FRONTEND_IMAGE="$previous_frontend"
+        write_images "$previous_backend" "$previous_frontend"
         if "${compose[@]}" up -d --force-recreate --pull never --wait --wait-timeout 180 backend frontend; then
             echo "Previous images restored. Deployment remains FAILED." >&2
         else

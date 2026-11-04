@@ -117,6 +117,8 @@ ssh-keygen -lf /tmp/chef-ai-known-hosts
 发布包保存到服务器 `releases/<版本>-<运行编号>-<尝试编号>/`。后端环境文件及运行数据
 不通过 Actions 上传或覆盖。运行摘要记录成功版本；服务器 `.deployed-version` 和
 `.previous-version` 记录最近成功发布信息。
+每个发布包中的 `images.env` 只保存前后端镜像引用，Compose 通过显式 `--env-file`
+读取它，避免 `sudo` 清理环境变量导致镜像版本丢失；回退时也使用该机制。
 
 健康检查覆盖容器、前端 `/api/healthz` 转发和公网 HTTPS。它不验证外部模型、搜索接口
 及真实生成质量，发布后仍需业务验收。
@@ -143,5 +145,5 @@ bash -n deploy/deploy.sh
 python3 -m unittest discover -s deploy -p 'test_*.py' -v
 ```
 
-测试使用模拟 Docker/网络命令，覆盖先拉取后停机、拉取失败保留服务、健康失败恢复旧镜像
+测试使用模拟 Docker/网络命令（模拟 sudo 清除镜像环境变量），覆盖先拉取后停机、拉取失败保留服务、健康失败恢复旧镜像
 以及拒绝非法版本；不会连接服务器或读取生产密钥。
