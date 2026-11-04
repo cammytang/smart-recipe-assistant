@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "node --test src/auth/session.test.js src/utils/recipeView.test.js",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "start": "npm run dev"
   },
   "dependencies": {
     "axios": "^1.18.1",
